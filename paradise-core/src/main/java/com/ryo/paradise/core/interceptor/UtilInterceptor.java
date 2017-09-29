@@ -8,31 +8,34 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * http://blog.csdn.net/mousebaby808/article/details/37696371
+ * Util 注解解释器
  * Created by bbhou on 2017/9/29.
  */
 @Util
 public class UtilInterceptor {
 
-    public static final String EMPTY = "";
-
+    /**
+     * 对类进行增强
+     * 1. 添加私有构造器
+     */
     public static void enhance() {
         try {
             ClassPool classPool = ClassPool.getDefault();
             CtClass ctClass = classPool.getCtClass(UtilInterceptor.class.getName());
             Util util = (Util) ctClass.getAnnotation(Util.class);
             if (util != null) {
-                System.out.println("==========================开始增强。。。");
+                System.out.println("========================== 开始增强 ==========================");
                 CtConstructor constructor = ctClass.getDeclaredConstructor(null);
                 constructor.setModifiers(Modifier.PRIVATE);
                 byte[] bytes = ctClass.toBytecode();
-                final String targetPath = "D:\\CODE\\paradise\\paradise-core\\target\\classes\\com\\ryo\\paradise\\core\\interceptor\\UtilInterceptor.class";
 
+                //1. 为方便此处路径写死，实际编写可动态获取
+                final String targetPath = "D:\\CODE\\paradise\\paradise-core\\target\\classes\\com\\ryo\\paradise\\core\\interceptor\\UtilInterceptor.class";
                 FileOutputStream fileOutputStream = new FileOutputStream(new File(targetPath));
                 fileOutputStream.write(bytes);
                 fileOutputStream.flush();
                 fileOutputStream.close();
-                System.out.println("==========================结束增强。。。");
+                System.out.println("========================== 结束增强 ==========================");
             }
         } catch (NotFoundException e) {
             e.printStackTrace();
@@ -43,8 +46,6 @@ public class UtilInterceptor {
         } catch (CannotCompileException e) {
             e.printStackTrace();
         }
-
     }
-
 
 }
