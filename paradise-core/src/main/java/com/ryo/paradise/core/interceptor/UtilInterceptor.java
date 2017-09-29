@@ -16,35 +16,35 @@ public class UtilInterceptor {
 
     public static final String EMPTY = "";
 
-    public static void main(String[] args) throws NotFoundException, ClassNotFoundException, CannotCompileException, IOException {
-        ClassPool classPool = ClassPool.getDefault();
-        CtClass ctClass = classPool.getCtClass(UtilInterceptor.class.getName());
-        Util util = (Util) ctClass.getAnnotation(Util.class);
-        if(util != null) {
-            //
-            System.out.println("开始增强。。。");
-            CtConstructor constructor = ctClass.getDeclaredConstructor(null);
-            constructor.setModifiers(Modifier.PRIVATE);
-//            constructor.setBody("{}");
-//            ctClass
+    public static void enhance() {
+        try {
+            ClassPool classPool = ClassPool.getDefault();
+            CtClass ctClass = classPool.getCtClass(UtilInterceptor.class.getName());
+            Util util = (Util) ctClass.getAnnotation(Util.class);
+            if (util != null) {
+                System.out.println("==========================开始增强。。。");
+                CtConstructor constructor = ctClass.getDeclaredConstructor(null);
+                constructor.setModifiers(Modifier.PRIVATE);
+                byte[] bytes = ctClass.toBytecode();
+                final String targetPath = "D:\\CODE\\paradise\\paradise-core\\target\\classes\\com\\ryo\\paradise\\core\\interceptor\\UtilInterceptor.class";
 
-            System.out.println("==========================结束增强。。。");
-
-            byte[] bytes = ctClass.toBytecode();
-            final String targetPath = "D:\\CODE\\paradise\\paradise-core\\target\\classes\\com\\ryo\\paradise\\core\\interceptor\\UtilInterceptor.class";
-
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(targetPath));
-            fileOutputStream.write(bytes);
-            fileOutputStream.flush();
-            fileOutputStream.close();
-
+                FileOutputStream fileOutputStream = new FileOutputStream(new File(targetPath));
+                fileOutputStream.write(bytes);
+                fileOutputStream.flush();
+                fileOutputStream.close();
+                System.out.println("==========================结束增强。。。");
+            }
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (CannotCompileException e) {
+            e.printStackTrace();
         }
 
-//        UtilInterceptor utilInterceptor = new UtilInterceptor();
-//        utilInterceptor.
-//        System.out.println(UtilInterceptor.class.getClassLoader().getResource(""));
     }
-
 
 
 }
