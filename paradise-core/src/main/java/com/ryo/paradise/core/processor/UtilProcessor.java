@@ -51,16 +51,16 @@ public class UtilProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
+        System.out.println("============================================== UtilProcessor START ==============================================");
         // 处理有 @Util 注解的元素
         for (Element element : roundEnv.getElementsAnnotatedWith(Util.class)) {
-            System.out.println("============================================== UtilProcessor START ==============================================");
             // 只处理作用在类上的注解
             if (element.getKind() == ElementKind.CLASS) {
                 addPrivateConstructor(element);
                 addFinalModifier(element);
             }
         }
-
+        System.out.println("============================================== UtilProcessor END ==============================================");
         return true;
     }
 
@@ -80,7 +80,7 @@ public class UtilProcessor extends AbstractProcessor {
                 jcClassDecl.extending = (JCTree.JCExpression) this.translate((JCTree) jcClassDecl.extending);
                 jcClassDecl.implementing = this.translate(jcClassDecl.implementing);
 
-                ListBuffer<JCTree> statements = new ListBuffer();
+                ListBuffer<JCTree> statements = new ListBuffer<>();
 
                 List<JCTree> oldList = this.translate(jcClassDecl.defs);
                 boolean hasPrivateConstructor = false;  //是否拥有私有构造器
@@ -101,7 +101,7 @@ public class UtilProcessor extends AbstractProcessor {
                     JCTree.JCBlock block = treeMaker.Block(0L, List.<JCTree.JCStatement>nil()); //代码方法内容
                     JCTree.JCMethodDecl constructor = treeMaker.MethodDef(
                             treeMaker.Modifiers(Flags.PRIVATE, List.<JCTree.JCAnnotation>nil()),
-                            names.fromString("<init>"),
+                            names.fromString(JcTrees.CONSTRUCTOR_NAME),
                             null,
                             List.<JCTree.JCTypeParameter>nil(),
                             List.<JCTree.JCVariableDecl>nil(),
