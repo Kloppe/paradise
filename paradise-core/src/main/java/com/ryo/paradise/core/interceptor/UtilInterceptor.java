@@ -9,9 +9,11 @@ import java.io.IOException;
 
 /**
  * Util 注解解释器
+ * 只是用来测试代码增强，暂时作废。
  * Created by bbhou on 2017/9/29.
  */
 @Util
+@Deprecated
 public class UtilInterceptor {
 
     /**
