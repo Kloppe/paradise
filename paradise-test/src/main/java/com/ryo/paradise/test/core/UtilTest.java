@@ -8,11 +8,6 @@ import com.ryo.paradise.core.annotation.Util;
 @Util
 public class UtilTest {
 
-    private UtilTest() {
-    }
-
-    public static void main(String[] args) {
-
-    }
+    private UtilTest(){}
 
 }
