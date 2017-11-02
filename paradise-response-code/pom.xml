@@ -9,7 +9,7 @@
 </parent>
 <modelVersion>4.0.0</modelVersion>
 
-<artifactId>paradise-error-code</artifactId>
+<artifactId>paradise-response-code</artifactId>
 
 
 </project>
