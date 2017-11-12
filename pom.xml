@@ -12,6 +12,7 @@
         <module>paradise-core</module>
         <module>paradise-response-code</module>
         <module>paradise-test</module>
+        <module>paradise-common</module>
     </modules>
 
     <properties>
