@@ -13,4 +13,7 @@ public class UtilTest {
 
     TimeUnitCase timeUnitCase = new TimeUnitCase(TimeUnit.SECONDS, 10);
 
+    public static void main(String[] args) {
+
+    }
 }

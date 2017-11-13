@@ -24,10 +24,9 @@ import java.util.Set;
  * @see Util 工具类注解
  * Created by bbhou on 2017/10/12.
  */
-@SupportedAnnotationTypes("Util")
+@SupportedAnnotationTypes("com.github.houbb.paradise.core.annotation.Util")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class UtilProcessor extends AbstractProcessor {
-
 
     private Trees trees;
 
