@@ -4,15 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ryo</groupId>
+    <groupId>com.github.houbb</groupId>
     <artifactId>paradise</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+
     <modules>
+        <module>paradise-common</module>
         <module>paradise-core</module>
         <module>paradise-response-code</module>
         <module>paradise-test</module>
-        <module>paradise-common</module>
     </modules>
 
     <properties>
@@ -24,6 +25,10 @@
         <plugin.surefire.ignore-failure>true</plugin.surefire.ignore-failure>
         <plugin.tomcat.version>2.2</plugin.tomcat.version>
         <plugin.native2ascii.version>1.0-beta-1</plugin.native2ascii.version>
+
+        <plugin.maven-source-plugin.version>2.2.1</plugin.maven-source-plugin.version>
+        <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
+        <plugin.maven-gpg-plugin.version>1.5</plugin.maven-gpg-plugin.version>
 
         <!--main-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,13 +47,14 @@
         <dependencies>
             <!--============================== SELF ==============================-->
             <dependency>
-                <groupId>com.ryo</groupId>
+                <groupId>com.github.houbb</groupId>
                 <artifactId>paradise-core</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.0.0</version>
             </dependency>
 
+            <!--============================== INTER ==============================-->
+
             <!--============================== OTHER ==============================-->
-            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -131,4 +137,104 @@
         </plugins>
     </build>
 
+
+
+    <!--============================== ADD For sonatype START ==============================-->
+    <name>paradise</name>
+    <description>The useful tools for dev. Like response code, compile annotation.</description>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/houbb/paradise</url>
+        <connection>https://github.com/houbb/paradise.git</connection>
+        <developerConnection>https://houbb.github.io/</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>houbb</name>
+            <email>houbinbin.echo@gmail.com</email>
+            <url>https://houbb.github.io/</url>
+        </developer>
+    </developers>
+    <!--============================== ADD For sonatype END ==============================-->
+
+
+    <!--mvn clean deploy -P release -Darguments="gpg.passphrase=设置gpg设置密钥时候输入的Passphrase"-->
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${plugin.maven-source-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${plugin.maven-javadoc-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${plugin.maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+                </snapshotRepository>
+                <repository>
+                    <id>oss</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+
+    <!--mvn versions:set -DgroupId=com.github.houbb -DartifactId=paradise* -DoldVersion=1.0-SNAPSHOT -DnewVersion=1.0.0-->
+    <!--mvn -N versions:update-child-modules-->
+    <!--mvn versions:commit-->
 </project>
