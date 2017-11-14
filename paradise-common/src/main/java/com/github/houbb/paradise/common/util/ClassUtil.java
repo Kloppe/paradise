@@ -6,7 +6,10 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Created by bbhou on 2017/11/2.
+ * Class 工具类
+ *
+ * @version 1.1.0
+ * @author bbhou
  */
 public class ClassUtil {
 
@@ -31,8 +34,8 @@ public class ClassUtil {
     /**
      * 是否为字符串
      *
-     * @param object
-     * @return
+     * @param object 对象
+     * @return {@code true} 是
      */
     public static Boolean isString(Object object) {
         return object instanceof String;
@@ -41,8 +44,8 @@ public class ClassUtil {
     /**
      * 是否为集合
      *
-     * @param object
-     * @return
+     * @param object    对象
+     * @return  {@code true} 是
      */
     public static Boolean isCollection(Object object) {
         return object instanceof Collection;
@@ -51,8 +54,8 @@ public class ClassUtil {
     /**
      * 是否为Map
      *
-     * @param object
-     * @return
+     * @param object 对象
+     * @return  {@code true} 是
      */
     public static Boolean isMap(Object object) {
         return object instanceof Map;
@@ -72,8 +75,8 @@ public class ClassUtil {
      * 是否为Java8大基本类型
      * - 基本类型是 CLASS 的子集
      *
-     * @param object
-     * @return
+     * @param object 实体类
+     * @return  {@code true} 是
      */
     public static Boolean isPrimitive(Object object) {
         try {
@@ -84,6 +87,11 @@ public class ClassUtil {
         }
     }
 
+    /**
+     * 是否为私有方法
+     * @param clazz 类
+     * @return {@code true} 是
+     */
     public static Boolean isPrimitive(Class clazz) {
         try {
             return ((Class) clazz.getField(TYPE).get(null)).isPrimitive();
@@ -119,12 +127,18 @@ public class ClassUtil {
     /**
      * 判断字段为字符串类型
      *
-     * @param field
-     * @return
+     * @param field 字段
+     * @return {@code true} 是
      */
     public static Boolean isString(Field field) {
         return field.getType() == String.class;
     }
+
+    /**
+     * 判断字段是否不为字符串类型
+     * @param field 字段
+     * @return  {@code true} 是
+     */
     public static Boolean isNotString(Field field) {
         return !isString(field);
     }

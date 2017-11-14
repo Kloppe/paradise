@@ -9,6 +9,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
+ * toString() 构建
+ *
  * @author bbhou
  * @version 1.1.0
  */
@@ -96,9 +98,9 @@ public class ToStringBuilder implements Builder<String> {
 
     /**
      * adjust just field is the type of
-     * @param field
-     * @param classType
-     * @return
+     * @param field 字段
+     * @param classType 类型
+     * @return {@code true} 是
      */
     private static Boolean isType(Field field, Class classType) {
         return field.getType().equals(classType);

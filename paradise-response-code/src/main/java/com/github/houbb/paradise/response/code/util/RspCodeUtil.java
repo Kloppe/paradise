@@ -5,7 +5,6 @@ import com.github.houbb.paradise.response.code.core.impl.CommonRspCode;
 
 /**
  * 响应码-工具类
- * Created by bbhou on 2017/9/30.
  * @author bbhou
  * @version 1.0.0
  */

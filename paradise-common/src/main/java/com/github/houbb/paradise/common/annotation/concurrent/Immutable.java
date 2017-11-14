@@ -4,7 +4,9 @@ import java.lang.annotation.*;
 
 /**
  * 不可变类
- * Created by bbhou on 2017/10/16.
+ *
+ * @author bbhou
+ * @version 1.0.0
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

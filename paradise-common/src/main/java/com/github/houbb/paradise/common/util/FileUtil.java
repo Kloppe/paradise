@@ -5,9 +5,12 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
- * Created by houbinbin on 16/5/28.
+ * 文件工具类
+ * @version 1.1.0
+ * @author bbhou
  */
 public final class FileUtil {
 
@@ -72,8 +75,8 @@ public final class FileUtil {
     /**
      * 获取文件后缀
      *
-     * @param fileName
-     * @return
+     * @param fileName 文件名称
+     * @return 文件后缀
      */
     public static String getSuffix(String fileName) {
         return fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -83,15 +86,22 @@ public final class FileUtil {
     /**
      * 获取指定路径文件的每一行内容
      *
-     * @param filePath
-     * @param initLine
-     * @return
+     * @param filePath 文件路径
+     * @param initLine 初始化行数
+     * @return 内容列表
      */
     public static List<String> getFileContentEachLine(String filePath, int initLine) {
         File file = new File(filePath);
         return getFileContentEachLine(file, initLine);
     }
 
+    /**
+     * 获取指定路径文件的每一行内容
+     * 1.初始化行数默认为0
+     * @param filePath 文件路径
+     * @return 内容列表
+     * @see #getFileContentEachLine(String, int) 获取指定路径文件的每一行内容
+     */
     public static List<String> getFileContentEachLine(String filePath) {
         File file = new File(filePath);
         return getFileContentEachLine(file, 0);
@@ -101,9 +111,9 @@ public final class FileUtil {
     /**
      * 获取指定文件的每一行内容。并对内容进行trim()操作。
      *
-     * @param filePath
-     * @param initLine
-     * @return
+     * @param filePath 文件路径
+     * @param initLine 初始化行数
+     * @return 内容列表
      */
     public static List<String> getFileContentEachLineTrim(String filePath, int initLine) {
         List<String> stringList = getFileContentEachLine(filePath, initLine);
@@ -120,8 +130,8 @@ public final class FileUtil {
      * 获取指定文件的每一行内容
      * 默认初始行数为0
      *
-     * @param file
-     * @return
+     * @param file 文件
+     * @return 内容列表
      */
     public static List<String> getFileContentEachLine(File file) {
         return getFileContentEachLine(file, 0);
@@ -159,7 +169,7 @@ public final class FileUtil {
             while ((dataEachLine = bufferedReader.readLine()) != null) {
                 lineNo++;
                 //跳过空白行
-                if ("" == dataEachLine) {
+                if (Objects.equals("", dataEachLine)) {
                     continue;
                 }
                 contentList.add(dataEachLine);
@@ -171,53 +181,5 @@ public final class FileUtil {
 
         return contentList;
     }
-
-
-    /**
-     * 共同的字段
-     *
-     * @param devPath
-     * @param rawPath
-     * @return
-     */
-    public static List<String> sameFields(final String devPath, final String rawPath) {
-        List<String> resultList = new LinkedList<>();
-        List<String> ignoreFields = Arrays.asList("IID");
-
-        List<String> devList = FileUtil.getFileContentEachLine(devPath);
-        List<String> rawList = FileUtil.getFileContentEachLine(rawPath);
-
-        for (String dev : devList) {
-            if (rawList.contains(dev)) {
-                if (ignoreFields.contains(dev)) {
-                    continue;
-                }
-                resultList.add(dev);
-            }
-        }
-
-        return resultList;
-    }
-
-    /**
-     *
-     * @param devPath
-     * @param rawPath
-     * @return
-     */
-    public static List<String> sameFieldsWithDev(final String devPath, final String rawPath)
-    {
-        final String DEV = "_dev.";
-        List<String> result = new LinkedList<>();
-        List<String> originalList = sameFields(devPath, rawPath);
-
-        for(String original : originalList)
-        {
-            String content = DEV+original;
-            result.add(content);
-        }
-        return result;
-    }
-
 
 }

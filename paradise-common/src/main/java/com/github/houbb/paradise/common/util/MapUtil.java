@@ -3,20 +3,26 @@ package com.github.houbb.paradise.common.util;
 import java.util.Map;
 
 /**
- * Created by bbhou on 2017/8/1.
+ * Map 工具类
+ * @version 1.1.0
+ * @author bbhou
  */
 public class MapUtil {
 
     /**
      * 判断map为空
-     * @param map
-     * @return
+     * @param map map
+     * @return {@code true} 为空
      */
     public static boolean isEmpty(Map<?,?> map) {
         return null == map || 0 == map.size();
     }
 
-
+    /**
+     * 判断map为非空
+     * @param map map
+     * @return {@code true} 非空
+     */
     public static boolean isNotEmpty(Map<?,?> map) {
         return !isEmpty(map);
     }

@@ -6,7 +6,8 @@ import java.lang.annotation.*;
  * 用来标识每个需要加锁的状态变量以及保护该变量的锁。
  * 有助于代码的维护与审查，以及一些自动化的分析工具找到潜在的安全性错误。
  *
- * Created by bbhou on 2017/10/17.
+ * @author bbhou
+ * @version 1.0.0
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
@@ -17,7 +18,7 @@ public @interface GuardeBy {
     /**
      * 指出变量由哪些锁保护。
      *
-     * @return
+     * @return 对应的锁信息
      */
     String value() default "";
 

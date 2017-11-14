@@ -7,7 +7,10 @@ import javax.lang.model.element.Modifier;
 import java.util.Set;
 
 /**
- * Created by bbhou on 2017/10/12.
+ * JcTree 工具类
+ *
+ * @author bbhou
+ * @version 1.0.0
  */
 public final class JcTrees {
 

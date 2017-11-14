@@ -2,7 +2,7 @@ package com.github.houbb.paradise.common.constant;
 
 /**
  * 通用常量
- * Created by bbhou on 2017/9/30.
+ *
  * @author bbhou
  * @version 1.1.0
  */

@@ -2,6 +2,9 @@ package com.github.houbb.paradise.common.support;
 
 /**
  * 构建者模式接口
+ *
+ * @author bbhou
+ * @version 1.1.0
  */
 public interface Builder<T> {
 

@@ -9,19 +9,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @version 1.0
- * @since 1.7
+ * 文件路径工具类
+ *
+ * @version 1.0.0
  * @see Path 文件NIO
- * Created by pc-06 on 2017/4/20.
  */
 public class FilePathUtil {
 
-
     /**
      * 获得对应的PATH列表。
-     * @param dir
-     * @param glob
-     * @return
+     * @param dir 文件夹
+     * @param glob 文件正则
+     * @return 路径列表
      */
     public static List<Path> getPathList(String dir, String glob)
     {
@@ -61,7 +60,7 @@ public class FilePathUtil {
 
     /** 获取某一路径下的所有文件
      * @see #getDirFileNames(String, String) 指定此处的glob为 *.*
-     * @return
+     * @return 路径列表
      */
     public static List<Path> getAllDirFileNames(String dir)
     {
@@ -71,9 +70,9 @@ public class FilePathUtil {
 
     /**
      * 获得列表下对应的文件字符串形式
-     * @param dir
-     * @param glob
-     * @return
+     * @param dir 文件夹
+     * @param glob 文件正则
+     * @return 文件名称列表
      */
     public static List<String> getDirFileNameStrs(String dir, String glob)
     {

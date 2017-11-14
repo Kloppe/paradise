@@ -2,7 +2,9 @@ package com.github.houbb.paradise.common.util;
 
 /**
  * 参数工具类
- * Created by houbinbin on 2016/12/29.
+ *
+ * @author bbhou
+ * @version 1.1.0
  */
 public final class ArgUtil {
 
@@ -38,7 +40,7 @@ public final class ArgUtil {
      * 校验字符串非空
      * @param string 待检查的字符串
      * @param name 字符串的名称
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException 非法入参
      */
     public static void notEmpty(String string, String name) throws IllegalArgumentException {
         if(StringUtil.isEmpty(string)) {
@@ -67,10 +69,10 @@ public final class ArgUtil {
 
     /**
      * 断言: real 与 except 相等
-     * @param except
-     * @param real
-     * @param msg
-     * @throws IllegalArgumentException
+     * @param except    期望值
+     * @param real  实际值
+     * @param msg   错误消息
+     * @throws IllegalArgumentException 非法入参
      */
     public static void equals(String except, String real, String msg) throws IllegalArgumentException {
         if(!real.equals(except)) {
@@ -82,15 +84,18 @@ public final class ArgUtil {
 
     /**
      * 断言: real 与 except 相等
-     * @param except
-     * @param real
-     * @param msg
+     * @param except    期望值
+     * @param real  实际值
+     * @param msg   错误消息
+     * @throws IllegalArgumentException 非法入参
      */
     public static void equals(Object except, Object real, String msg) throws IllegalArgumentException {
 
         if(ObjectUtil.isNotEquals(except, real)) {
-            //...
+            String errorMsg = buildErrorMsg(except, real, msg);
+            throw new IllegalArgumentException(errorMsg);
         }
+
     }
 
 
@@ -98,49 +103,72 @@ public final class ArgUtil {
      * 指定长度是否等于某个值
      * 1.空值校验通过。
      * 2.想对空值校验,请使用判断非空。
-     * @param string
-     * @param len
-     * @return
+     * @param string 字符串
+     * @param len 期望长度
+     * @return  {@code true} 是
      */
-    public static Boolean isEqualsLen(String string, int len) {
+    public static boolean isEqualsLen(String string, int len) {
         if(null != string) {
             return string.length() == len;
         }
         return true;
     }
-    public static Boolean isNotEqualsLen(String string, int len) {
+
+    /**
+     * 指定长度是否不等于某个值
+     * @param string 字符串
+     * @param len 期望长度
+     * @return {@code true} 是
+     */
+    public static boolean isNotEqualsLen(String string, int len) {
         return !isEqualsLen(string, len);
     }
 
+
     /**
-     * 满足最大长度
-     * @param string
-     * @return
+     * 字符串是否满足最大长度
+     * @param string 字符串
+     * @param maxLen 最大长度
+     * @return {@code true} 是
      */
-    public static Boolean isFitMaxLen(String string, int maxLen) {
+    public static boolean isFitMaxLen(String string, int maxLen) {
         if(null != string) {
             return string.length() <= maxLen;
         }
         return true;
     }
-    public static Boolean isNotFitMaxLen(String string, int maxLen) {
+
+    /**
+     * 字符串是否不满足最大长度
+     * @param string 字符串
+     * @param maxLen 最大长度
+     * @return {@code true} 是
+     */
+    public static boolean isNotFitMaxLen(String string, int maxLen) {
         return !isFitMaxLen(string, maxLen);
     }
 
 
     /**
      * 满足最小长度
-     * @param string
-     * @param minLen
-     * @return
+     * @param string 字符串
+     * @param minLen 最小长度
+     * @return {@code true} 是
      */
-    public static Boolean isFitMinLen(String string, int minLen) {
+    public static boolean isFitMinLen(String string, int minLen) {
         if(null != string) {
             return string.length() >= minLen;
         }
         return true;
     }
-    public static Boolean isNotFitMinLen(String string, int minLen) {
+
+    /**
+     * 不满足最小长度
+     * @param string 字符串
+     * @param minLen 最小长度
+     * @return {@code true} 是
+     */
+    public static boolean isNotFitMinLen(String string, int minLen) {
         return !isFitMinLen(string, minLen);
     }
 
@@ -148,8 +176,8 @@ public final class ArgUtil {
      * 校验字符串是否满足全是数字
      * 1.不进行null校验。
      * 2."" 是通过的。
-     * @param number
-     * @return
+     * @param number 数字字符串
+     * @return {@code true} 是
      */
     public static Boolean isNumber(String number) {
         if(null != number) {
@@ -162,6 +190,12 @@ public final class ArgUtil {
         }
         return true;
     }
+
+    /**
+     * 不是一个数字
+     * @param number    数字字符串
+     * @return  {@code true} 是
+     */
     public static Boolean isNotNumber(String number) {
         return !isNumber(number);
     }
@@ -169,9 +203,9 @@ public final class ArgUtil {
 
     /**
      * 字符串是否满足正则表达式。
-     * @param string
-     * @param regex
-     * @return
+     * @param string    字符串
+     * @param regex 正则表达式
+     * @return      {@code true} 是
      */
     public static Boolean isMatchesRegex(String string, String regex) {
         if(null != string) {
@@ -179,6 +213,13 @@ public final class ArgUtil {
         }
         return true;
     }
+
+    /**
+     * 字符串是否不满足正则表达式。
+     * @param string    字符串
+     * @param regex 正则表达式
+     * @return      {@code true} 是
+     */
     public static Boolean isNotMatchesRegex(String string, String regex) {
         return !isMatchesRegex(string, regex);
     }
@@ -188,7 +229,7 @@ public final class ArgUtil {
      * @param except 期望值
      * @param real 实际值
      * @param msg 错误信息
-     * @return
+     * @return  错误提示消息
      */
     private static String buildErrorMsg(Object except, Object real, String msg) {
         String resultMsg = msg;

@@ -15,7 +15,6 @@ public class DateUtil {
      */
     public static final String DATE_FORMAT = "yyyyMMdd";
 
-
     /**
      * 时间戳格式化
      * 17位长度
@@ -29,7 +28,7 @@ public class DateUtil {
 
     /**
      * 获取日期当前字符串形式
-     * @return
+     * @return  dateStr
      */
     public static String getCurrentDateStr() {
         Date now = new Date();
@@ -38,7 +37,7 @@ public class DateUtil {
 
     /**
      * 获取当前时间戳。
-     * @return
+     * @return  dateStr
      */
     public static String getCurrentTimeStampStr() {
         Date now = new Date();
@@ -48,7 +47,7 @@ public class DateUtil {
     /**
      * 获取当前时间
      * eg:  2017-11-14 16:40:52.135
-     * @return
+     * @return dateStr
      */
     public static String getSimpleDateStr() {
         Date now = new Date();

@@ -2,7 +2,9 @@ package com.github.houbb.paradise.common.vo;
 
 /**
  *
+ * Option 值传输类
  * @author houbinbin
+ * @version 1.0.0
  */
 public class OptionVo {
 

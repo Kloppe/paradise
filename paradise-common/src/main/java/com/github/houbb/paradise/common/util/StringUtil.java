@@ -33,6 +33,11 @@ public class StringUtil {
         return !isEmpty(string);
     }
 
+    /**
+     * 是否为空
+     * @param str 字符串
+     * @return 是否为空
+     */
     public static boolean isBlank(String str) {
         int strLen;
         if(str != null && (strLen = str.length()) != 0) {
@@ -48,6 +53,11 @@ public class StringUtil {
         }
     }
 
+    /**
+     * 是否不为空
+     * @param str 字符串
+     * @return 是否不为空
+     */
     public static boolean isNotBlank(String str) {
         return !isBlank(str);
     }
@@ -55,8 +65,8 @@ public class StringUtil {
     /**
      * 对字符串列表每条字符串执行trim()操作。
      * 1. 空直接返回空列表
-     * @param stringList
-     * @return
+     * @param stringList 原始的列表
+     * @return trim 的字符串列表
      */
     public static List<String> trimList(final List<String> stringList) {
         if(CollectionUtil.isEmpty(stringList)) {
@@ -74,7 +84,7 @@ public class StringUtil {
     /**
      * 根据任意多的空格进行分割字符串。
      * 1. 入参为空,则返回空字符串数组
-     * @return
+     * @return 割字符串数组
      */
     public static String[] splitByAnyBlank(final String string) {
         if(StringUtil.isEmpty(string)) {
@@ -91,7 +101,7 @@ public class StringUtil {
      * 1.这是 mybatis-gen 源码
      * @param inputString 输入字符串
      * @param firstCharacterUppercase 首字母是否大写。
-     * @return
+     * @return  驼峰写法
      */
     public static String getCamelCaseString(String inputString, boolean firstCharacterUppercase) {
         StringBuilder sb = new StringBuilder();
@@ -134,8 +144,8 @@ public class StringUtil {
 
     /**
      * 首字母小写
-     * @param str
-     * @return
+     * @param str 字符串
+     * @return 首字母小写字符串
      */
     public static String firstToLowerCase(String str) {
         if (str == null || str.trim().length() == 0) {
@@ -149,8 +159,8 @@ public class StringUtil {
 
     /**
      * 首字母大写
-     * @param str
-     * @return
+     * @param str 字符串
+     * @return 首字母大写结果
      */
     public static String firstToUpperCase(String str) {
         if (str == null || str.trim().length() == 0) {

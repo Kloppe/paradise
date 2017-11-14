@@ -1,5 +1,11 @@
 package com.github.houbb.paradise.common.constant;
 
+/**
+ * mvn项目 常量
+ *
+ * @author bbhou
+ * @version 1.0.0
+ */
 public class MavenConstant {
 
     /**

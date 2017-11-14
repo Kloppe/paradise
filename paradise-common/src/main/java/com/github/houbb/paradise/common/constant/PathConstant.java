@@ -2,8 +2,9 @@ package com.github.houbb.paradise.common.constant;
 
 /**
  * 路径常量
+ *
  * @author houbinbin
- * @on 16/12/14
+ * @version 1.1.0
  */
 public final class PathConstant {
 
@@ -19,7 +20,6 @@ public final class PathConstant {
      * 文件路径前缀
      */
     public static final String FILE_PATH_PREFIX = "filelist:";
-
 
     /**
      * 目标class文件路径后缀

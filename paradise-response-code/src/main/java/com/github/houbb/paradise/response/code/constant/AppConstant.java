@@ -2,7 +2,7 @@ package com.github.houbb.paradise.response.code.constant;
 
 /**
  * 系统常量
- * Created by bbhou on 2017/9/30.
+ *
  * @author bbhou
  * @version 1.0.0
  */

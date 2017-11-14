@@ -8,15 +8,16 @@ import java.io.File;
 /**
  * 获取所有的类路径
  * (1) https://my.oschina.net/willSoft/blog/28471
- * Created by houbinbin on 16/5/25.
  * @since 1.7
+ * @version 1.1.0
+ * @author bbhou
  */
 public class PathUtil {
 
 
     /**
      * 结果不确定
-     * @return
+     * @return  路径
      */
     @Deprecated
     public static String getPath() {
@@ -25,7 +26,7 @@ public class PathUtil {
 
     /**
      * 获取的target路径
-     * @return
+     * @return 路径
      */
     public static String getRootPath() {
         return Class.class.getClass().getResource("/").getPath();
@@ -63,7 +64,7 @@ public class PathUtil {
      * filelist:/Users/houbinbin/IT/code/script-generator/script-generator-tool/target/classes/
      * 转化为:
      * /Users/houbinbin/IT/code/script-generator/script-generator-tool/src/main/java
-     * @param clazz
+     * @param clazz 类
      * @return 转换后的路径
      */
     public static String getRootPath(Class clazz) {
@@ -97,10 +98,6 @@ public class PathUtil {
      */
     public static String packageToPath(final String packagePath) {
         return packagePath.replaceAll("\\.", "/");
-    }
-
-    public static void main(String[] args) {
-        System.out.println(packageToPath("com.github.houbinbin"));
     }
 
 }

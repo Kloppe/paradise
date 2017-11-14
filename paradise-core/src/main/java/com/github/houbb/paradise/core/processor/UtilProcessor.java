@@ -22,7 +22,8 @@ import java.util.Set;
  * 工具注解执行器
  *
  * @see Util 工具类注解
- * Created by bbhou on 2017/10/12.
+ * @author bbhou
+ * @version 1.0.0
  */
 @SupportedAnnotationTypes("com.github.houbb.paradise.core.annotation.Util")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)

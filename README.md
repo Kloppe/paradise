@@ -9,8 +9,18 @@
 
 对于 compile-annotation 进行整合。
 
-
 - log-analysis-core 整合过来
 
+@Log
+
 - cat-limiter 整合过来
+
+@LimitCount
+
+@LimitFrequency
+
+- @valid 的重新设计
+
+
+
 
