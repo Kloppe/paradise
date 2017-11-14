@@ -162,4 +162,18 @@ public class StringUtil {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
+    /**
+     * 默认为 “”
+     * 1. 如果为 null=>""
+     * 2. 返回本身
+     * @param string
+     * @return
+     */
+    public static String defaultEmpty(final String string) {
+        if(isEmpty(string)) {
+            return EMPTY;
+        }
+        return string;
+    }
+
 }
