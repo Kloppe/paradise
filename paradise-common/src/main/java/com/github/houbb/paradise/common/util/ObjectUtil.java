@@ -68,8 +68,8 @@ public class ObjectUtil {
 
     /**
      * 判断对象是否非null
-     * @param object
-     * @return
+     * @param object 元素
+     * @return {@code true} 非空
      */
     public static Boolean isNotNull(Object object) {
         return !isNull(object);

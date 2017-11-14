@@ -43,12 +43,16 @@ public class PathUtil {
 
     /**
      * 获取资源文件默认存放路径。
-     * @return
+     * @return 根路径+/src/main/resources
      */
     public static String getAppResourcesPath() {
         return getAppRootPath()+ PathConstant.SRC_MAIN_RESOURCES_PATH;
     }
 
+    /**
+     * 获取测试类
+     * @return  转换后的路径
+     */
     public static String getAppTestResourcesPath() {
         return getAppRootPath()+"/src/test/resources";
     }
@@ -60,7 +64,7 @@ public class PathUtil {
      * 转化为:
      * /Users/houbinbin/IT/code/script-generator/script-generator-tool/src/main/java
      * @param clazz
-     * @return
+     * @return 转换后的路径
      */
     public static String getRootPath(Class clazz) {
         String URIPath = clazz.getResource(PathConstant.ROOT_PATH).toString();
@@ -85,8 +89,18 @@ public class PathUtil {
         return resultPath;
     }
 
+    /**
+     * 将包名称转化为对应的路径
+     * com.github.houbinbin TO: com/github/houbinbin
+     * @param packagePath 包名称
+     * @return 转换后的路径
+     */
+    public static String packageToPath(final String packagePath) {
+        return packagePath.replaceAll("\\.", "/");
+    }
+
     public static void main(String[] args) {
-        System.out.println(getAppRootPath());
+        System.out.println(packageToPath("com.github.houbinbin"));
     }
 
 }

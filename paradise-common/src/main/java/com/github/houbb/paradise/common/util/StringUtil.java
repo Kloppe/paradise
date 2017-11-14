@@ -164,10 +164,10 @@ public class StringUtil {
 
     /**
      * 默认为 “”
-     * 1. 如果为 null=>""
+     * 1. 如果为 null TO ""
      * 2. 返回本身
-     * @param string
-     * @return
+     * @param string 字符串
+     * @return 非 null 的字符串
      */
     public static String defaultEmpty(final String string) {
         if(isEmpty(string)) {

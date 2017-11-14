@@ -3,7 +3,6 @@ package com.github.houbb.paradise.common.vo;
 /**
  *
  * @author houbinbin
- * @on 17/1/28
  */
 public class OptionVo {
 

@@ -1,9 +1,13 @@
 package com.github.houbb.paradise.common.util;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 日期工具类
+ * @author bbhou
+ * @version 1.1.0
+ */
 public class DateUtil {
 
     /**
@@ -17,6 +21,11 @@ public class DateUtil {
      * 17位长度
      */
     public static final String TIMESTAMP_FORMAT_17 = "yyyyMMddHHmmssSSS";
+
+    /**
+     * 简单的时间格式化
+     */
+    public static final String SIMPLE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
 
     /**
      * 获取日期当前字符串形式
@@ -34,6 +43,16 @@ public class DateUtil {
     public static String getCurrentTimeStampStr() {
         Date now = new Date();
         return new SimpleDateFormat(TIMESTAMP_FORMAT_17).format(now);
+    }
+
+    /**
+     * 获取当前时间
+     * eg:  2017-11-14 16:40:52.135
+     * @return
+     */
+    public static String getSimpleDateStr() {
+        Date now = new Date();
+        return new SimpleDateFormat(SIMPLE_TIME_FORMAT).format(now);
     }
 
 }
