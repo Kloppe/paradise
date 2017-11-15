@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>paradise-test</artifactId>
-
+    <description>This module is just for test paradise, most case do not need dependency.</description>
 
     <dependencies>
 
