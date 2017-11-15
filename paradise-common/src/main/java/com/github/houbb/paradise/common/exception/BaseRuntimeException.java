@@ -1,25 +1,26 @@
-package com.github.houbb.paradise.response.code.exception;
+package com.github.houbb.paradise.common.exception;
 
-import com.github.houbb.paradise.response.code.core.RspCode;
+
+import com.github.houbb.paradise.common.support.rspcode.RspCode;
 
 /**
- * 基础异常
+ * 基础运行时异常
  *
  * @author bbhou
  * @version 1.0.0
  */
-public class BaseException extends Exception {
+public class BaseRuntimeException extends Exception {
 
     /**
      * 响应吗
      */
     private final RspCode rspCode;
 
-    public BaseException(RspCode rspCode) {
+    public BaseRuntimeException(RspCode rspCode) {
         this.rspCode = rspCode;
     }
 
-    public BaseException(RspCode rspCode, Throwable throwable) {
+    public BaseRuntimeException(RspCode rspCode, Throwable throwable) {
         super(throwable);
         this.rspCode = rspCode;
     }
@@ -42,7 +43,7 @@ public class BaseException extends Exception {
 
     @Override
     public String toString() {
-        return "BaseException{" +
+        return "BaseRuntimeException{" +
                 "rspCode=" + rspCode +
                 '}';
     }

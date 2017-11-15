@@ -1,12 +1,13 @@
-package com.github.houbb.paradise.response.code.util;
+package com.github.houbb.paradise.common.util;
 
-import com.github.houbb.paradise.response.code.core.RspCode;
-import com.github.houbb.paradise.response.code.core.impl.CommonRspCode;
+
+import com.github.houbb.paradise.common.support.rspcode.RspCode;
+import com.github.houbb.paradise.common.support.rspcode.impl.CommonRspCode;
 
 /**
  * 响应码-工具类
  * @author bbhou
- * @version 1.0.0
+ * @version 1.1.1
  */
 public final class RspCodeUtil {
 

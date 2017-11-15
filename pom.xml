@@ -12,7 +12,6 @@
     <modules>
         <module>paradise-common</module>
         <module>paradise-core</module>
-        <module>paradise-response-code</module>
         <module>paradise-test</module>
     </modules>
 
@@ -55,12 +54,6 @@
             <dependency>
                 <groupId>com.github.houbb</groupId>
                 <artifactId>paradise-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.github.houbb</groupId>
-                <artifactId>paradise-response-code</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

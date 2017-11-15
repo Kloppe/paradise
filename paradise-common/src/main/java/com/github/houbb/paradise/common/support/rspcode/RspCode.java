@@ -1,10 +1,9 @@
-package com.github.houbb.paradise.response.code.core;
+package com.github.houbb.paradise.common.support.rspcode;
 
 /**
  * 响应码接口定义
- * Created by bbhou on 2017/9/30.
- * @since 1.0.0
- * @version 1.0.0
+ *
+ * @version 1.1.1
  * @author bbhou
  */
 public interface RspCode {

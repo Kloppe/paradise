@@ -1,12 +1,13 @@
-package com.github.houbb.paradise.response.code.core.impl;
+package com.github.houbb.paradise.common.support.rspcode.impl;
 
-import com.github.houbb.paradise.response.code.core.RspCode;
+
+import com.github.houbb.paradise.common.support.rspcode.RspCode;
 
 /**
  * 通用响应码
  *
  * @author bbhou
- * @version 1.0.0
+ * @version 1.1.1
  */
 public enum CommonRspCode implements RspCode {
     /**
