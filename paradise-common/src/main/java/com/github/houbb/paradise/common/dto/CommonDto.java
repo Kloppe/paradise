@@ -1,6 +1,7 @@
 package com.github.houbb.paradise.common.dto;
 
-import com.github.houbb.paradise.common.support.impl.ToStringBuilder;
+
+import com.github.houbb.paradise.common.support.builder.impl.ToStringBuilder;
 
 import java.io.Serializable;
 

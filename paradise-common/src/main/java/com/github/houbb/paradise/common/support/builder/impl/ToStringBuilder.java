@@ -1,6 +1,7 @@
-package com.github.houbb.paradise.common.support.impl;
+package com.github.houbb.paradise.common.support.builder.impl;
 
-import com.github.houbb.paradise.common.support.Builder;
+
+import com.github.houbb.paradise.common.support.builder.Builder;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;

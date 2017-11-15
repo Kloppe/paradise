@@ -1,4 +1,4 @@
-package com.github.houbb.paradise.common.support;
+package com.github.houbb.paradise.common.support.builder;
 
 /**
  * 构建者模式接口

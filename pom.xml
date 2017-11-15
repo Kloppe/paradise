@@ -7,7 +7,7 @@
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1-SNAPSHOT</version>
 
     <modules>
         <module>paradise-common</module>
@@ -49,13 +49,13 @@
             <dependency>
                 <groupId>com.github.houbb</groupId>
                 <artifactId>paradise-common</artifactId>
-                <version>1.1.0</version>
+                <version>1.1.1-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>com.github.houbb</groupId>
                 <artifactId>paradise-core</artifactId>
-                <version>1.1.0</version>
+                <version>1.1.1-SNAPSHOT</version>
             </dependency>
 
             <!--============================== INTER ==============================-->
@@ -240,7 +240,7 @@
     </profiles>
 
 
-    <!--mvn versions:set -DgroupId=com.github.houbb -DartifactId=paradise* -DoldVersion=1.0.0 -DnewVersion=1.1.0-->
+    <!--mvn versions:set -DgroupId=com.github.houbb -DartifactId=paradise* -DoldVersion=1.1.0 -DnewVersion=1.1.1-SNAPSHOT-->
     <!--mvn -N versions:update-child-modules-->
     <!--mvn versions:commit-->
 </project>

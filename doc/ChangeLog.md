@@ -26,3 +26,14 @@
 # release_1.1.0
 
 - 添加 `common` 模块内容
+
+
+# release_1.1.1
+
+- 2017-11-15 10:05:01
+
+1. 调整 support 目录机构
+
+2. support 添加 filter 相关方法
+
+
