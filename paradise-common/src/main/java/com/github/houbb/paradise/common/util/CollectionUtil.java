@@ -24,6 +24,16 @@ public class CollectionUtil {
     }
 
     /**
+     * 是否不为空
+     * @param collection    集合
+     * @return  {@code true} 是
+     * @since 1.1.2
+     */
+    public static boolean isNotEmpty(Collection collection) {
+        return !isEmpty(collection);
+    }
+
+    /**
      * 根据数组返回对应列表
      * @param array
      * @return
