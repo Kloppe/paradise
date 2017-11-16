@@ -23,4 +23,27 @@ public class CollectionUtil {
                 || collection.size() == 0;
     }
 
+    /**
+     * 根据数组返回对应列表
+     * @param array
+     * @return
+     */
+    public static List<String> arrayToList(String[] array) {
+        if(ArrayUtil.isEmpty(array)) {
+            return Collections.EMPTY_LIST;
+        }
+        return Arrays.asList(array);
+    }
+
+
+    /**
+     * 列表转数组
+     * @param stringList
+     * @return
+     */
+    public static String[] listToArray(List<String> stringList) {
+        String[] strings = new String[stringList.size()];
+        return stringList.toArray(strings);
+    }
+
 }

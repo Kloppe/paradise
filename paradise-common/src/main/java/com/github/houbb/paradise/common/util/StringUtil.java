@@ -1,5 +1,7 @@
 package com.github.houbb.paradise.common.util;
 
+import com.github.houbb.paradise.common.constant.CommonConstant;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +16,11 @@ public class StringUtil {
      * 空字符串
      */
     public static final String EMPTY = "";
+
+    /**
+     * 空格
+     */
+    public static final String BLANK = " ";
 
     /**
      * 是否为空
@@ -184,6 +191,95 @@ public class StringUtil {
             return EMPTY;
         }
         return string;
+    }
+
+
+    /**
+     * 将数组进行连接
+     * from:    apache lang3
+     * @param array
+     * @param separator
+     * @param startIndex
+     * @param endIndex
+     * @return
+     */
+    public static String join(Object[] array, String separator, int startIndex, int endIndex) {
+        if (array == null) {
+            return null;
+        } else {
+            if (separator == null) {
+                separator = "";
+            }
+
+            int noOfItems = endIndex - startIndex;
+            if (noOfItems <= 0) {
+                return "";
+            } else {
+                StringBuilder buf = new StringBuilder(noOfItems * 16);
+
+                for(int i = startIndex; i < endIndex; ++i) {
+                    if (i > startIndex) {
+                        buf.append(separator);
+                    }
+
+                    if (array[i] != null) {
+                        buf.append(array[i]);
+                    }
+                }
+
+                return buf.toString();
+            }
+        }
+    }
+
+    /**
+     * 驼峰命名转下划线
+     * @param camelStr
+     * @return
+     */
+    public static String camelToUnderline(String camelStr){
+        if(StringUtil.isEmpty(camelStr)) {
+            return StringUtil.EMPTY;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        char[] chars = camelStr.toCharArray();
+        for(char c : chars) {
+            if (Character.isUpperCase(c)) {
+                sb.append('_');
+                sb.append(Character.toLowerCase(c));
+            } else {
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
+    }
+
+    /**
+     * 下划线转驼峰命名
+     * @param underlineStr
+     * @return
+     */
+    public static String underlineToCamel(String underlineStr) {
+        if (StringUtil.isEmpty(underlineStr)) {
+            return StringUtil.EMPTY;
+        }
+
+        int len = underlineStr.length();
+        StringBuilder sb = new StringBuilder(len);
+        for (int i = 0; i < len; i++) {
+            char c = underlineStr.charAt(i);
+            if (c == '_') {
+                if (++i < len) {
+                    sb.append(Character.toUpperCase(underlineStr.charAt(i)));
+                }
+            } else {
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
     }
 
 }

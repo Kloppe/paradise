@@ -36,4 +36,12 @@
 
 2. support 添加 filter 相关方法
 
+- 2017-11-16 13:53:25
+
+添加 `enhance` 模块
+
+1. 添加 splitter/connector
+
+2. 添加 connector
+
 

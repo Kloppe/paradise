@@ -13,6 +13,7 @@
         <module>paradise-common</module>
         <module>paradise-core</module>
         <module>paradise-test</module>
+        <module>paradise-enhance</module>
     </modules>
 
     <properties>
