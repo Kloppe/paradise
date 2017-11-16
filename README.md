@@ -4,8 +4,8 @@
 
 很繁琐，索性就将平时会用到的大多数东西放在这一个项目下面。
 
-[https://maven-badges.herokuapp.com/maven-central/com.github.houbb/paradise/badge.svg](http://mvnrepository.com/artifact/com.github.houbb/paradise)
- 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.houbb/paradise/badge.svg)](http://mvnrepository.com/artifact/com.github.houbb/paradise)
+
 ## paradise-common 
 
 提供通用工具。主要是自己项目使用。不依赖三方 jar。
