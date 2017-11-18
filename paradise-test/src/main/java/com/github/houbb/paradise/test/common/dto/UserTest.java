@@ -2,6 +2,7 @@ package com.github.houbb.paradise.test.common.dto;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 
 public class UserTest {
@@ -21,5 +22,11 @@ public class UserTest {
 //        System.out.println(clazz2.getName());
 //        Object object = method.invoke(user);
 //        return null;
+
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(File.separator);
     }
 }

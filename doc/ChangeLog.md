@@ -45,3 +45,14 @@
 2. 添加 connector
 
 
+# release_1.1.2
+
+- 2017-11-17 11:40:30
+
+添加 common-support-`Assign` 接口。
+
+
+
+
+
+
