@@ -2,10 +2,7 @@ package com.github.houbb.paradise.enhance.core.connector.impl;
 
 import com.github.houbb.paradise.common.util.CollectionUtil;
 import com.github.houbb.paradise.common.util.StringUtil;
-import com.github.houbb.paradise.enhance.constant.translator.GoogleLanguageEnum;
 import com.github.houbb.paradise.enhance.core.connector.Connector;
-import com.github.houbb.paradise.enhance.core.splitter.impl.UnderlineStringSplitter;
-import com.github.houbb.paradise.enhance.core.translator.impl.GoogleTranslator;
 
 import java.util.List;
 
@@ -24,6 +21,10 @@ public class StringConnector implements Connector<String> {
     public StringConnector(List<String> stringList, String separator) {
         this.stringList = stringList;
         this.separator = separator;
+    }
+
+    public static StringConnector newInstance(List<String> stringList, String separator) {
+        return new StringConnector(stringList, separator);
     }
 
     @Override

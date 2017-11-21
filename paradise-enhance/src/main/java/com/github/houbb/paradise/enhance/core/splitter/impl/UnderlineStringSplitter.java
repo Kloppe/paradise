@@ -14,6 +14,10 @@ public class UnderlineStringSplitter extends AbstractStringSplitter {
         super(string);
     }
 
+    public static UnderlineStringSplitter newInstance(String string) {
+        return new UnderlineStringSplitter(string);
+    }
+
     @Override
     public List<String> split() {
         if(StringUtil.isEmpty(string)) {

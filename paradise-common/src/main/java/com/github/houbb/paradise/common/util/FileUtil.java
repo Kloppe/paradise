@@ -9,8 +9,9 @@ import java.util.Objects;
 
 /**
  * 文件工具类
- * @version 1.1.0
+ *
  * @author bbhou
+ * @version 1.1.0
  */
 public final class FileUtil {
 
@@ -98,6 +99,7 @@ public final class FileUtil {
     /**
      * 获取指定路径文件的每一行内容
      * 1.初始化行数默认为0
+     *
      * @param filePath 文件路径
      * @return 内容列表
      * @see #getFileContentEachLine(String, int) 获取指定路径文件的每一行内容
@@ -180,6 +182,53 @@ public final class FileUtil {
         }
 
         return contentList;
+    }
+
+
+    /**
+     * 获取文件内容的列表
+     * @param file
+     * @param initLine  0 开始
+     * @param endLine   下标从0开始
+     * @param charset
+     * @return
+     */
+    public static List<String> getFileContentEachLine(final File file, final int initLine, final int endLine, final String charset) {
+        List<String> contentList = new LinkedList<>();
+
+        if (!file.exists()) {
+            System.err.println("文件不存在");
+            return contentList;
+        }
+
+        try (FileInputStream fileInputStream = new FileInputStream(file);
+             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, charset);
+             BufferedReader bufferedReader = new BufferedReader(inputStreamReader)
+        ) {
+            int lineNo = 0;// 用于记录行号
+            while (lineNo < initLine) {
+                lineNo++;
+                bufferedReader.readLine();
+            }
+
+            String dataEachLine;   //每一行的内容
+            while ((dataEachLine = bufferedReader.readLine()) != null
+                    && lineNo < endLine) {
+                lineNo++;
+                contentList.add(dataEachLine);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+
+        return contentList;
+    }
+
+    public static void main(String[] args) {
+        List<String> stringList = getFileContentEachLine(new File("D:\\CODE\\paradise\\paradise-common\\src\\main\\resources\\readme.md"),
+                0, 9, "UTF-8");
+        System.out.println(stringList.size());
     }
 
 }

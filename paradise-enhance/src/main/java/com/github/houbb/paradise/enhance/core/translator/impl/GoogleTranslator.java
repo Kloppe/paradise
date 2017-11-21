@@ -34,11 +34,35 @@ public class GoogleTranslator implements Translator<String> {
         this(text, "", targetLang);
     }
 
+
+    public static GoogleTranslator newInstance(String text, String srcLang, String targetLang) {
+        return new GoogleTranslator(text, srcLang, targetLang);
+    }
+
+    public static GoogleTranslator newInstance(String text, String targetLang) {
+        return new GoogleTranslator(text, "", targetLang);
+    }
+
+
     @Override
     public String translate() throws Exception {
         return execute(text, srcLang, targetLang);
     }
 
+
+    /**
+     * 进行翻译 如果乳腺异常则返回指定的默认值
+     * @param defaultVal
+     * @return
+     */
+    public String translateOrDefault(final String defaultVal) {
+        try {
+            return translate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return defaultVal;
+    }
 
     public String[] translate(String[] texts, String srcLang, String targetLang)
             throws Exception {
@@ -97,7 +121,6 @@ public class GoogleTranslator implements Translator<String> {
             e.printStackTrace();
         }
     }
-
 
 
 }
