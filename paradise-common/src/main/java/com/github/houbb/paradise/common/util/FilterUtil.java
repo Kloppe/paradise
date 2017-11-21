@@ -14,9 +14,9 @@ public class FilterUtil {
      *
      * 2. 指定了包含/过滤的内容
      * 2.1 都没指定 所有 class-1;
-     * 2.2 只有包含 所有 class-1 &&   include
-     * 2.3 只有排除 所有 class-1 && ！exclude
-     * 2.4 二者都有 所有 class-1 && include && ！exclude  只有当include && !include 才满足条件。
+     * 2.2 只有包含 所有 class-1 and   include
+     * 2.3 只有排除 所有 class-1 and ！exclude
+     * 2.4 二者都有 所有 class-1 and include and ！exclude  只有当include and !include 才满足条件。
      * @param name 带判断的东西
      * @param includeRegex 包含正则
      * @param excludeRegex 排除正则
