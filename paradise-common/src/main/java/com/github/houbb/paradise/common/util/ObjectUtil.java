@@ -112,11 +112,6 @@ public class ObjectUtil {
             return Array.getLength(object) == 0;
         }
 
-//        if (object instanceof IsEmpty) {
-//            IsEmpty isEmpty = (IsEmpty) object;
-//            return isEmpty.isEmpty();
-//        }
-
         return false;
     }
 

@@ -2,7 +2,6 @@ package com.github.houbb.paradise.common.util;
 
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -187,9 +186,10 @@ public final class FileUtil {
 
     /**
      * 获取文件内容的列表
+     *
      * @param file
-     * @param initLine  0 开始
-     * @param endLine   下标从0开始
+     * @param initLine 0 开始
+     * @param endLine  下标从0开始
      * @param charset
      * @return
      */
@@ -225,10 +225,63 @@ public final class FileUtil {
         return contentList;
     }
 
-    public static void main(String[] args) {
-        List<String> stringList = getFileContentEachLine(new File("D:\\CODE\\paradise\\paradise-common\\src\\main\\resources\\readme.md"),
-                0, 9, "UTF-8");
-        System.out.println(stringList.size());
+
+    /**
+     * 复制文件夹
+     * @param sourceDir 原始文件夹
+     * @param targetDir 目标文件夹
+     * @throws IOException
+     * @since 1.1.2
+     */
+    public static void copyDir(String sourceDir, String targetDir) throws IOException {
+        File file = new File(sourceDir);
+        String[] filePath = file.list();
+
+        if (!(new File(targetDir)).exists()) {
+            (new File(targetDir)).mkdir();
+        }
+
+        if (ArrayUtil.isNotEmpty(filePath)) {
+
+            for (int i = 0; i < filePath.length; i++) {
+                if ((new File(sourceDir + File.separator + filePath[i])).isDirectory()) {
+                    copyDir(sourceDir + File.separator + filePath[i], targetDir + File.separator + filePath[i]);
+                }
+
+                if (new File(sourceDir + File.separator + filePath[i]).isFile()) {
+                    copyFile(sourceDir + File.separator + filePath[i], targetDir + File.separator + filePath[i]);
+                }
+
+            }
+
+        }
+
     }
+
+
+    /**
+     * 复制文件
+     * @param sourceFile 原始路径
+     * @param targetPath 目标路径
+     * @throws IOException
+     * @since 1.1.2
+     */
+    public static void copyFile(String sourceFile, String targetPath) throws IOException {
+        File oldFile = new File(sourceFile);
+        File file = new File(targetPath);
+
+        try (FileInputStream in = new FileInputStream(oldFile);
+             FileOutputStream out = new FileOutputStream(file)) {
+
+            byte[] buffer = new byte[2097152];
+
+            while ((in.read(buffer)) != -1) {
+                out.write(buffer);
+            }
+
+        }
+
+    }
+
 
 }
