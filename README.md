@@ -5,6 +5,7 @@
 很繁琐，索性就将平时会用到的大多数东西放在这一个项目下面。
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.houbb/paradise/badge.svg)](http://mvnrepository.com/artifact/com.github.houbb/paradise)
+[![Build Status](https://www.travis-ci.org/houbb/paradise.svg?branch=release_1.1.2)](https://www.travis-ci.org/houbb/paradise)
 
 ## paradise-common 
 
