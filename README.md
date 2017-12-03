@@ -6,6 +6,7 @@
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.houbb/paradise/badge.svg)](http://mvnrepository.com/artifact/com.github.houbb/paradise)
 [![Build Status](https://www.travis-ci.org/houbb/paradise.svg?branch=release_1.1.2)](https://www.travis-ci.org/houbb/paradise)
+[![Coverage Status](https://coveralls.io/repos/github/houbb/paradise/badge.svg?branch=release_1.1.2)](https://coveralls.io/github/houbb/paradise?branch=release_1.1.2)
 
 ## paradise-common 
 
