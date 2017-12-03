@@ -12,4 +12,22 @@
     <artifactId>paradise-common</artifactId>
     <description>The common module for paradise, dependency for nothing.</description>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <!--<version>${junit.version}</version>-->
+            <!--<optional>true</optional>-->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.houbb</groupId>
+                <artifactId>gen-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
