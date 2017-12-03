@@ -21,8 +21,8 @@
         <plugin.compiler.version>3.2</plugin.compiler.version>
         <plugin.compiler.version>3.2</plugin.compiler.version>
         <plugin.surefire.version>2.18.1</plugin.surefire.version>
-        <plugin.surefire.skip-it>true</plugin.surefire.skip-it>
-        <plugin.surefire.ignore-failure>true</plugin.surefire.ignore-failure>
+        <plugin.surefire.skip-it>false</plugin.surefire.skip-it>
+        <plugin.surefire.ignore-failure>false</plugin.surefire.ignore-failure>
         <plugin.tomcat.version>2.2</plugin.tomcat.version>
         <plugin.native2ascii.version>1.0-beta-1</plugin.native2ascii.version>
 
