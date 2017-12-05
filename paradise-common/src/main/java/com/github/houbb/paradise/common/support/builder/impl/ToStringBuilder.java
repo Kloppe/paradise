@@ -2,12 +2,14 @@ package com.github.houbb.paradise.common.support.builder.impl;
 
 
 import com.github.houbb.paradise.common.support.builder.Builder;
+import com.github.houbb.paradise.common.util.reflection.ReflectionUtil;
 
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 /**
  * toString() 构建
@@ -37,16 +39,16 @@ public class ToStringBuilder implements Builder<String> {
         Class clazz = object.getClass();
 
         String entityName = clazz.getSimpleName();
-        Field fields[] = clazz.getDeclaredFields();
+        List<Field> fieldList= ReflectionUtil.getAllFieldsList(clazz);
 
         StringBuilder stringBuilder = new StringBuilder(String.format("%s{", entityName));
 
-        for(int i = 0; i < fields.length-1; i++) {
-            Field field = fields[i];
+        for(int i = 0; i < fieldList.size()-1; i++) {
+            Field field = fieldList.get(i);
             stringBuilder.append(buildFieldValue(object, field)).append(",");
         }
 
-        stringBuilder.append(buildFieldValue(object, fields[fields.length-1]));
+        stringBuilder.append(buildFieldValue(object, fieldList.get(fieldList.size()-1)));
         stringBuilder.append("}");
 
         return stringBuilder.toString();
