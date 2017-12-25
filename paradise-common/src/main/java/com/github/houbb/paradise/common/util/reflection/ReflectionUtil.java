@@ -3,6 +3,8 @@ package com.github.houbb.paradise.common.util.reflection;
 import com.github.houbb.paradise.common.util.ArgUtil;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +35,17 @@ public class ReflectionUtil {
         }
 
         return allFields;
+    }
+
+    /**
+     * 获取列表字段对应的类型
+     * @param field 字段
+     * @return 返回对应的 class 类型
+     */
+    public static Class getListType(Field field) {
+        ParameterizedType listGenericType = (ParameterizedType) field.getGenericType();
+        Type[] listActualTypeArguments = listGenericType.getActualTypeArguments();
+        return (Class) listActualTypeArguments[0];
     }
 
 }
