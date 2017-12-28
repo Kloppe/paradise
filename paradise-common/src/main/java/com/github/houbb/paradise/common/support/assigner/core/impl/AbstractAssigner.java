@@ -1,11 +1,11 @@
-package com.github.houbb.paradise.common.support.assign.core.impl;
+package com.github.houbb.paradise.common.support.assigner.core.impl;
 
 
 
-import com.github.houbb.paradise.common.support.assign.core.Assign;
-import com.github.houbb.paradise.common.support.assign.core.ExplicitAssign;
-import com.github.houbb.paradise.common.support.assign.core.SelectiveAssign;
-import com.github.houbb.paradise.common.support.assign.exception.AssignException;
+import com.github.houbb.paradise.common.support.assigner.core.Assigner;
+import com.github.houbb.paradise.common.support.assigner.core.ExplicitAssigner;
+import com.github.houbb.paradise.common.support.assigner.core.SelectiveAssigner;
+import com.github.houbb.paradise.common.support.assigner.exception.AssignException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -14,8 +14,9 @@ import java.util.List;
  * 抽象实现
  * @author bbhou
  * @version 1.1.2
+ * @since 1.1.2
  */
-public class AbstractAssign implements Assign, ExplicitAssign, SelectiveAssign {
+public class AbstractAssigner implements Assigner, ExplicitAssigner, SelectiveAssigner {
 
     @Override
     public void assign(Object example, Object target) throws AssignException {

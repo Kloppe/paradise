@@ -1,16 +1,16 @@
-package com.github.houbb.paradise.common.support.assign.core;
+package com.github.houbb.paradise.common.support.assigner.core;
 
-import com.github.houbb.paradise.common.support.assign.exception.AssignException;
+import com.github.houbb.paradise.common.support.assigner.exception.AssignException;
 
 import java.util.List;
 
 /**
- * Created by houbinbin on 2017/1/10.
  * 明确指定进行赋值的字段。或者不进行赋值的字段。
- * @since 1.7
- * @version 1.0
+ * @author bbhou
+ * @since 1.1.2
+ * @version 1.1.2
  */
-public interface ExplicitAssign {
+public interface ExplicitAssigner {
 
   /**
    * (1) 仅仅对target中指定的字段进行赋值。其他字段按照【常规赋值】进行处理。

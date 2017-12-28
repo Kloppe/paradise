@@ -1,15 +1,15 @@
-package com.github.houbb.paradise.common.support.assign.core;
+package com.github.houbb.paradise.common.support.assigner.core;
 
 import org.junit.Test;
 
 /**
-* SelectiveAssign Tester.
+* SelectiveAssigner Tester.
 *
 * @author author
 * @since 2017-12-03 11:08:55.810
 * @version 1.0
 */
-public class SelectiveAssignTest {
+public class SelectiveAssignerTest {
 
     /**
     *

@@ -1,13 +1,14 @@
-package com.github.houbb.paradise.common.support.assign.core;
+package com.github.houbb.paradise.common.support.assigner.core;
 
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Created by houbinbin on 2017/1/10.
- * @since 1.7
- * @version 1.0
+ * 可选的赋值
+ * @author bbhou
+ * @since 1.1.2
+ * @version 1.1.2
  */
-public interface SelectiveAssign {
+public interface SelectiveAssigner {
 
   /**
    * 只将 example 非null的属性按照【常规赋值】赋值给target
@@ -17,7 +18,7 @@ public interface SelectiveAssign {
   void assignExampleSelective(Object example, Object target) throws InvocationTargetException, IllegalAccessException;
 
   /**
-   * 只对 target 中字段为null的进行【常规赋值】
+   * 只对 target 中字段为 null 的进行【常规赋值】
    * @param example 赋值模板
    * @param target 目标对象
    */

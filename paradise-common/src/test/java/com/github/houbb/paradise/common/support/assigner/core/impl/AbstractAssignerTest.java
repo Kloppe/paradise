@@ -1,15 +1,15 @@
-package com.github.houbb.paradise.common.support.assign.core.impl;
+package com.github.houbb.paradise.common.support.assigner.core.impl;
 
 import org.junit.Test;
 
 /**
-* AbstractAssign Tester.
+* AbstractAssigner Tester.
 *
 * @author author
 * @since 2017-12-03 11:08:55.788
 * @version 1.0
 */
-public class AbstractAssignTest {
+public class AbstractAssignerTest {
 
     /**
     *

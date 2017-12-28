@@ -1,15 +1,15 @@
-package com.github.houbb.paradise.common.support.assign.core;
+package com.github.houbb.paradise.common.support.assigner.core;
 
 import org.junit.Test;
 
 /**
-* Assign Tester.
+* Assigner Tester.
 *
 * @author author
 * @since 2017-12-03 11:08:55.823
 * @version 1.0
 */
-public class AssignTest {
+public class AssignerTest {
 
     /**
     *

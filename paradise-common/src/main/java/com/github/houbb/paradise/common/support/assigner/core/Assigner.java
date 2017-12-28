@@ -1,10 +1,14 @@
-package com.github.houbb.paradise.common.support.assign.core;
+package com.github.houbb.paradise.common.support.assigner.core;
 
-import com.github.houbb.paradise.common.support.assign.exception.AssignException;
+import com.github.houbb.paradise.common.support.assigner.exception.AssignException;
 
-import java.lang.reflect.InvocationTargetException;
-
-public interface Assign {
+/**
+ * 赋值者
+ * @author bbhou
+ * @since 1.1.2
+ * @version 1.1.2, 2017/12/28
+ */
+public interface Assigner {
 
     /**
      * 【常规赋值】对象赋值
@@ -13,8 +17,5 @@ public interface Assign {
      * @param target 目标对象
      */
     void assign(Object example, Object target) throws AssignException;
-
-
-
 
 }

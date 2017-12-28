@@ -1,4 +1,4 @@
-package com.github.houbb.paradise.common.support.assign.exception;
+package com.github.houbb.paradise.common.support.assigner.exception;
 
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 * @since 2017-12-03 11:08:55.790
 * @version 1.0
 */
-public class AssignExceptionTest {
+public class AssignerExceptionTest {
 
     /**
     *

@@ -1,5 +1,11 @@
-package com.github.houbb.paradise.common.support.assign.exception;
+package com.github.houbb.paradise.common.support.assigner.exception;
 
+/**
+ * 赋值异常
+ * @author bbhou
+ * @version 1.1.2
+ * @since 1.1.2
+ */
 public class AssignException extends Exception {
 
     public AssignException() {
