@@ -37,6 +37,11 @@
 仅用于本项目自检测试。
 
 
+# 变更日志
+
+> [ChangeLog](doc/ChangeLog.md)
+
+
 
 
 

@@ -2,7 +2,8 @@ package com.github.houbb.paradise.common.support.validator.constant;
 
 /**
  * @author houbinbin
- * @on 16/12/16
+ * @since 1.1.2
+ * @version 1.1.2
  */
 public class ValidConstant {
 

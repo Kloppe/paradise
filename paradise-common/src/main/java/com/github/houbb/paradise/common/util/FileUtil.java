@@ -187,11 +187,11 @@ public final class FileUtil {
     /**
      * 获取文件内容的列表
      *
-     * @param file
+     * @param file 文件
      * @param initLine 0 开始
      * @param endLine  下标从0开始
-     * @param charset
-     * @return
+     * @param charset 编码
+     * @return string list
      */
     public static List<String> getFileContentEachLine(final File file, final int initLine, final int endLine, final String charset) {
         List<String> contentList = new LinkedList<>();

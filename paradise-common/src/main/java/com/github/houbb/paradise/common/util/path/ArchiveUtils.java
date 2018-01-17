@@ -35,7 +35,7 @@ public class ArchiveUtils {
      * Extracts files to the specified destination
      * @param file the file to extract to
      * @param dest the destination directory
-     * @throws IOException
+     * @throws IOException if any
      */
     public static void unzipFileTo(String file, String dest) throws IOException {
         File target = new File(file);

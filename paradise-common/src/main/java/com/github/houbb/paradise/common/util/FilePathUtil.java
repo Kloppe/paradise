@@ -41,7 +41,7 @@ public class FilePathUtil {
      * 获取指定文件夹下对应的某类型文件
      * @param dir 文件夹路径
      * @param glob 文件正则表达式
-     * @return
+     * @return path list
      */
     public static List<Path> getDirFileNames(String dir, String glob) {
         List<Path> list = new LinkedList<>();
@@ -60,6 +60,7 @@ public class FilePathUtil {
 
     /** 获取某一路径下的所有文件
      * @see #getDirFileNames(String, String) 指定此处的glob为 *.*
+     * @param dir 文件夹
      * @return 路径列表
      */
     public static List<Path> getAllDirFileNames(String dir)

@@ -7,7 +7,7 @@
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.2-SNAPSHOT</version>
+    <version>1.1.2</version>
 
     <modules>
         <module>paradise-common</module>

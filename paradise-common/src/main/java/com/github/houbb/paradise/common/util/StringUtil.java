@@ -1,7 +1,5 @@
 package com.github.houbb.paradise.common.util;
 
-import com.github.houbb.paradise.common.constant.CommonConstant;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -91,6 +89,7 @@ public class StringUtil {
     /**
      * 根据任意多的空格进行分割字符串。
      * 1. 入参为空,则返回空字符串数组
+     * @param string 字符串
      * @return 割字符串数组
      */
     public static String[] splitByAnyBlank(final String string) {
@@ -197,11 +196,11 @@ public class StringUtil {
     /**
      * 将数组进行连接
      * from:    apache lang3
-     * @param array
-     * @param separator
-     * @param startIndex
-     * @param endIndex
-     * @return
+     * @param array object array
+     * @param separator 分隔符
+     * @param startIndex 开始下标
+     * @param endIndex 结束下标
+     * @return join string
      */
     public static String join(Object[] array, String separator, int startIndex, int endIndex) {
         if (array == null) {
@@ -234,8 +233,8 @@ public class StringUtil {
 
     /**
      * 驼峰命名转下划线
-     * @param camelStr
-     * @return
+     * @param camelStr 驼峰字符串
+     * @return 下划线字符串
      */
     public static String camelToUnderline(String camelStr){
         if(StringUtil.isEmpty(camelStr)) {
@@ -258,8 +257,8 @@ public class StringUtil {
 
     /**
      * 下划线转驼峰命名
-     * @param underlineStr
-     * @return
+     * @param underlineStr 下划线字符串
+     * @return 驼峰字符串
      */
     public static String underlineToCamel(String underlineStr) {
         if (StringUtil.isEmpty(underlineStr)) {

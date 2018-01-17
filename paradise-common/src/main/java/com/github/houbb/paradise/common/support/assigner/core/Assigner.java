@@ -15,6 +15,7 @@ public interface Assigner {
      * 1.将 example 与 target 中名称属性一致的值赋给 target。
      * @param example 赋值模板
      * @param target 目标对象
+     * @throws AssignException if any
      */
     void assign(Object example, Object target) throws AssignException;
 

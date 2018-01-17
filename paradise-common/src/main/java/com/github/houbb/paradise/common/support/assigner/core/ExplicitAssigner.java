@@ -18,6 +18,7 @@ public interface ExplicitAssigner {
    * @param example 赋值模板
    * @param target 目标对象
    * @param fieldName 指定的字段名称
+   * @throws AssignException if any
    */
   void assignExplicitCondition(Object example, Object target, String... fieldName) throws AssignException;
 
@@ -29,6 +30,7 @@ public interface ExplicitAssigner {
    * @param example 赋值模板
    * @param target 目标对象
    * @param fieldName 指定的字段名称
+   * @throws AssignException if any
    */
   void assignExplicitUnless(Object example, Object target, String... fieldName) throws AssignException;
 

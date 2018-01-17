@@ -64,8 +64,8 @@ public class ClassUtil {
     /**
      * 是否为数组
      *
-     * @param object
-     * @return
+     * @param object 对象
+     * @return {@code true} 是
      */
     public static Boolean isArray(Object object) {
         return object.getClass().isArray();

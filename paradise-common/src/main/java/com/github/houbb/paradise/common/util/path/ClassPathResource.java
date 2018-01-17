@@ -78,7 +78,7 @@ public class ClassPathResource {
      * Please note: if this method called from compiled jar, temporary file or dir will be created to provide File access
      *
      * @return File requested at constructor call
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException if any
      */
     public File getFile() throws FileNotFoundException {
         return getFile(null);
@@ -91,7 +91,7 @@ public class ClassPathResource {
      *
      * @param suffix suffix of temporary file (if null suffix == "file" or "dir")
      * @return File requested at constructor call
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException if any
      */
     public File getFile(String suffix) throws FileNotFoundException {
         URL url = this.getUrl();
@@ -175,7 +175,7 @@ public class ClassPathResource {
      *
      * @param jarUrl Original URL of the resource
      * @return URL of the Jar file, containing requested resource
-     * @throws MalformedURLException
+     * @throws MalformedURLException if any
      */
     private URL extractActualUrl(URL jarUrl) throws MalformedURLException {
         String urlFile = jarUrl.getFile();
@@ -201,7 +201,7 @@ public class ClassPathResource {
      * Returns requested ClassPathResource as InputStream object
      *
      * @return File requested at constructor call
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException if any
      */
     public InputStream getInputStream() throws FileNotFoundException {
         URL url = this.getUrl();

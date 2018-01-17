@@ -18,7 +18,7 @@ public class ReflectionUtil {
     /**
      * 获取类对应的所有字段列表
      * @param cls 类
-     * @return
+     * @return field list
      */
     public static List<Field> getAllFieldsList(Class<?> cls) {
         ArgUtil.notNull(cls, "cls can't not be null!");

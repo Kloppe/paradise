@@ -11,21 +11,21 @@ public interface RspCode {
     /**
      * 错误编码
      * 1. 对于所有的错误码都应该按照约定，便于区分，尽量按照大家都公认的方向进行设计。
-     * @return
+     * @return 错误编码
      */
     String getCode();
 
     /**
      * 错误消息
      * 1. 对于错误的描述，简明扼要。可以直接展现给客户看。
-     * @return
+     * @return 错误消息
      */
     String getMsg();
 
     /**
      * 备注信息
      * 1. 对于错误场景的详细描述。可也以不填写，按需可灵活修改。
-     * @return
+     * @return 备注信息
      */
     String getRemark() ;
 

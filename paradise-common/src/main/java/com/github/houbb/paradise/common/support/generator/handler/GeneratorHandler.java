@@ -12,6 +12,7 @@ public interface GeneratorHandler {
 
     /**
      * 处理
+     * @param content 内容
      * @throws GeneratorException 生成异常
      */
     void handle(final String content) throws GeneratorException;

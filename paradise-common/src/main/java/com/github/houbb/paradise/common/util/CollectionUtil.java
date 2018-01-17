@@ -35,8 +35,8 @@ public class CollectionUtil {
 
     /**
      * 根据数组返回对应列表
-     * @param array
-     * @return
+     * @param array string array
+     * @return string list
      */
     public static List<String> arrayToList(String[] array) {
         if(ArrayUtil.isEmpty(array)) {
@@ -48,8 +48,8 @@ public class CollectionUtil {
 
     /**
      * 列表转数组
-     * @param stringList
-     * @return
+     * @param stringList string list
+     * @return string array
      */
     public static String[] listToArray(List<String> stringList) {
         String[] strings = new String[stringList.size()];

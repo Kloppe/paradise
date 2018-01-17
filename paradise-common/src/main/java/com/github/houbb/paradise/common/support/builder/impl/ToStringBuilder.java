@@ -32,8 +32,8 @@ public class ToStringBuilder implements Builder<String> {
 
     /**
      * 反射生成对应的字符串
-     * @param object
-     * @return
+     * @param object 对象
+     * @return toString() 内容
      */
     public static String reflectionToString(Object object) {
         Class clazz = object.getClass();

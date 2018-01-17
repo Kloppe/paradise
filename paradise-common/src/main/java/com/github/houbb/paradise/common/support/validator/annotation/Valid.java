@@ -6,11 +6,12 @@ import java.lang.annotation.*;
 
 /**
  * @author houbinbin
- * @on 16/12/16
  * 参数校验,主要用于入参,出参校验。
  * 注意:
  * 1.只有notNull() notEmpty() 进行空校验。 如果这两项没指定,后面的不会进行空校验。
  * 例如: 不指定空校验。null 对于 isNumber() 是通过的!
+ * @since 1.1.2
+ * @version 1.1.2
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
