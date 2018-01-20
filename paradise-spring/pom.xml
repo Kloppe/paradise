@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>paradise</artifactId>
+        <groupId>com.github.houbb</groupId>
+        <version>1.1.3-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>paradise-spring</artifactId>
+
+    <properties>
+        <spring.version>5.0.2.RELEASE</spring.version>
+    </properties>
+
+    <dependencies>
+        <!--============================================ SELF ============================================-->
+        <dependency>
+            <groupId>com.github.houbb</groupId>
+            <artifactId>paradise-common</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--============================================ INTER ============================================-->
+        <dependency>
+            <groupId>com.github.houbb</groupId>
+            <artifactId>log-integration</artifactId>
+        </dependency>
+
+        <!--============================================ OTHER ============================================-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>
