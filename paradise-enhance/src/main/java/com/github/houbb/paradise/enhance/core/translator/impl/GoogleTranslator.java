@@ -7,6 +7,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+/**
+ *  谷歌翻译
+ */
 public class GoogleTranslator implements Translator<String> {
 
     /**
@@ -24,26 +27,60 @@ public class GoogleTranslator implements Translator<String> {
      */
     private String targetLang;
 
+    /**    
+     *  谷歌翻译    
+     *    
+     * @param text 文本    
+     * @param srcLang src lang    
+     * @param targetLang 目标语言    
+     */    
     public GoogleTranslator(String text, String srcLang, String targetLang) {
         this.text = text;
         this.srcLang = srcLang;
         this.targetLang = targetLang;
     }
 
+    /**    
+     *  谷歌翻译    
+     *    
+     * @param text 文本    
+     * @param targetLang 目标语言    
+     */    
     public GoogleTranslator(String text, String targetLang) {
         this(text, "", targetLang);
     }
 
 
+    /**    
+     * 新的实例    
+     *    
+     * @param text 文本    
+     * @param srcLang src lang    
+     * @param targetLang 目标语言    
+     * @return com.github.houbb.paradise.enhance.core.translator.impl.GoogleTranslator    
+     */    
     public static GoogleTranslator newInstance(String text, String srcLang, String targetLang) {
         return new GoogleTranslator(text, srcLang, targetLang);
     }
 
+    /**    
+     * 新的实例    
+     *    
+     * @param text 文本    
+     * @param targetLang 目标语言    
+     * @return com.github.houbb.paradise.enhance.core.translator.impl.GoogleTranslator    
+     */    
     public static GoogleTranslator newInstance(String text, String targetLang) {
         return new GoogleTranslator(text, "", targetLang);
     }
 
 
+    /**    
+     * 翻译    
+     *    
+     * @return java.lang.String    
+     * @throws java.lang.Exception if any    
+     */    
     @Override
     public String translate() throws Exception {
         return execute(text, srcLang, targetLang);
@@ -64,6 +101,15 @@ public class GoogleTranslator implements Translator<String> {
         return defaultVal;
     }
 
+    /**    
+     * 翻译    
+     *    
+     * @param texts 文本    
+     * @param srcLang src lang    
+     * @param targetLang 目标语言    
+     * @return java.lang.String    
+     * @throws java.lang.Exception if any    
+     */    
     public String[] translate(String[] texts, String srcLang, String targetLang)
             throws Exception {
 
@@ -112,6 +158,11 @@ public class GoogleTranslator implements Translator<String> {
         return element.text();
     }
 
+    /**    
+     * 主要    
+     *    
+     * @param args ARGS    
+     */    
     public static void main(String[] args) {
         String text = "你今天真好看";
         Translator translate = new GoogleTranslator(text, GoogleLanguageEnum.ENGLISH.langInfo());

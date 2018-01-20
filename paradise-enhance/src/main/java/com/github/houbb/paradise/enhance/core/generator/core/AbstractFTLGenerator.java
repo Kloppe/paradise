@@ -30,20 +30,41 @@ public abstract class AbstractFTLGenerator {
      */
     private String ftlBasePackagePath;
 
+    /**    
+     * 获取配置    
+     *    
+     * @return freemarker.template.Configuration    
+     */    
     public Configuration getConfiguration() {
         return configuration;
     }
 
+    /**    
+     * 获得目标路径    
+     *    
+     * @return java.lang.String    
+     */    
     public String getTargetPath() {
         return targetPath;
     }
 
 
+    /**    
+     *  抽象的发电机    
+     *    
+     * @param targetPath 目标路径    
+     */    
     public AbstractFTLGenerator(String targetPath) {
         init();
         this.targetPath = targetPath;
     }
 
+    /**    
+     *  抽象的发电机    
+     *    
+     * @param configuration 组态    
+     * @param targetPath 目标路径    
+     */    
     public AbstractFTLGenerator(Configuration configuration, String targetPath) {
         init();
         this.configuration = configuration;

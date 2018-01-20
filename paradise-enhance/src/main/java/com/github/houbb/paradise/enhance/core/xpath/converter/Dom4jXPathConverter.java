@@ -22,6 +22,13 @@ import java.util.List;
  */
 public class Dom4jXPathConverter implements XPathConverter {
 
+    /**    
+     * 兑换    
+     *    
+     * @param xml XML    
+     * @param tClass t类    
+     * @return T    
+     */    
     @Override
     public <T> T convert(String xml, Class<T> tClass) {
         if(StringUtil.isEmpty(xml)) {

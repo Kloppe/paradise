@@ -15,11 +15,14 @@ import java.util.Map;
  */
 public final class GeneratorUtil {
 
+    /**    
+     *  有用的发电机    
+     */    
     private GeneratorUtil(){}
 
     /**
      * 创建文件夹
-     * @param dirPath
+     * @param dirPath dir path
      */
     public static void makeDirectory(String dirPath) {
         File tempFile = new File(dirPath);

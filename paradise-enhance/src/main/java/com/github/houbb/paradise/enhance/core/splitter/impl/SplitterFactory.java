@@ -9,6 +9,12 @@ import com.github.houbb.paradise.enhance.core.splitter.Splitter;
  */
 public class SplitterFactory {
 
+    /**    
+     * 新的分离器    
+     *    
+     * @param name name    
+     * @return com.github.houbb.paradise.enhance.core.splitter.Splitter    
+     */    
     public static Splitter newSplitter(final String name) {
         if(StringUtil.isEmpty(name)) {
             return null;

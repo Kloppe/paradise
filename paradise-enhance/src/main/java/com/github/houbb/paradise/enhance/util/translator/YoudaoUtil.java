@@ -90,6 +90,12 @@ public class YoudaoUtil {
 
     //1.读取
     //2. 分词  根据下划线 大小写
+    /**    
+     * 主要    
+     *    
+     * @param args ARGS    
+     * @throws java.lang.Exception if any    
+     */    
     public static void main(String[] args) throws Exception {
 //        final String path = PathUtil.getAppResourcesPath()+"/temp/original/Fields.txt";
 //        Execute(path);

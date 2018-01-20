@@ -62,4 +62,16 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.houbb</groupId>
+                <artifactId>gen-maven-plugin</artifactId>
+                <configuration>
+                    <isCommentWhenNetworkBroken>true</isCommentWhenNetworkBroken>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
