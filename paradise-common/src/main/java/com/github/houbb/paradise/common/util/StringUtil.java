@@ -1,5 +1,6 @@
 package com.github.houbb.paradise.common.util;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import java.util.List;
  * @version 1.1.0
  * @author bbhou
  */
-public class StringUtil {
+public final class StringUtil {
+
+    private StringUtil(){}
 
     /**
      * 空字符串
@@ -75,7 +78,7 @@ public class StringUtil {
      */
     public static List<String> trimList(final List<String> stringList) {
         if(CollectionUtil.isEmpty(stringList)) {
-            return CollectionUtil.EMPTY_LIST;
+            return Collections.emptyList();
         }
 
         List<String> resultList = new LinkedList<>();

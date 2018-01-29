@@ -8,7 +8,9 @@ import java.util.Date;
  * @author bbhou
  * @version 1.1.0
  */
-public class DateUtil {
+public final class DateUtil {
+
+    private DateUtil(){}
 
     /**
      * 日期格式化

@@ -20,36 +20,36 @@ public class AbstractAssigner implements Assigner, ExplicitAssigner, SelectiveAs
 
     @Override
     public void assign(Object example, Object target) throws AssignException {
-
+        //do nothing
     }
 
     @Override
     public void assignExplicitCondition(Object example, Object target, String... fieldName) throws AssignException {
-
+        //do nothing
     }
 
     @Override
     public void assignExplicitCondition(Object example, Object target, List<String> fieldNameList) throws AssignException {
-
+        //do nothing
     }
 
     @Override
     public void assignExplicitUnless(Object example, Object target, String... fieldName) throws AssignException {
-
+        //do nothing
     }
 
     @Override
     public void assignExplicitUnless(Object example, Object target, List<String> fieldNameList) throws AssignException {
-
+        //do nothing
     }
 
     @Override
     public void assignExampleSelective(Object example, Object target) throws InvocationTargetException, IllegalAccessException {
-
+        //do nothing
     }
 
     @Override
     public void assignTargetSelective(Object example, Object target) throws InvocationTargetException, IllegalAccessException {
-
+        //do nothing
     }
 }

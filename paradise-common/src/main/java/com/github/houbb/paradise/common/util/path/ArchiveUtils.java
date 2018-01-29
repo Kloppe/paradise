@@ -28,63 +28,61 @@ import java.util.zip.ZipInputStream;
  * @author Adam Gibson
  * @author houbinbin 删除 .tar .tar.gz .tgz .gz 的支持
  */
-public class ArchiveUtils {
+public final class ArchiveUtils {
 
+    private ArchiveUtils(){}
 
     /**
      * Extracts files to the specified destination
+     *
      * @param file the file to extract to
      * @param dest the destination directory
      * @throws IOException if any
      */
     public static void unzipFileTo(String file, String dest) throws IOException {
         File target = new File(file);
-        if (!target.exists())
-            throw new IllegalArgumentException("Archive doesnt exist");
-        FileInputStream fin = new FileInputStream(target);
-        int BUFFER = 2048;
-        byte data[] = new byte[BUFFER];
+        if (!target.exists()) {
+            throw new IllegalArgumentException("Archive does not exist");
+        }
 
-        if (file.endsWith(".zip") || file.endsWith(".jar")) {
-            //getFromOrigin the zip file content
-            ZipInputStream zis = new ZipInputStream(fin);
-            //getFromOrigin the zipped file list entry
-            ZipEntry ze = zis.getNextEntry();
+        try (FileInputStream fin = new FileInputStream(target)) {
+            int bufferSize = 2048;
+            byte[] data = new byte[bufferSize];
 
-            while (ze != null) {
-                String fileName = ze.getName();
+            if (file.endsWith(".zip") || file.endsWith(".jar")) {
 
-                File newFile = new File(dest + File.separator + fileName);
+                //getFromOrigin the zip file content
+                try (ZipInputStream zis = new ZipInputStream(fin);) {
+                    //getFromOrigin the zipped file list entry
+                    ZipEntry ze = zis.getNextEntry();
+                    while (ze != null) {
+                        String fileName = ze.getName();
 
-                if (ze.isDirectory()) {
-                    newFile.mkdirs();
-                    zis.closeEntry();
-                    ze = zis.getNextEntry();
-                    continue;
+                        File newFile = new File(dest + File.separator + fileName);
+
+                        if (ze.isDirectory()) {
+                            boolean mkdirs = newFile.mkdirs();
+                            zis.closeEntry();
+                            ze = zis.getNextEntry();
+                            continue;
+                        }
+
+                        //create all non exists folders
+                        //else you will hit FileNotFoundException for compressed folder
+
+                        try(FileOutputStream fos = new FileOutputStream(newFile);) {
+                            int len;
+                            while ((len = zis.read(data)) > 0) {
+                                fos.write(data, 0, len);
+                            }
+
+                            fos.flush();
+                            zis.closeEntry();
+                            ze = zis.getNextEntry();
+                        }
+                    }
                 }
-
-//                log.debug("file unzip : " + newFile.getAbsoluteFile());
-
-                //create all non exists folders
-                //else you will hit FileNotFoundException for compressed folder
-
-
-                FileOutputStream fos = new FileOutputStream(newFile);
-
-                int len;
-                while ((len = zis.read(data)) > 0) {
-                    fos.write(data, 0, len);
-                }
-
-                fos.flush();
-                fos.close();
-                zis.closeEntry();
-                ze = zis.getNextEntry();
             }
-
-            zis.close();
-
-
         }
 
     }

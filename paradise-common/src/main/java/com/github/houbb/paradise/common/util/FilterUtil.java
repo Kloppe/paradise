@@ -6,8 +6,9 @@ package com.github.houbb.paradise.common.util;
  * @author houbinbin
  * @version 1.1.1
  */
-public class FilterUtil {
+public final class FilterUtil {
 
+    private FilterUtil(){}
 
     /**
      * 是否排除
@@ -20,7 +21,7 @@ public class FilterUtil {
      * @param name 带判断的东西
      * @param includeRegex 包含正则
      * @param excludeRegex 排除正则
-     * @return
+     * @return {@code true} 是
      */
     public static boolean isExclude(final String name, final String includeRegex, final String excludeRegex) {
 

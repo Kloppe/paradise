@@ -39,6 +39,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <compiler.level>1.8</compiler.level>
 
+        <!--============================== OTHER ==============================-->
         <!--log4j2-->
         <log4j2.api.version>2.5</log4j2.api.version>
 
@@ -62,6 +63,10 @@
         <aopalliance.version>1.0</aopalliance.version>
 
         <log-integration.version>1.1.2</log-integration.version>
+
+        <!--sonar-->
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+        <sonar.exclusions>**/*Test.java</sonar.exclusions>
     </properties>
 
 
@@ -224,6 +229,7 @@
                 </plugin>
                 <!--=================================== coveralls END ===================================-->
 
+
             </plugins>
         </pluginManagement>
 
@@ -255,6 +261,13 @@
             </plugin>
             <!--=================================== coveralls END ===================================-->
 
+            <!--mvn clean install sonar:sonar -Dmaven.test.skip=true -Dsonar.host.url=http://localhost:9000-->
+            <!--sonar-->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.1.1</version>
+            </plugin>
         </plugins>
 
 

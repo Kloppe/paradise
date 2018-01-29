@@ -47,8 +47,6 @@ public class FilterChain implements Filter {
      */
     @Override
     public boolean include() {
-        boolean result = true;
-
         for(Filter filter : filterList) {
             if(!filter.include()) {
                 return false;

@@ -22,8 +22,8 @@ public final class JcTrees {
 
     /**
      * 是否为构造器
-     * @param jcMethodDecl
-     * @return
+     * @param jcMethodDecl 方法声明
+     * @return {@code true} 是
      */
     public static boolean isConstructor(JCTree.JCMethodDecl jcMethodDecl) {
         String name = jcMethodDecl.name.toString();
@@ -35,8 +35,8 @@ public final class JcTrees {
 
     /**
      * 是否为共有方法
-     * @param jcMethodDecl
-     * @return
+     * @param jcMethodDecl 方法声明
+     * @return {@code true} 是
      */
     public static boolean isPublicMethod(JCTree.JCMethodDecl jcMethodDecl) {
         JCTree.JCModifiers jcModifiers = jcMethodDecl.getModifiers();
@@ -49,8 +49,8 @@ public final class JcTrees {
 
     /**
      * 是否为私有方法
-     * @param jcMethodDecl
-     * @return
+     * @param jcMethodDecl 方法声明
+     * @return {@code true} 是
      */
     public static boolean isPrivateMethod(JCTree.JCMethodDecl jcMethodDecl) {
         JCTree.JCModifiers jcModifiers = jcMethodDecl.getModifiers();
@@ -63,8 +63,8 @@ public final class JcTrees {
 
     /**
      * 是否为无参方法
-     * @param jcMethodDecl
-     * @return
+     * @param jcMethodDecl 方法声明
+     * @return {@code true} 是
      */
     public static boolean isNoArgsMethod(JCTree.JCMethodDecl jcMethodDecl) {
         List<JCTree.JCVariableDecl> jcVariableDeclList = jcMethodDecl.getParameters();

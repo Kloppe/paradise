@@ -59,9 +59,9 @@ public class ToStringBuilder implements Builder<String> {
      * TODO: 特殊值的处理
      * 1. 对于数组的处理
      * 2. 对于集合的处理
-     * @param object
-     * @param field
-     * @return
+     * @param object 对象
+     * @param field 字段
+     * @return 构建后的 String
      */
     private static String buildFieldValue(Object object, Field field) {
         final String format = isType(field, String.class) ? "%s='%s'" : "%s=%s";
@@ -84,9 +84,9 @@ public class ToStringBuilder implements Builder<String> {
 
     /**
      * get the Get() of current field;
-     * @param clazz
-     * @param field
-     * @return
+     * @param clazz 类信息
+     * @param field 字段信息
+     * @return 方法
      */
     private static Method getGetMethod(Class clazz, Field field) {
         PropertyDescriptor propertyDescriptor = null;
@@ -96,6 +96,7 @@ public class ToStringBuilder implements Builder<String> {
             e.printStackTrace();
         }
 
+        assert propertyDescriptor != null;
         return propertyDescriptor.getReadMethod();
     }
 

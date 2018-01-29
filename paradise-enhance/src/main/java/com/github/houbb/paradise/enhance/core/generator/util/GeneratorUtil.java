@@ -1,6 +1,8 @@
 package com.github.houbb.paradise.enhance.core.generator.util;
 
 
+import com.github.houbb.log.integration.core.Log;
+import com.github.houbb.log.integration.core.LogFactory;
 import freemarker.template.Template;
 
 import java.io.*;
@@ -15,6 +17,8 @@ import java.util.Map;
  */
 public final class GeneratorUtil {
 
+    private static Log log = LogFactory.getLog(GeneratorUtil.class);
+
     /**    
      *  有用的发电机    
      */    
@@ -27,15 +31,14 @@ public final class GeneratorUtil {
     public static void makeDirectory(String dirPath) {
         File tempFile = new File(dirPath);
         if (!tempFile.exists()) {
-            System.out.println("Create target directory path is: " + dirPath);
-            boolean result = false;
+            log.debug("Create target directory path is: {}", dirPath);
             try {
-                result = tempFile.mkdirs();
+                boolean result = tempFile.mkdirs();
                 if(!result) {
-                    System.err.println("创建文件夹失败");
+                    log.error("创建文件夹失败");
                 }
             } catch (Exception e) {
-                System.err.println("创建文件夹失败"+e);
+                log.error("创建文件夹失败", e);
             }
         }
     }
@@ -51,11 +54,11 @@ public final class GeneratorUtil {
     public static void buildTemplate(Map root, String fileName, Template template) throws Exception {
         File file = new File(fileName);
         String fileAbsolutePath = file.getAbsolutePath();
-        System.out.println("开始创建模板文件"+fileAbsolutePath);
+        log.info("开始创建模板文件: {}", fileAbsolutePath);
         OutputStream outputStream = new FileOutputStream(fileAbsolutePath);
         Writer out = new OutputStreamWriter(outputStream, "UTF-8");
         template.process(root, out);
-        System.out.println("创建模板文件完成");
+        log.info("创建模板文件完成");
     }
 
 

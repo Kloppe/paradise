@@ -14,7 +14,9 @@ import java.util.List;
  * @version 1.0.0
  * @see Path 文件NIO
  */
-public class FilePathUtil {
+public final class FilePathUtil {
+
+    private FilePathUtil(){}
 
     /**
      * 获得对应的PATH列表。
