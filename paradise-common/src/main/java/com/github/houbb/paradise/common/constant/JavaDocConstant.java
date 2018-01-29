@@ -5,7 +5,9 @@ package com.github.houbb.paradise.common.constant;
  * @author bbhou
  * @version 1.1.1
  */
-public class JavaDocConstant {
+public final class JavaDocConstant {
+
+    private JavaDocConstant(){}
 
     /**
      * 注释前缀

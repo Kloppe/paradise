@@ -1,16 +1,23 @@
 package com.github.houbb.paradise.enhance.core.translator.impl;
 
 
+import com.github.houbb.log.integration.core.Log;
+import com.github.houbb.log.integration.core.LogFactory;
 import com.github.houbb.paradise.enhance.constant.translator.GoogleLanguageEnum;
 import com.github.houbb.paradise.enhance.core.translator.Translator;
+import com.github.houbb.paradise.enhance.core.translator.exception.TranslatorException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+
+import java.io.IOException;
 
 /**
  *  谷歌翻译
  */
 public class GoogleTranslator implements Translator<String> {
+
+    private static Log log = LogFactory.getLog(GoogleTranslator.class);
 
     /**
      * 待翻译的文本
@@ -79,10 +86,10 @@ public class GoogleTranslator implements Translator<String> {
      * 翻译    
      *    
      * @return java.lang.String    
-     * @throws java.lang.Exception if any    
+     * @throws TranslatorException if any
      */    
     @Override
-    public String translate() throws Exception {
+    public String translate() throws TranslatorException {
         return execute(text, srcLang, targetLang);
     }
 
@@ -108,10 +115,10 @@ public class GoogleTranslator implements Translator<String> {
      * @param srcLang src lang    
      * @param targetLang 目标语言    
      * @return java.lang.String    
-     * @throws java.lang.Exception if any    
+     * @throws TranslatorException if any
      */    
     public String[] translate(String[] texts, String srcLang, String targetLang)
-            throws Exception {
+            throws TranslatorException {
 
         StringBuilder content = new StringBuilder();
         int size = texts.length;
@@ -138,24 +145,28 @@ public class GoogleTranslator implements Translator<String> {
      * @param srcLang    源语言
      * @param targetLang 目标语言
      * @return 目标语言
-     * @throws Exception 翻译失败
+     * @throws TranslatorException 翻译失败
      */
     private String execute(final String text, final String srcLang,
-                           final String targetLang) throws Exception {
-        Document document = Jsoup.connect("https://translate.google.cn/")
-                .data("sl", srcLang)
-                .data("ie", "UTF-8")
-                .data("oe", "UTF-8")
-                .data("text", text)
-                .data("tl", targetLang)
-                .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36")
-//                .cookie("Cookie", "Cookie PREF=ID=8daa1f767f10d1fe:U=f5ac701cf7d3f2e0:FF=0:LD=en:CR=2:TM=1277174286:LM=1289370601:S=q7yslRWEZs3uK1H8; NID=39=UO-TWo9HzzjHc-d_wYm7BVR1cH33KpqaN5h5877_i29nERA93FeG1GSuV3ZSvsOx8D-TnHKpB9m0KhZRH8U9uPwoE-arYd0bAyAlILyXZxLO2_TyGQhJpcMiOLVEuCpq; SID=DQAAAHoAAADMlGzeKhnGkbkIJ36tVO0ZPXgmQ6Cth7Oa6geyyE1WJooW8P01uKUHNrsRkjggvFMAWIWB9J5i18z0F6GjC_oV79mSwXEDGuRFGhRnDyJdid3ptjFW0pIyt4_2D6AMIqtOWF71aWdvY7IvAU1AWMNs8fBZHAOgRqtf3aCUkr36ZA; HSID=A6-YJTnhjBdFWukoR")
-                .cookie("Cookie", "NID=101=IxXmFpFshaY43MPgpE-1LlE-CJUDmXHXaXk-yN13vShZ0VwfJb8AOefXmeRmfGWW3-56oCWYPQDXqcKNRrIuEubTZV4ZpO8nL6F1PZPDE0ILUVGzZuMxhNfarad0TM5-; _ga=GA1.3.109626246.1492094023")
-                .timeout(2000000)
-                .get();
+                           final String targetLang) throws TranslatorException {
+        try {
+            Document document = Jsoup.connect("https://translate.google.cn/")
+                    .data("sl", srcLang)
+                    .data("ie", "UTF-8")
+                    .data("oe", "UTF-8")
+                    .data("text", text)
+                    .data("tl", targetLang)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36")
+    //                .cookie("Cookie", "Cookie PREF=ID=8daa1f767f10d1fe:U=f5ac701cf7d3f2e0:FF=0:LD=en:CR=2:TM=1277174286:LM=1289370601:S=q7yslRWEZs3uK1H8; NID=39=UO-TWo9HzzjHc-d_wYm7BVR1cH33KpqaN5h5877_i29nERA93FeG1GSuV3ZSvsOx8D-TnHKpB9m0KhZRH8U9uPwoE-arYd0bAyAlILyXZxLO2_TyGQhJpcMiOLVEuCpq; SID=DQAAAHoAAADMlGzeKhnGkbkIJ36tVO0ZPXgmQ6Cth7Oa6geyyE1WJooW8P01uKUHNrsRkjggvFMAWIWB9J5i18z0F6GjC_oV79mSwXEDGuRFGhRnDyJdid3ptjFW0pIyt4_2D6AMIqtOWF71aWdvY7IvAU1AWMNs8fBZHAOgRqtf3aCUkr36ZA; HSID=A6-YJTnhjBdFWukoR")
+                    .cookie("Cookie", "NID=101=IxXmFpFshaY43MPgpE-1LlE-CJUDmXHXaXk-yN13vShZ0VwfJb8AOefXmeRmfGWW3-56oCWYPQDXqcKNRrIuEubTZV4ZpO8nL6F1PZPDE0ILUVGzZuMxhNfarad0TM5-; _ga=GA1.3.109626246.1492094023")
+                    .timeout(2000000)
+                    .get();
 
-        Element element = document.getElementById("result_box");
-        return element.text();
+            Element element = document.getElementById("result_box");
+            return element.text();
+        } catch (IOException e) {
+            throw new TranslatorException(e);
+        }
     }
 
     /**    
@@ -167,9 +178,9 @@ public class GoogleTranslator implements Translator<String> {
         String text = "你今天真好看";
         Translator translate = new GoogleTranslator(text, GoogleLanguageEnum.ENGLISH.langInfo());
         try {
-            System.out.println(translate.translate());
+            log.info("翻译结果:{}", translate.translate());
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("meet ex:{}", e, e);
         }
     }
 

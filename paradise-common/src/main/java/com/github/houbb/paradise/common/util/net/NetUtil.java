@@ -9,7 +9,9 @@ import java.net.InetAddress;
  * @version 1.1.2
  * @since 1.1.2, 2018/01/04
  */
-public class NetUtil {
+public final class NetUtil {
+
+    private NetUtil(){}
 
     /**
      * 传入需要连接的IP，返回是否连接成功

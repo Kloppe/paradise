@@ -11,7 +11,11 @@ import java.util.Map;
  * @version 1.1.0
  * @author bbhou
  */
-public class ClassUtil {
+public final class ClassUtil {
+
+    private ClassUtil() {}
+
+    private static final String TYPE = "TYPE";
 
     /**
      * 获取对应类的默认变量名：
@@ -21,15 +25,8 @@ public class ClassUtil {
      * @return 类的默认变量名
      */
     public static String getClassVar(final String className) {
-        String classVar = className.substring(0, 1).toLowerCase() + className.substring(1);
-        return classVar;
+        return className.substring(0, 1).toLowerCase() + className.substring(1);
     }
-
-    private static final String TYPE = "TYPE";
-
-    private ClassUtil() {
-    }
-
 
     /**
      * 是否为字符串
@@ -82,7 +79,6 @@ public class ClassUtil {
         try {
             return ((Class) object.getClass().getField(TYPE).get(null)).isPrimitive();
         } catch (IllegalAccessException | NoSuchFieldException e) {
-//            log.error("判断是否为基本类型，出现错误:{}, exception:{}", object.toString(), e);
             return false;
         }
     }
@@ -96,7 +92,6 @@ public class ClassUtil {
         try {
             return ((Class) clazz.getField(TYPE).get(null)).isPrimitive();
         } catch (IllegalAccessException | NoSuchFieldException e) {
-//            log.error("判断是否为基本类型，出现错误:{}, exception:{}", clazz.toString(), e);
             return false;
         }
     }

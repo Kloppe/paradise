@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * 校验实现
  *
- * TODO:
  * 1. 规范错误提示！
  * 2. 尽可能的详细规范。知道错误的原因。加上校验的类型，字段名称。
  *
@@ -32,7 +31,7 @@ public class ValidServiceImpl implements ValidService {
 
 
     @Override
-    public void valid(Object object) throws ValidException, IllegalArgumentException {
+    public void valid(Object object) throws ValidException {
         ArgUtil.notNull(object, "object");
 
 
@@ -139,7 +138,7 @@ public class ValidServiceImpl implements ValidService {
      * @throws ValidException   if any
      * @throws IllegalAccessException   if any
      */
-    private void isNumberCheck(Valid valid, Object object, Field field) throws ValidException, IllegalAccessException {
+    private void isNumberCheck(Valid valid, Object object, Field field) throws IllegalAccessException, ValidException {
         boolean isNumber = valid.isNumber();
         if (isNumber) {
             if (ClassUtil.isNotString(field)) {
@@ -161,7 +160,7 @@ public class ValidServiceImpl implements ValidService {
      * @throws ValidException   if any
      * @throws IllegalAccessException   if any
      */
-    private void matchesRegexCheck(Valid valid, Object object, Field field) throws ValidException, IllegalAccessException {
+    private void matchesRegexCheck(Valid valid, Object object, Field field) throws IllegalAccessException, ValidException {
         String regex = valid.matchRegex();
         if (StringUtil.isNotEmpty(regex)) {
             if (ClassUtil.isNotString(field)) {
@@ -201,11 +200,11 @@ public class ValidServiceImpl implements ValidService {
             String oneNumStr = strings[0].substring(1, strings[0].length());   //左边数字
             String twoNumStr = strings[1].substring(0, strings[1].length() - 1); //右边数字
 
-            double doubleVal = Double.valueOf(fieldValue.toString());
+            double doubleVal = Double.parseDouble(fieldValue.toString());
 
             //1.左边值范围校验
             if (!ValidConstant.INFINITY_FLAG.equals(leftStr)) {
-                double oneNum = Double.valueOf(oneNumStr);
+                double oneNum = Double.parseDouble(oneNumStr);
                 if (ValidConstant.GREATER_THAN.equals(leftStr)) {
                     if (doubleVal <= oneNum) {
                         throw new IllegalArgumentException(errMsgCheck(valid, field));
@@ -219,7 +218,7 @@ public class ValidServiceImpl implements ValidService {
 
             //2.右边值范围校验
             if (!ValidConstant.INFINITY_FLAG.equals(rightStr)) {
-                double twoNum = Double.valueOf(twoNumStr);
+                double twoNum = Double.parseDouble(twoNumStr);
                 if (ValidConstant.LESS_THAN.equals(rightStr)) {
                     if (doubleVal >= twoNum) {
                         throw new IllegalArgumentException(errMsgCheck(valid, field));
@@ -238,7 +237,6 @@ public class ValidServiceImpl implements ValidService {
      * 字段类型校验
      *
      * @param field 字段
-     * @throws ValidException if any
      */
     private void inRangeFieldTypeVerify(Field field) throws ValidException {
         if (field.getType() == Integer.class ||
@@ -263,7 +261,7 @@ public class ValidServiceImpl implements ValidService {
      * @param field 字段
      * @throws IllegalAccessException   if any
      */
-    private void restrictionCheck(Valid valid, Object object, Field field) throws IllegalAccessException {
+    private void restrictionCheck(Valid valid, Object object, Field field) throws IllegalAccessException, ValidException {
         String[] restrictionArray = valid.restriction();
         if (ArrayUtil.isNotEmpty(restrictionArray)) {
             String fieldValueStr = String.valueOf(field.get(object));
@@ -282,7 +280,7 @@ public class ValidServiceImpl implements ValidService {
      * @throws IllegalAccessException   if any
      * @throws NoSuchFieldException if any
      */
-    private void atLeastOneCheck(Valid valid, Object object, Field field) throws IllegalAccessException, NoSuchFieldException {
+    private void atLeastOneCheck(Valid valid, Object object, Field field) throws IllegalAccessException, NoSuchFieldException, ValidException {
         String[] fieldNameArray = valid.restriction();
 
         //1. 当指定的集合不为空

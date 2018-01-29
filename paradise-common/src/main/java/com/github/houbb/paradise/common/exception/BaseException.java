@@ -27,19 +27,11 @@ public class BaseException extends Exception {
 
     /**
      * 获取错误编码+信息
-     * @return
+     * @return error info
      */
     public String getCodeMsg() {
         return String.format("%s(%s)", this.rspCode.getMsg(),this.rspCode.getCode());
     }
-
-    /**
-     * 异常转化为 rsp
-     */
-//    public void exceptionToResponse(BlogBaseResponse blogBaseResponse) {
-//        blogBaseResponse.setRspCodeAndException(rspCode, this);
-//    }
-
 
     @Override
     public String toString() {

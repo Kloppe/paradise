@@ -40,9 +40,8 @@ public final class ArgUtil {
      * 校验字符串非空
      * @param string 待检查的字符串
      * @param name 字符串的名称
-     * @throws IllegalArgumentException 非法入参
      */
-    public static void notEmpty(String string, String name) throws IllegalArgumentException {
+    public static void notEmpty(String string, String name) {
         if(StringUtil.isEmpty(string)) {
             throw new IllegalArgumentException(name + " can not be null!");
         }
@@ -72,9 +71,8 @@ public final class ArgUtil {
      * @param except    期望值
      * @param real  实际值
      * @param msg   错误消息
-     * @throws IllegalArgumentException 非法入参
      */
-    public static void equals(String except, String real, String msg) throws IllegalArgumentException {
+    public static void equals(String except, String real, String msg) {
         if(!real.equals(except)) {
             String errorMsg = buildErrorMsg(except, real, msg);
             throw new IllegalArgumentException(errorMsg);
@@ -87,15 +85,12 @@ public final class ArgUtil {
      * @param except    期望值
      * @param real  实际值
      * @param msg   错误消息
-     * @throws IllegalArgumentException 非法入参
      */
-    public static void equals(Object except, Object real, String msg) throws IllegalArgumentException {
-
+    public static void equals(Object except, Object real, String msg) {
         if(ObjectUtil.isNotEquals(except, real)) {
             String errorMsg = buildErrorMsg(except, real, msg);
             throw new IllegalArgumentException(errorMsg);
         }
-
     }
 
 
@@ -236,8 +231,7 @@ public final class ArgUtil {
         if(StringUtil.isEmpty(resultMsg)) {
             resultMsg = "与期望值不符合!";
         }
-        String result = String.format("Except:<%s>, Real:<%s>, Msg:<%s>", except, real, resultMsg);
-        return result;
+        return String.format("Except:<%s>, Real:<%s>, Msg:<%s>", except, real, resultMsg);
     }
 
 }

@@ -7,7 +7,9 @@ import com.github.houbb.paradise.enhance.core.splitter.Splitter;
 /**
  * splitter 工厂
  */
-public class SplitterFactory {
+public final class SplitterFactory {
+
+    private SplitterFactory(){}
 
     /**    
      * 新的分离器    

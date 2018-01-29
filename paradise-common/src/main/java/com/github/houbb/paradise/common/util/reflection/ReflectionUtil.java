@@ -13,7 +13,9 @@ import java.util.List;
  * @author bbhou
  * @since 1.1.2
  */
-public class ReflectionUtil {
+public final class ReflectionUtil {
+
+    private ReflectionUtil(){}
 
     /**
      * 获取类对应的所有字段列表
@@ -26,10 +28,10 @@ public class ReflectionUtil {
         List<Field> allFields = new LinkedList<>();
         for(Class currentClass = cls; currentClass != null; currentClass = currentClass.getSuperclass()) {
             Field[] declaredFields = currentClass.getDeclaredFields();
-            int len$ = declaredFields.length;
+            int length = declaredFields.length;
 
-            for(int i$ = 0; i$ < len$; ++i$) {
-                Field field = declaredFields[i$];
+            for(int i = 0; i < length; i++) {
+                Field field = declaredFields[i];
                 allFields.add(field);
             }
         }

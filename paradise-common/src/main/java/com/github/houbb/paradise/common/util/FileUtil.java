@@ -31,7 +31,6 @@ public final class FileUtil {
                 return getFileContent(inputStream);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                System.err.println("文件不存在" + filePath);
                 return "";
             }
         }
@@ -79,7 +78,7 @@ public final class FileUtil {
      * @return 文件后缀
      */
     public static String getSuffix(String fileName) {
-        return fileName.substring(fileName.lastIndexOf(".") + 1);
+        return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 
 
@@ -151,7 +150,6 @@ public final class FileUtil {
         List<String> contentList = new LinkedList<>();
 
         if (!file.exists()) {
-            System.err.println("文件不存在");
             return contentList;
         }
 
@@ -163,7 +161,7 @@ public final class FileUtil {
             int lineNo = 0;// 用于记录行号
             while (lineNo < initLine) {
                 lineNo++;
-                bufferedReader.readLine();
+                String ignore = bufferedReader.readLine();
             }
 
             String dataEachLine;   //每一行的内容
@@ -197,7 +195,6 @@ public final class FileUtil {
         List<String> contentList = new LinkedList<>();
 
         if (!file.exists()) {
-            System.err.println("文件不存在");
             return contentList;
         }
 
@@ -208,7 +205,7 @@ public final class FileUtil {
             int lineNo = 0;// 用于记录行号
             while (lineNo < initLine) {
                 lineNo++;
-                bufferedReader.readLine();
+                String ignore =  bufferedReader.readLine();
             }
 
             String dataEachLine;   //每一行的内容

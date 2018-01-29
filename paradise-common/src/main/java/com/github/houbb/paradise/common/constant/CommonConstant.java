@@ -6,7 +6,9 @@ package com.github.houbb.paradise.common.constant;
  * @author bbhou
  * @version 1.1.0
  */
-public class CommonConstant {
+public final class CommonConstant {
+
+    private CommonConstant(){}
 
     /**
      * 逗号

@@ -7,7 +7,9 @@ package com.github.houbb.paradise.spring.datasource.dynamic.core;
  * @version 1.1.3
  * @since 1.1.3, 2018/01/19
  */
-public class DynamicDataSourceHolder  {
+public final class DynamicDataSourceHolder  {
+
+    private DynamicDataSourceHolder(){}
 
     /**
      * 保证线程间互不干涉
