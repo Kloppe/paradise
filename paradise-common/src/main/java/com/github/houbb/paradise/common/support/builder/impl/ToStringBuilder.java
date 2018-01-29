@@ -97,6 +97,7 @@ public class ToStringBuilder implements Builder<String> {
             throw new ParadiseCommonRuntimeException(e);
         }
 
+        assert propertyDescriptor != null;
         return propertyDescriptor.getReadMethod();
     }
 
