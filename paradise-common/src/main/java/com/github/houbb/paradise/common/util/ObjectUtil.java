@@ -24,7 +24,7 @@ public final class ObjectUtil {
      *
      * @param one 第一个元素
      * @param two 第二个元素
-     * @return  是否为同一对象
+     * @return 是否为同一对象
      */
     public static boolean isSameType(Object one, Object two) {
         Class clazzOne = one.getClass();
@@ -37,7 +37,7 @@ public final class ObjectUtil {
      *
      * @param one 第一个元素
      * @param two 第二个元素
-     * @return  是否为不同对象
+     * @return 是否为不同对象
      */
     public static boolean isNotSameType(Object one, Object two) {
         return !isSameType(one, two);
@@ -53,7 +53,7 @@ public final class ObjectUtil {
      * - 自定义空类型
      *
      * @param object 对象
-     * @return  是否为空
+     * @return 是否为空
      */
     public static boolean isNull(Object object) {
         return null == object;
@@ -77,7 +77,7 @@ public final class ObjectUtil {
      * - 自定义空类型
      *
      * @param object 对象
-     * @return  是否为空
+     * @return 是否为空
      */
     public static boolean isEmpty(Object object) {
         if (isNull(object)) {
@@ -107,7 +107,7 @@ public final class ObjectUtil {
      * 判断对象是否非空
      *
      * @param object 对象
-     * @return  是否非空
+     * @return 是否非空
      */
     public static boolean isNotEmpty(Object object) {
         return !isEmpty(object);
@@ -119,7 +119,7 @@ public final class ObjectUtil {
      * 1.如果不是同一种类型,则直接返回false
      *
      * @param except 期望值
-     * @param real 实际值
+     * @param real   实际值
      * @return 两个对象是否相同
      */
     public static boolean isEquals(Object except, Object real) {
@@ -129,10 +129,9 @@ public final class ObjectUtil {
         }
 
         //2. 基本类型
-        if (ClassUtil.isPrimitive(except) && ClassUtil.isPrimitive(real)) {
-            if (except != real) {
-                return false;
-            }
+        if (ClassUtil.isPrimitive(except) && ClassUtil.isPrimitive(real)
+                && except != real) {
+            return false;
         }
 
         //3. 数组
@@ -159,7 +158,7 @@ public final class ObjectUtil {
      * 1.如果不是同一种类型,则返回true
      *
      * @param except 期望值
-     * @param real 实际值
+     * @param real   实际值
      * @return 两个对象是否不同
      */
     public static boolean isNotEquals(Object except, Object real) {

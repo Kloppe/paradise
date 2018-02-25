@@ -1,6 +1,7 @@
 package com.github.houbb.paradise.common.support.builder.impl;
 
 
+import com.github.houbb.paradise.common.exception.ParadiseCommonRuntimeException;
 import com.github.houbb.paradise.common.support.builder.Builder;
 import com.github.houbb.paradise.common.util.reflection.ReflectionUtil;
 
@@ -65,7 +66,7 @@ public class ToStringBuilder implements Builder<String> {
      */
     private static String buildFieldValue(Object object, Field field) {
         final String format = isType(field, String.class) ? "%s='%s'" : "%s=%s";
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder;
         Method getMethod = getGetMethod(object.getClass(), field);
         try {
             Object fieldValue = getMethod.invoke(object);
@@ -76,7 +77,7 @@ public class ToStringBuilder implements Builder<String> {
                 stringBuilder = new StringBuilder(String.format(format, field.getName(), fieldValue));
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
 
         return stringBuilder.toString();
@@ -89,14 +90,13 @@ public class ToStringBuilder implements Builder<String> {
      * @return 方法
      */
     private static Method getGetMethod(Class clazz, Field field) {
-        PropertyDescriptor propertyDescriptor = null;
+        PropertyDescriptor propertyDescriptor;
         try {
             propertyDescriptor = new PropertyDescriptor(field.getName(), clazz);
         } catch (IntrospectionException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
 
-        assert propertyDescriptor != null;
         return propertyDescriptor.getReadMethod();
     }
 

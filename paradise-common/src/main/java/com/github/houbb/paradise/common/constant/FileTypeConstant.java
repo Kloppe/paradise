@@ -11,6 +11,18 @@ public final class FileTypeConstant {
     private FileTypeConstant(){}
 
     /**
+     * 文件类型过滤
+     */
+    public static class Glob {
+        private Glob(){}
+
+        /**
+         * 所有文件类型
+         */
+        public static final String ALL = "*.*";
+    }
+
+    /**
      * 压缩文件
      */
     public static class Compress {

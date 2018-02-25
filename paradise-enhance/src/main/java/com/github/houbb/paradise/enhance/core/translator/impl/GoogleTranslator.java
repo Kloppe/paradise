@@ -103,7 +103,7 @@ public class GoogleTranslator implements Translator<String> {
         try {
             return translate();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("translateOrDefault meet ex: {}", e, e);
         }
         return defaultVal;
     }

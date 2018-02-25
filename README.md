@@ -12,9 +12,29 @@
 
 提供通用工具。主要是自己项目使用。不依赖三方 jar。
 
+- maven 引入方式
+
+```xml
+<dependency>
+    <groupId>com.github.houbb</groupId>
+    <artifactId>paradise-common</artifactId>
+    <version>1.1.4-SNAPSHOT</version>
+</dependency>
+```
+
 ## paradise-enhance
 
 功能增强，依赖三方 jar。
+
+- maven 引入方式
+
+```xml
+<dependency>
+    <groupId>com.github.houbb</groupId>
+    <artifactId>paradise-enhance</artifactId>
+    <version>1.1.4-SNAPSHOT</version>
+</dependency>
+```
 
 ## paradise-core
 
