@@ -17,7 +17,7 @@ public class CommonDto implements Serializable {
         try {
             return ToStringBuilder.reflectionToString(this);
         } catch (Exception var2) {
-            var2.printStackTrace();
+            //ignore error, use super.toString() instead.
             return super.toString();
         }
     }

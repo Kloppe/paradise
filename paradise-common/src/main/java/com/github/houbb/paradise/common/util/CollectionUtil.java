@@ -12,6 +12,9 @@ public final class CollectionUtil {
 
     private CollectionUtil(){}
 
+    /**
+     * 空列表
+     */
     public static final List EMPTY_LIST = Collections.emptyList();
 
     /**
