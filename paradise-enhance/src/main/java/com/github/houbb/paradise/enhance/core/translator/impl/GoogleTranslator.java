@@ -14,6 +14,7 @@ import java.io.IOException;
 
 /**
  *  谷歌翻译
+ * @author houbinbin
  */
 public class GoogleTranslator implements Translator<String> {
 

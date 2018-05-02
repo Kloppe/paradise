@@ -2,6 +2,7 @@ package com.github.houbb.paradise.enhance.constant.translator;
 
 /**
  * google 翻译语言枚举
+ *
  * @author bbhou
  * @version 1.1.1
  */
@@ -16,18 +17,18 @@ public enum GoogleLanguageEnum {
     BASQUE("eu"),
     BELARUSIAN("be"),
     BENGALI("bn"),
-//    BIHARI("bh"),
+    //    BIHARI("bh"),
     BULGARIAN("bg"),
     BURMESE("my"),
     CATALAN("ca"),
-//    CHEROKEE("chr"),
+    //    CHEROKEE("chr"),
     CHINESE("zh"),
     CHINESE_SIMPLIFIED("zh-CN"),
     CHINESE_TRADITIONAL("zh-TW"),
     CROATIAN("hr"),
     CZECH("cs"),
     DANISH("da"),
-//    DHIVEHI("dv"),
+    //    DHIVEHI("dv"),
     DUTCH("nl"),
     ENGLISH("en"),
     ESPERANTO("eo"),
@@ -39,14 +40,14 @@ public enum GoogleLanguageEnum {
     GEORGIAN("ka"),
     GERMAN("de"),
     GREEK("el"),
-//    GUARANI("gn"),
+    //    GUARANI("gn"),
     GUJARATI("gu"),
     HEBREW("iw"),
     HINDI("hi"),
     HUNGARIAN("hu"),
     ICELANDIC("is"),
     INDONESIAN("id"),
-//    INUKTITUT("iu"),
+    //    INUKTITUT("iu"),
     IRISH("ga"),
     ITALIAN("it"),
     JAPANESE("ja"),
@@ -67,7 +68,7 @@ public enum GoogleLanguageEnum {
     MONGOLIAN("mn"),
     NEPALI("ne"),
     NORWEGIAN("no"),
-//    ORIYA("or"),
+    //    ORIYA("or"),
     PASHTO("ps"),
     PERSIAN("fa"),
     POLISH("pl"),
@@ -75,7 +76,7 @@ public enum GoogleLanguageEnum {
     PUNJABI("pa"),
     ROMANIAN("ro"),
     RUSSIAN("ru"),
-//    SANSKRIT("sa"),
+    //    SANSKRIT("sa"),
     SERBIAN("sr"),
     SINDHI("sd"),
     SINHALESE("si"),
@@ -89,12 +90,12 @@ public enum GoogleLanguageEnum {
     TAGALOG("tl"),
     TELUGU("te"),
     THAI("th"),
-//    TIBETAN("bo"),
+    //    TIBETAN("bo"),
     TURKISH("tr"),
     UKRANIAN("uk"),
     URDU("ur"),
     UZBEK("uz"),
-//    UIGHUR("ug"),
+    //    UIGHUR("ug"),
     VIETNAMESE("vi"),
     WELSH("cy"),
     YIDDISH("yi");
@@ -104,15 +105,14 @@ public enum GoogleLanguageEnum {
      */
     private String type;
 
-    GoogleLanguageEnum(String value)
-    {
+    GoogleLanguageEnum(String value) {
         this.type = value;
     }
 
     public static GoogleLanguageEnum fromString(final String pLanguage) {
         for (GoogleLanguageEnum lang : values()) {
             if (pLanguage.equals(lang.langInfo())) {
-                return lang ;
+                return lang;
             }
         }
         return null;
@@ -120,10 +120,10 @@ public enum GoogleLanguageEnum {
 
     /**
      * 显示语言信息
+     *
      * @return
      */
-    public String langInfo()
-    {
+    public String langInfo() {
         return this.type;
     }
 
