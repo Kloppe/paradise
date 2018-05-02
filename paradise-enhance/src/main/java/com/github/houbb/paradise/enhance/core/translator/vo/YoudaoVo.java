@@ -1,10 +1,14 @@
-package com.github.houbb.paradise.enhance.vo;
+package com.github.houbb.paradise.enhance.core.translator.vo;
+
+import com.github.houbb.paradise.enhance.vo.OptionVo;
 
 import java.util.List;
 
 /**
  * Created by pc-06 on 2017/4/13.
  * 有道词典值传入对象
+ * @version 1.1.4
+ * @since 1.1.4
  */
 public class YoudaoVo {
 
@@ -100,5 +104,3 @@ public class YoudaoVo {
         this.web = web;
     }
 }
-
-//{"translation":["我爱中国"],"query":"I love China","errorCode":0,"web":[{"value":["我爱中国","我爱我中华","中国心"],"key":"I love China"},{"value":["我热爱中国"],"key":"I deeply love China"},{"value":["我爱我中华","我爱你中国","中国我爱你"],"key":"I LOVE YOU CHINA"}]}

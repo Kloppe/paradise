@@ -1,12 +1,14 @@
 package com.github.houbb.paradise.common.support.rspcode;
 
+import java.io.Serializable;
+
 /**
  * 响应码接口定义
  *
  * @version 1.1.1
  * @author bbhou
  */
-public interface RspCode {
+public interface RspCode extends Serializable {
 
     /**
      * 错误编码

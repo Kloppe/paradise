@@ -1,14 +1,19 @@
 package com.github.houbb.paradise.common.util;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * 字符串工具类
- * @version 1.1.0
+ *
  * @author bbhou
+ * @version 1.1.0
  */
-public class StringUtil {
+public final class StringUtil {
+
+    private StringUtil() {
+    }
 
     /**
      * 空字符串
@@ -22,6 +27,7 @@ public class StringUtil {
 
     /**
      * 是否为空
+     *
      * @param string 字符串
      * @return {@code true} 为空
      */
@@ -31,6 +37,7 @@ public class StringUtil {
 
     /**
      * 是否为非空
+     *
      * @param string 字符串
      * @return {@code true} 为非空
      */
@@ -40,14 +47,15 @@ public class StringUtil {
 
     /**
      * 是否为空
+     *
      * @param str 字符串
      * @return 是否为空
      */
     public static boolean isBlank(String str) {
         int strLen;
-        if(str != null && (strLen = str.length()) != 0) {
-            for(int i = 0; i < strLen; ++i) {
-                if(!Character.isWhitespace(str.charAt(i))) {
+        if (str != null && (strLen = str.length()) != 0) {
+            for (int i = 0; i < strLen; ++i) {
+                if (!Character.isWhitespace(str.charAt(i))) {
                     return false;
                 }
             }
@@ -60,6 +68,7 @@ public class StringUtil {
 
     /**
      * 是否不为空
+     *
      * @param str 字符串
      * @return 是否不为空
      */
@@ -70,16 +79,17 @@ public class StringUtil {
     /**
      * 对字符串列表每条字符串执行trim()操作。
      * 1. 空直接返回空列表
+     *
      * @param stringList 原始的列表
      * @return trim 的字符串列表
      */
     public static List<String> trimList(final List<String> stringList) {
-        if(CollectionUtil.isEmpty(stringList)) {
-            return CollectionUtil.EMPTY_LIST;
+        if (CollectionUtil.isEmpty(stringList)) {
+            return Collections.emptyList();
         }
 
         List<String> resultList = new LinkedList<>();
-        for(String original : stringList) {
+        for (String original : stringList) {
             resultList.add(original.trim());
         }
 
@@ -89,11 +99,12 @@ public class StringUtil {
     /**
      * 根据任意多的空格进行分割字符串。
      * 1. 入参为空,则返回空字符串数组
+     *
      * @param string 字符串
      * @return 割字符串数组
      */
     public static String[] splitByAnyBlank(final String string) {
-        if(StringUtil.isEmpty(string)) {
+        if (StringUtil.isEmpty(string)) {
             return new String[0];
         }
 
@@ -105,9 +116,10 @@ public class StringUtil {
     /**
      * 获取的驼峰写法。
      * 1.这是 mybatis-gen 源码
-     * @param inputString 输入字符串
+     *
+     * @param inputString             输入字符串
      * @param firstCharacterUppercase 首字母是否大写。
-     * @return  驼峰写法
+     * @return 驼峰写法
      */
     public static String getCamelCaseString(String inputString, boolean firstCharacterUppercase) {
         StringBuilder sb = new StringBuilder();
@@ -150,6 +162,7 @@ public class StringUtil {
 
     /**
      * 首字母小写
+     *
      * @param str 字符串
      * @return 首字母小写字符串
      */
@@ -165,6 +178,7 @@ public class StringUtil {
 
     /**
      * 首字母大写
+     *
      * @param str 字符串
      * @return 首字母大写结果
      */
@@ -182,11 +196,12 @@ public class StringUtil {
      * 默认为 “”
      * 1. 如果为 null TO ""
      * 2. 返回本身
+     *
      * @param string 字符串
      * @return 非 null 的字符串
      */
     public static String defaultEmpty(final String string) {
-        if(isEmpty(string)) {
+        if (isEmpty(string)) {
             return EMPTY;
         }
         return string;
@@ -196,54 +211,56 @@ public class StringUtil {
     /**
      * 将数组进行连接
      * from:    apache lang3
-     * @param array object array
-     * @param separator 分隔符
+     *
+     * @param array      object array
+     * @param separator  分隔符
      * @param startIndex 开始下标
-     * @param endIndex 结束下标
+     * @param endIndex   结束下标
      * @return join string
      */
     public static String join(Object[] array, String separator, int startIndex, int endIndex) {
         if (array == null) {
             return null;
+        }
+
+        if (separator == null) {
+            separator = "";
+        }
+
+        int noOfItems = endIndex - startIndex;
+        if (noOfItems <= 0) {
+            return "";
         } else {
-            if (separator == null) {
-                separator = "";
-            }
+            StringBuilder buf = new StringBuilder(noOfItems * 16);
 
-            int noOfItems = endIndex - startIndex;
-            if (noOfItems <= 0) {
-                return "";
-            } else {
-                StringBuilder buf = new StringBuilder(noOfItems * 16);
-
-                for(int i = startIndex; i < endIndex; ++i) {
-                    if (i > startIndex) {
-                        buf.append(separator);
-                    }
-
-                    if (array[i] != null) {
-                        buf.append(array[i]);
-                    }
+            for (int i = startIndex; i < endIndex; ++i) {
+                if (i > startIndex) {
+                    buf.append(separator);
                 }
 
-                return buf.toString();
+                if (array[i] != null) {
+                    buf.append(array[i]);
+                }
             }
+
+            return buf.toString();
         }
     }
 
     /**
      * 驼峰命名转下划线
+     *
      * @param camelStr 驼峰字符串
      * @return 下划线字符串
      */
-    public static String camelToUnderline(String camelStr){
-        if(StringUtil.isEmpty(camelStr)) {
+    public static String camelToUnderline(String camelStr) {
+        if (StringUtil.isEmpty(camelStr)) {
             return StringUtil.EMPTY;
         }
 
         StringBuilder sb = new StringBuilder();
         char[] chars = camelStr.toCharArray();
-        for(char c : chars) {
+        for (char c : chars) {
             if (Character.isUpperCase(c)) {
                 sb.append('_');
                 sb.append(Character.toLowerCase(c));
@@ -257,6 +274,7 @@ public class StringUtil {
 
     /**
      * 下划线转驼峰命名
+     *
      * @param underlineStr 下划线字符串
      * @return 驼峰字符串
      */

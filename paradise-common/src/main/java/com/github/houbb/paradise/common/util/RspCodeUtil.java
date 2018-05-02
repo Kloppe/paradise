@@ -11,6 +11,8 @@ import com.github.houbb.paradise.common.support.rspcode.impl.CommonRspCode;
  */
 public final class RspCodeUtil {
 
+    private RspCodeUtil(){}
+
     /**
      * 成功对应的响应码
      */
@@ -24,8 +26,5 @@ public final class RspCodeUtil {
     public static boolean isSuccess(RspCode rspCode) {
         return SUCCESS_CODE.equals(rspCode.getCode());
     }
-
-
-    private RspCodeUtil(){}
 
 }

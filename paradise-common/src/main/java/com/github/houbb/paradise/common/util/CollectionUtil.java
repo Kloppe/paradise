@@ -8,10 +8,14 @@ import java.util.*;
  * @author bbhou
  * @version 1.1.0
  */
-public class CollectionUtil {
+public final class CollectionUtil {
 
+    private CollectionUtil(){}
 
-    public static List EMPTY_LIST = Collections.EMPTY_LIST;
+    /**
+     * 空列表
+     */
+    public static final List EMPTY_LIST = Collections.emptyList();
 
     /**
      * 是否为空
@@ -20,7 +24,7 @@ public class CollectionUtil {
      */
     public static boolean isEmpty(Collection collection) {
         return null == collection
-                || collection.size() == 0;
+                || collection.isEmpty();    //更有可读性
     }
 
     /**
@@ -40,7 +44,7 @@ public class CollectionUtil {
      */
     public static List<String> arrayToList(String[] array) {
         if(ArrayUtil.isEmpty(array)) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         return Arrays.asList(array);
     }

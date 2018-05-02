@@ -1,6 +1,7 @@
 package com.github.houbb.paradise.common.support.builder.impl;
 
 
+import com.github.houbb.paradise.common.exception.ParadiseCommonRuntimeException;
 import com.github.houbb.paradise.common.support.builder.Builder;
 import com.github.houbb.paradise.common.util.reflection.ReflectionUtil;
 
@@ -59,13 +60,13 @@ public class ToStringBuilder implements Builder<String> {
      * TODO: 特殊值的处理
      * 1. 对于数组的处理
      * 2. 对于集合的处理
-     * @param object
-     * @param field
-     * @return
+     * @param object 对象
+     * @param field 字段
+     * @return 构建后的 String
      */
     private static String buildFieldValue(Object object, Field field) {
         final String format = isType(field, String.class) ? "%s='%s'" : "%s=%s";
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder;
         Method getMethod = getGetMethod(object.getClass(), field);
         try {
             Object fieldValue = getMethod.invoke(object);
@@ -76,7 +77,7 @@ public class ToStringBuilder implements Builder<String> {
                 stringBuilder = new StringBuilder(String.format(format, field.getName(), fieldValue));
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
 
         return stringBuilder.toString();
@@ -84,16 +85,16 @@ public class ToStringBuilder implements Builder<String> {
 
     /**
      * get the Get() of current field;
-     * @param clazz
-     * @param field
-     * @return
+     * @param clazz 类信息
+     * @param field 字段信息
+     * @return 方法
      */
     private static Method getGetMethod(Class clazz, Field field) {
-        PropertyDescriptor propertyDescriptor = null;
+        PropertyDescriptor propertyDescriptor;
         try {
             propertyDescriptor = new PropertyDescriptor(field.getName(), clazz);
         } catch (IntrospectionException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
 
         return propertyDescriptor.getReadMethod();

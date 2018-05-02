@@ -12,11 +12,13 @@ import java.io.File;
  * @version 1.1.0
  * @author bbhou
  */
-public class PathUtil {
+public final class PathUtil {
 
+    private PathUtil(){}
 
     /**
      * 结果不确定
+     * @deprecated (因为结果具有不确定性)
      * @return  路径
      */
     @Deprecated
@@ -68,10 +70,9 @@ public class PathUtil {
      * @return 转换后的路径
      */
     public static String getRootPath(Class clazz) {
-        String URIPath = clazz.getResource(PathConstant.ROOT_PATH).toString();
-        String result = URIPath.replace(PathConstant.FILE_PATH_PREFIX, "")
+        String uriPath = clazz.getResource(PathConstant.ROOT_PATH).toString();
+        return uriPath.replace(PathConstant.FILE_PATH_PREFIX, "")
                 .replace(PathConstant.TARGET_CLASSES_PATH_SUFFIX, PathConstant.SRC_MAIN_JAVA_PATH);
-        return result;
     }
 
     /**
@@ -84,10 +85,9 @@ public class PathUtil {
      * @return 转换后的路径
      */
     public static String getPath(Class clazz) {
-        String URIPath = clazz.getResource("").toString();
-        String resultPath = URIPath.replace(PathConstant.FILE_PATH_PREFIX, "")
+        String uriPath = clazz.getResource("").toString();
+        return uriPath.replace(PathConstant.FILE_PATH_PREFIX, "")
                 .replace(PathConstant.TARGET_CLASSES_PATH_SUFFIX, PathConstant.SRC_MAIN_JAVA_PATH);
-        return resultPath;
     }
 
     /**

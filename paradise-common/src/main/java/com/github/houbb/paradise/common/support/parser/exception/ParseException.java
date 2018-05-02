@@ -7,5 +7,5 @@ package com.github.houbb.paradise.common.support.parser.exception;
  * @version 1.0
  * @since 1.7
  */
-public class ParseException {
+public class ParseException extends Exception {
 }

@@ -1,5 +1,8 @@
 package com.github.houbb.paradise.common.util;
 
+import com.github.houbb.paradise.common.constant.FileTypeConstant;
+import com.github.houbb.paradise.common.exception.ParadiseCommonRuntimeException;
+
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -12,9 +15,11 @@ import java.util.List;
  * 文件路径工具类
  *
  * @version 1.0.0
- * @see Path 文件NIO
+ * @see Path 文件 NIO
  */
-public class FilePathUtil {
+public final class FilePathUtil {
+
+    private FilePathUtil(){}
 
     /**
      * 获得对应的PATH列表。
@@ -32,7 +37,7 @@ public class FilePathUtil {
                 list.add(path);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
         return list;
     }
@@ -52,7 +57,7 @@ public class FilePathUtil {
                 list.add(path.getFileName());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
         return list;
     }
@@ -65,7 +70,7 @@ public class FilePathUtil {
      */
     public static List<Path> getAllDirFileNames(String dir)
     {
-        return getDirFileNames(dir, "*.*");
+        return getDirFileNames(dir, FileTypeConstant.Glob.ALL);
     }
 
 
@@ -85,7 +90,7 @@ public class FilePathUtil {
                 list.add(path.getFileName().toString());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
         return list;
     }

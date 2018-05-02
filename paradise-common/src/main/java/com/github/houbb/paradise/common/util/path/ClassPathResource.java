@@ -20,9 +20,10 @@ import java.util.zip.ZipFile;
  */
 public class ClassPathResource {
 
+    /**
+     * 资源文件名称
+     */
     private String resourceName;
-
-//    private static Log log = LoggerFactory.getLogger(ClassPathResource.class);
 
     /**
      * Builds new ClassPathResource object
@@ -30,8 +31,10 @@ public class ClassPathResource {
      * @param resourceName String name of resource, to be retrieved
      */
     public ClassPathResource(String resourceName) {
-        if (resourceName == null)
+        if (resourceName == null) {
             throw new IllegalStateException("Resource name can't be null");
+        }
+
         this.resourceName = resourceName;
     }
 
@@ -123,18 +126,18 @@ public class ClassPathResource {
                 File file = File.createTempFile("datavec_temp", (suffix != null ? suffix : "file"));
                 file.deleteOnExit();
 
-                FileOutputStream outputStream = new FileOutputStream(file);
-                byte[] array = new byte[1024];
-                int rd = 0;
-                long bytesRead = 0;
-                do {
-                    rd = stream.read(array);
-                    outputStream.write(array, 0, rd);
-                    bytesRead += rd;
-                } while (bytesRead < size);
+                try(FileOutputStream outputStream = new FileOutputStream(file);) {
+                    byte[] array = new byte[1024];
+                    int rd = 0;
+                    long bytesRead = 0;
+                    do {
+                        rd = stream.read(array);
+                        outputStream.write(array, 0, rd);
+                        bytesRead += rd;
+                    } while (bytesRead < size);
 
-                outputStream.flush();
-                outputStream.close();
+                    outputStream.flush();
+                }
 
                 stream.close();
                 zipFile.close();
@@ -143,7 +146,6 @@ public class ClassPathResource {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-
         } else {
             /*
                 It's something in the actual underlying filesystem, so we can just go for it
@@ -170,32 +172,7 @@ public class ClassPathResource {
                 || "code-source".equals(protocol) && url.getPath().contains("!/");
     }
 
-    /**
-     * Extracts parent Jar URL from original ClassPath entry URL.
-     *
-     * @param jarUrl Original URL of the resource
-     * @return URL of the Jar file, containing requested resource
-     * @throws MalformedURLException if any
-     */
-    private URL extractActualUrl(URL jarUrl) throws MalformedURLException {
-        String urlFile = jarUrl.getFile();
-        int separatorIndex = urlFile.indexOf("!/");
-        if (separatorIndex != -1) {
-            String jarFile = urlFile.substring(0, separatorIndex);
 
-            try {
-                return new URL(jarFile);
-            } catch (MalformedURLException var5) {
-                if (!jarFile.startsWith("/")) {
-                    jarFile = "/" + jarFile;
-                }
-
-                return new URL("file:" + jarFile);
-            }
-        } else {
-            return jarUrl;
-        }
-    }
 
     /**
      * Returns requested ClassPathResource as InputStream object
@@ -208,9 +185,7 @@ public class ClassPathResource {
         if (isJarURL(url)) {
             try {
                 GetStreamFromZip getStreamFromZip = new GetStreamFromZip(url, resourceName).invoke();
-                InputStream stream = getStreamFromZip.getStream();
-
-                return stream;
+                return getStreamFromZip.getStream();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -265,6 +240,33 @@ public class ClassPathResource {
 
             stream = zipFile.getInputStream(entry);
             return this;
+        }
+
+        /**
+         * Extracts parent Jar URL from original ClassPath entry URL.
+         *
+         * @param jarUrl Original URL of the resource
+         * @return URL of the Jar file, containing requested resource
+         * @throws MalformedURLException if any
+         */
+        private URL extractActualUrl(URL jarUrl) throws MalformedURLException {
+            String urlFile = jarUrl.getFile();
+            int separatorIndex = urlFile.indexOf("!/");
+            if (separatorIndex != -1) {
+                String jarFile = urlFile.substring(0, separatorIndex);
+
+                try {
+                    return new URL(jarFile);
+                } catch (MalformedURLException var5) {
+                    if (!jarFile.startsWith("/")) {
+                        jarFile = "/" + jarFile;
+                    }
+
+                    return new URL("file:" + jarFile);
+                }
+            } else {
+                return jarUrl;
+            }
         }
     }
 

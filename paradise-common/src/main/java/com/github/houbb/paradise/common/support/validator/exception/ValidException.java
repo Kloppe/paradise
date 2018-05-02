@@ -3,7 +3,7 @@ package com.github.houbb.paradise.common.support.validator.exception;
 /**
  * 校验时异常
  */
-public class ValidException extends RuntimeException {
+public class ValidException extends Exception {
 
     public ValidException() {
     }

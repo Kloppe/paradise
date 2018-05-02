@@ -7,7 +7,9 @@ import java.util.Map;
  * @version 1.1.0
  * @author bbhou
  */
-public class MapUtil {
+public final class MapUtil {
+
+    private MapUtil(){}
 
     /**
      * 判断map为空

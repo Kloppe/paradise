@@ -13,8 +13,7 @@ import java.util.List;
 
 /**
  * 校验实现
- *
- * TODO:
+ * <p>
  * 1. 规范错误提示！
  * 2. 尽可能的详细规范。知道错误的原因。加上校验的类型，字段名称。
  *
@@ -32,7 +31,7 @@ public class ValidServiceImpl implements ValidService {
 
 
     @Override
-    public void valid(Object object) throws ValidException, IllegalArgumentException {
+    public void valid(Object object) throws ValidException {
         ArgUtil.notNull(object, "object");
 
 
@@ -115,10 +114,11 @@ public class ValidServiceImpl implements ValidService {
 
     /**
      * 校验不为空
-     * @param valid 注解
-     * @param object    待校验的对象
-     * @param field 字段
-     * @throws IllegalAccessException   if any
+     *
+     * @param valid  注解
+     * @param object 待校验的对象
+     * @param field  字段
+     * @throws IllegalAccessException if any
      */
     private void notEmptyCheck(Valid valid, Object object, Field field) throws IllegalAccessException {
         boolean notEmpty = valid.notEmpty();
@@ -133,13 +133,14 @@ public class ValidServiceImpl implements ValidService {
 
     /**
      * 满足为数字
-     * @param valid 注解
-     * @param object    待校验的对象
-     * @param field 字段
-     * @throws ValidException   if any
-     * @throws IllegalAccessException   if any
+     *
+     * @param valid  注解
+     * @param object 待校验的对象
+     * @param field  字段
+     * @throws ValidException         if any
+     * @throws IllegalAccessException if any
      */
-    private void isNumberCheck(Valid valid, Object object, Field field) throws ValidException, IllegalAccessException {
+    private void isNumberCheck(Valid valid, Object object, Field field) throws IllegalAccessException, ValidException {
         boolean isNumber = valid.isNumber();
         if (isNumber) {
             if (ClassUtil.isNotString(field)) {
@@ -155,13 +156,14 @@ public class ValidServiceImpl implements ValidService {
 
     /**
      * 满足正则表达式
-     * @param valid 注解
-     * @param object    待校验的对象
-     * @param field 字段
-     * @throws ValidException   if any
-     * @throws IllegalAccessException   if any
+     *
+     * @param valid  注解
+     * @param object 待校验的对象
+     * @param field  字段
+     * @throws ValidException         if any
+     * @throws IllegalAccessException if any
      */
-    private void matchesRegexCheck(Valid valid, Object object, Field field) throws ValidException, IllegalAccessException {
+    private void matchesRegexCheck(Valid valid, Object object, Field field) throws IllegalAccessException, ValidException {
         String regex = valid.matchRegex();
         if (StringUtil.isNotEmpty(regex)) {
             if (ClassUtil.isNotString(field)) {
@@ -179,9 +181,9 @@ public class ValidServiceImpl implements ValidService {
     /**
      * 满足范围
      *
-     * @param valid 注解
-     * @param object    待校验的对象
-     * @param field 字段
+     * @param valid  注解
+     * @param object 待校验的对象
+     * @param field  字段
      */
     private void inRangeCheck(Valid valid, Object object, Field field) throws ValidException, IllegalAccessException {
         String inRange = valid.inRange();
@@ -201,33 +203,29 @@ public class ValidServiceImpl implements ValidService {
             String oneNumStr = strings[0].substring(1, strings[0].length());   //左边数字
             String twoNumStr = strings[1].substring(0, strings[1].length() - 1); //右边数字
 
-            double doubleVal = Double.valueOf(fieldValue.toString());
+            double doubleVal = Double.parseDouble(fieldValue.toString());
 
             //1.左边值范围校验
             if (!ValidConstant.INFINITY_FLAG.equals(leftStr)) {
-                double oneNum = Double.valueOf(oneNumStr);
-                if (ValidConstant.GREATER_THAN.equals(leftStr)) {
-                    if (doubleVal <= oneNum) {
-                        throw new IllegalArgumentException(errMsgCheck(valid, field));
-                    }
-                } else if (ValidConstant.EQUAL_GREATER_THAN.equals(leftStr)) {
-                    if (doubleVal < oneNum) {
-                        throw new IllegalArgumentException(errMsgCheck(valid, field));
-                    }
+                double oneNum = Double.parseDouble(oneNumStr);
+                if (ValidConstant.GREATER_THAN.equals(leftStr)
+                        && doubleVal <= oneNum) {
+                    throw new IllegalArgumentException(errMsgCheck(valid, field));
+                } else if (ValidConstant.EQUAL_GREATER_THAN.equals(leftStr)
+                        && doubleVal < oneNum) {
+                    throw new IllegalArgumentException(errMsgCheck(valid, field));
                 }
             }
 
             //2.右边值范围校验
             if (!ValidConstant.INFINITY_FLAG.equals(rightStr)) {
-                double twoNum = Double.valueOf(twoNumStr);
-                if (ValidConstant.LESS_THAN.equals(rightStr)) {
-                    if (doubleVal >= twoNum) {
-                        throw new IllegalArgumentException(errMsgCheck(valid, field));
-                    }
-                } else if (ValidConstant.EQUAL_LESS_THAN.equals(rightStr)) {
-                    if (doubleVal > twoNum) {
-                        throw new IllegalArgumentException(errMsgCheck(valid, field));
-                    }
+                double twoNum = Double.parseDouble(twoNumStr);
+                if (ValidConstant.LESS_THAN.equals(rightStr)
+                        && doubleVal >= twoNum) {
+                    throw new IllegalArgumentException(errMsgCheck(valid, field));
+                } else if (ValidConstant.EQUAL_LESS_THAN.equals(rightStr)
+                        && doubleVal > twoNum) {
+                    throw new IllegalArgumentException(errMsgCheck(valid, field));
                 }
             }
 
@@ -238,7 +236,6 @@ public class ValidServiceImpl implements ValidService {
      * 字段类型校验
      *
      * @param field 字段
-     * @throws ValidException if any
      */
     private void inRangeFieldTypeVerify(Field field) throws ValidException {
         if (field.getType() == Integer.class ||
@@ -258,12 +255,12 @@ public class ValidServiceImpl implements ValidService {
     /**
      * 检验当前值在指定某些值内
      *
-     * @param valid 注解
-     * @param object    待校验的对象
-     * @param field 字段
-     * @throws IllegalAccessException   if any
+     * @param valid  注解
+     * @param object 待校验的对象
+     * @param field  字段
+     * @throws IllegalAccessException if any
      */
-    private void restrictionCheck(Valid valid, Object object, Field field) throws IllegalAccessException {
+    private void restrictionCheck(Valid valid, Object object, Field field) throws IllegalAccessException, ValidException {
         String[] restrictionArray = valid.restriction();
         if (ArrayUtil.isNotEmpty(restrictionArray)) {
             String fieldValueStr = String.valueOf(field.get(object));
@@ -276,20 +273,21 @@ public class ValidServiceImpl implements ValidService {
     /**
      * 至少有一个不为空
      * 1. 这里的进行更严格的校验(not empty)
-     * @param valid 注解
-     * @param object    待校验的对象
-     * @param field 字段
-     * @throws IllegalAccessException   if any
-     * @throws NoSuchFieldException if any
+     *
+     * @param valid  注解
+     * @param object 待校验的对象
+     * @param field  字段
+     * @throws IllegalAccessException if any
+     * @throws NoSuchFieldException   if any
      */
-    private void atLeastOneCheck(Valid valid, Object object, Field field) throws IllegalAccessException, NoSuchFieldException {
+    private void atLeastOneCheck(Valid valid, Object object, Field field) throws IllegalAccessException, NoSuchFieldException, ValidException {
         String[] fieldNameArray = valid.restriction();
 
         //1. 当指定的集合不为空
         //2. 当指定的字段或者当前字段全部为空
         if (ArrayUtil.isNotEmpty(fieldNameArray)) {
             boolean isAtLeastOneNotEmpty = isAtLeastOneNotEmpty(fieldNameArray, object, field);
-            if(!isAtLeastOneNotEmpty) { //不满足
+            if (!isAtLeastOneNotEmpty) { //不满足
                 throw new ValidException(errMsgCheck(valid, field));
             }
         }
@@ -298,12 +296,13 @@ public class ValidServiceImpl implements ValidService {
 
     /**
      * 至少有一个不为空
-     * @param fieldNameArray    字段名称
-     * @param object    对象
-     * @param currentField  当前字段
+     *
+     * @param fieldNameArray 字段名称
+     * @param object         对象
+     * @param currentField   当前字段
      * @return 是否至少一个不为空
      * @throws IllegalAccessException if any
-     * @throws NoSuchFieldException if any
+     * @throws NoSuchFieldException   if any
      */
     private boolean isAtLeastOneNotEmpty(String[] fieldNameArray, Object object, Field currentField) throws IllegalAccessException, NoSuchFieldException {
         String currentFieldValueStr = String.valueOf(currentField.get(object));
@@ -315,7 +314,7 @@ public class ValidServiceImpl implements ValidService {
         for (String fieldName : fieldNameArray) {
             Field field = clazz.getField(fieldName);
             String fieldValueStr = String.valueOf(field.get(object));
-            if(StringUtil.isNotEmpty(fieldValueStr)) {
+            if (StringUtil.isNotEmpty(fieldValueStr)) {
                 return true;
             }
         }
@@ -325,6 +324,7 @@ public class ValidServiceImpl implements ValidService {
 
     /**
      * 构建校验异常信息
+     *
      * @param field    字段
      * @param errorMsg 错误信息
      * @return 完整的错误信息

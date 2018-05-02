@@ -1,6 +1,9 @@
 package com.github.houbb.paradise.common.util;
 
 
+import com.github.houbb.paradise.common.constant.CharsetConstant;
+import com.github.houbb.paradise.common.exception.ParadiseCommonRuntimeException;
+
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +24,7 @@ public final class FileUtil {
      * 获取文件内容
      *
      * @param filePath 文件路径
-     * @return 文件不存在或异常等, 返回空字符串
+     * @return 文件不存在或异常等, 直接抛出异常
      */
     public static String getFileContent(String filePath) {
         File file = new File(filePath);
@@ -30,12 +33,10 @@ public final class FileUtil {
                 InputStream inputStream = new FileInputStream(file);
                 return getFileContent(inputStream);
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                System.err.println("文件不存在" + filePath);
-                return "";
+                throw new ParadiseCommonRuntimeException(e);
             }
         }
-        return "";
+        return StringUtil.EMPTY;
     }
 
     /**
@@ -46,7 +47,7 @@ public final class FileUtil {
      * @return 文件内容
      */
     public static String getFileContent(InputStream inputStream) {
-        return getFileContent(inputStream, "UTF-8");
+        return getFileContent(inputStream, CharsetConstant.UTF8);
     }
 
     /**
@@ -66,10 +67,8 @@ public final class FileUtil {
             jsonText = new String(bytes, charset);
             return jsonText;
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new ParadiseCommonRuntimeException(e);
         }
-
-        return "";
     }
 
     /**
@@ -79,7 +78,7 @@ public final class FileUtil {
      * @return 文件后缀
      */
     public static String getSuffix(String fileName) {
-        return fileName.substring(fileName.lastIndexOf(".") + 1);
+        return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 
 
@@ -151,7 +150,6 @@ public final class FileUtil {
         List<String> contentList = new LinkedList<>();
 
         if (!file.exists()) {
-            System.err.println("文件不存在");
             return contentList;
         }
 
@@ -163,7 +161,7 @@ public final class FileUtil {
             int lineNo = 0;// 用于记录行号
             while (lineNo < initLine) {
                 lineNo++;
-                bufferedReader.readLine();
+                String ignore = bufferedReader.readLine();
             }
 
             String dataEachLine;   //每一行的内容
@@ -176,8 +174,7 @@ public final class FileUtil {
                 contentList.add(dataEachLine);
             }
         } catch (IOException e) {
-            e.printStackTrace();
-            return new LinkedList<>();
+            throw new ParadiseCommonRuntimeException(e);
         }
 
         return contentList;
@@ -187,17 +184,16 @@ public final class FileUtil {
     /**
      * 获取文件内容的列表
      *
-     * @param file 文件
+     * @param file     文件
      * @param initLine 0 开始
      * @param endLine  下标从0开始
-     * @param charset 编码
+     * @param charset  编码
      * @return string list
      */
     public static List<String> getFileContentEachLine(final File file, final int initLine, final int endLine, final String charset) {
         List<String> contentList = new LinkedList<>();
 
         if (!file.exists()) {
-            System.err.println("文件不存在");
             return contentList;
         }
 
@@ -208,7 +204,7 @@ public final class FileUtil {
             int lineNo = 0;// 用于记录行号
             while (lineNo < initLine) {
                 lineNo++;
-                bufferedReader.readLine();
+                String ignore = bufferedReader.readLine();
             }
 
             String dataEachLine;   //每一行的内容
@@ -218,8 +214,7 @@ public final class FileUtil {
                 contentList.add(dataEachLine);
             }
         } catch (IOException e) {
-            e.printStackTrace();
-            return new LinkedList<>();
+            throw new ParadiseCommonRuntimeException(e);
         }
 
         return contentList;
@@ -228,6 +223,7 @@ public final class FileUtil {
 
     /**
      * 复制文件夹
+     *
      * @param sourceDir 原始文件夹
      * @param targetDir 目标文件夹
      * @throws IOException
@@ -261,6 +257,7 @@ public final class FileUtil {
 
     /**
      * 复制文件
+     *
      * @param sourceFile 原始路径
      * @param targetPath 目标路径
      * @throws IOException

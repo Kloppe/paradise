@@ -25,6 +25,7 @@ public class DynamicDataSourceInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         Method method = getTargetMethod(invocation);
+        assert method != null;  //断言方法不为空
 
         //1. 当前方法是否有注解
         boolean methodFlag = method.isAnnotationPresent(DataSource.class);
@@ -36,13 +37,13 @@ public class DynamicDataSourceInterceptor implements MethodInterceptor {
             //2. 当前类是否有注解
             Class clazz = getClass(invocation);
             if(clazz.isAnnotationPresent(DataSource.class)) {
-                DataSource datasource = (DataSource) clazz.getAnnotation(DataSource.class);
+                DataSource datasource = (DataSource) clazz.getAnnotation(DataSource.class); //IDEA BUG
                 setDataSource(datasource);
             }
         }
 
         Object result = invocation.proceed();
-        DynamicDataSourceHolder.clearDataSource();  //clear what we set;
+        DynamicDataSourceHolder.clearDataSource();
         return result;
     }
 
@@ -65,13 +66,12 @@ public class DynamicDataSourceInterceptor implements MethodInterceptor {
      * 获取方法。
      * (1) 直接用最简单的getMethod() 只能获取super的声明。
      * (2) 此处是根据aop 直接切取得,不应该出现方法不存在的情况。
-     * @param invocation
-     * @return
+     * @param invocation 方法入参信息
+     * @return 方法
      */
     private Method getTargetMethod(MethodInvocation invocation) {
         Method method = null;
         try {
-//            method = methodInvocation.getThis().getClass().getMethod(methodInvocation.getMethod().getName(), methodInvocation.getMethod().getParameterTypes());
             method = invocation.getThis().getClass().getMethod(invocation.getMethod().getName(), invocation.getMethod().getParameterTypes());
         } catch (NoSuchMethodException e) {
             log.error("getTargetMethod meet ex: {}", e, e);

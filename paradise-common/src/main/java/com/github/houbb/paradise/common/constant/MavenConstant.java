@@ -6,7 +6,9 @@ package com.github.houbb.paradise.common.constant;
  * @author bbhou
  * @version 1.0.0
  */
-public class MavenConstant {
+public final class MavenConstant {
+
+    private MavenConstant(){}
 
     /**
      * 目标class文件路径后缀

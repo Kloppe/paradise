@@ -11,7 +11,7 @@ import java.util.Map;
  * @author bbhou
  * @version 1.1.0
  */
-public class ObjectUtil {
+public final class ObjectUtil {
 
     private ObjectUtil() {
     }
@@ -24,16 +24,12 @@ public class ObjectUtil {
      *
      * @param one 第一个元素
      * @param two 第二个元素
-     * @return  是否为同一对象
+     * @return 是否为同一对象
      */
-    public static Boolean isSameType(Object one, Object two) {
+    public static boolean isSameType(Object one, Object two) {
         Class clazzOne = one.getClass();
 
-        if (clazzOne.isInstance(two)) {
-            return true;
-        }
-
-        return false;
+        return clazzOne.isInstance(two);
     }
 
     /**
@@ -41,9 +37,9 @@ public class ObjectUtil {
      *
      * @param one 第一个元素
      * @param two 第二个元素
-     * @return  是否为不同对象
+     * @return 是否为不同对象
      */
-    public static Boolean isNotSameType(Object one, Object two) {
+    public static boolean isNotSameType(Object one, Object two) {
         return !isSameType(one, two);
     }
 
@@ -57,18 +53,10 @@ public class ObjectUtil {
      * - 自定义空类型
      *
      * @param object 对象
-     * @return  是否为空
+     * @return 是否为空
      */
-    public static Boolean isNull(Object object) {
-        if (null == object) {
-            return true;
-        }
-//        if(object instanceof IsNull) {
-//            IsNull isNull = (IsNull)object;
-//            return isNull.isNull();
-//        }
-
-        return false;
+    public static boolean isNull(Object object) {
+        return null == object;
     }
 
     /**
@@ -77,7 +65,7 @@ public class ObjectUtil {
      * @param object 元素
      * @return {@code true} 非空
      */
-    public static Boolean isNotNull(Object object) {
+    public static boolean isNotNull(Object object) {
         return !isNull(object);
     }
 
@@ -89,9 +77,9 @@ public class ObjectUtil {
      * - 自定义空类型
      *
      * @param object 对象
-     * @return  是否为空
+     * @return 是否为空
      */
-    public static Boolean isEmpty(Object object) {
+    public static boolean isEmpty(Object object) {
         if (isNull(object)) {
             return true;
         }
@@ -119,9 +107,9 @@ public class ObjectUtil {
      * 判断对象是否非空
      *
      * @param object 对象
-     * @return  是否非空
+     * @return 是否非空
      */
-    public static Boolean isNotEmpty(Object object) {
+    public static boolean isNotEmpty(Object object) {
         return !isEmpty(object);
     }
 
@@ -131,7 +119,7 @@ public class ObjectUtil {
      * 1.如果不是同一种类型,则直接返回false
      *
      * @param except 期望值
-     * @param real 实际值
+     * @param real   实际值
      * @return 两个对象是否相同
      */
     public static boolean isEquals(Object except, Object real) {
@@ -141,10 +129,9 @@ public class ObjectUtil {
         }
 
         //2. 基本类型
-        if (ClassUtil.isPrimitive(except) && ClassUtil.isPrimitive(real)) {
-            if (except != real) {
-                return false;
-            }
+        if (ClassUtil.isPrimitive(except) && ClassUtil.isPrimitive(real)
+                && except != real) {
+            return false;
         }
 
         //3. 数组
@@ -155,11 +142,6 @@ public class ObjectUtil {
         }
 
         //3. Collection
-//        if(ClassUtil.isCollection(except) && ClassUtil.isCollection(real)) {
-//            Collection exceptCollection = (Collection)except;
-//            Collection realCollection = (Collection)real;
-//            return CollectionUtil.isEqualCollection(exceptCollection, realCollection);
-//        }
 
         //4. map
         if (ClassUtil.isMap(except) && ClassUtil.isMap(real)) {
@@ -176,10 +158,10 @@ public class ObjectUtil {
      * 1.如果不是同一种类型,则返回true
      *
      * @param except 期望值
-     * @param real 实际值
+     * @param real   实际值
      * @return 两个对象是否不同
      */
-    public static Boolean isNotEquals(Object except, Object real) {
+    public static boolean isNotEquals(Object except, Object real) {
         return !isEquals(except, real);
     }
 

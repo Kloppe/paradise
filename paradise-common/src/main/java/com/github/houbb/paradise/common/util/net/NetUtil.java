@@ -9,7 +9,9 @@ import java.net.InetAddress;
  * @version 1.1.2
  * @since 1.1.2, 2018/01/04
  */
-public class NetUtil {
+public final class NetUtil {
+
+    private NetUtil(){}
 
     /**
      * 传入需要连接的IP，返回是否连接成功
@@ -23,6 +25,7 @@ public class NetUtil {
 
     /**
      * 传入需要连接的IP，返回是否连接成功
+     * 注意：如果出现异常，只是简单的进行错误信息忽略
      * @param remoteInetAddress 远程地址
      * @param timeoutInMills   超时时间(milliseconds)
      * @return {@code true} 是
@@ -33,7 +36,7 @@ public class NetUtil {
             InetAddress address = InetAddress.getByName(remoteInetAddress);
             reachable = address.isReachable(timeoutInMills);
         } catch (Exception e) {
-            e.printStackTrace();
+            //ignore error
         }
         return reachable;
     }
