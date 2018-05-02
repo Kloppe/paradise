@@ -9,6 +9,7 @@ import org.jsoup.nodes.Element;
 
 /**
  *  谷歌翻译
+ * @author houbinbin
  */
 public class GoogleTranslator implements Translator<String> {
 
