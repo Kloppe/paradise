@@ -1,10 +1,17 @@
 package com.github.houbb.paradise.common.util.reflection;
 
+import com.github.houbb.paradise.common.annotation.dev.Alpha;
 import com.github.houbb.paradise.common.util.ArgUtil;
+import com.github.houbb.paradise.common.util.CollectionUtil;
 
+import java.beans.IntrospectionException;
+import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -48,6 +55,29 @@ public final class ReflectionUtil {
         ParameterizedType listGenericType = (ParameterizedType) field.getGenericType();
         Type[] listActualTypeArguments = listGenericType.getActualTypeArguments();
         return (Class) listActualTypeArguments[0];
+    }
+
+    /**
+     * 获取所有字段的 read 方法列表
+     * @param clazz 类信息
+     * @return 方法列表
+     * @since 1.1.4
+     */
+    @Alpha
+    public static List<Method> getAllFieldsReadMethods(final Class clazz) throws IntrospectionException {
+        List<Field> fieldList = getAllFieldsList(clazz);
+        if(CollectionUtil.isEmpty(fieldList)) {
+            return Collections.emptyList();
+        }
+
+        List<Method> methods = new ArrayList<>();
+        for(Field field : fieldList) {
+            PropertyDescriptor pd = new PropertyDescriptor(field.getName(), clazz);
+            //获得get方法
+            Method getMethod = pd.getReadMethod();
+            methods.add(getMethod);
+        }
+        return methods;
     }
 
 }
