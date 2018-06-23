@@ -2,8 +2,11 @@ package com.github.houbb.paradise.common.support.validator.exception;
 
 /**
  * 校验时异常
+ * @author houbinbin
  */
 public class ValidException extends Exception {
+
+    private static final long serialVersionUID = 6121408169904773529L;
 
     public ValidException() {
     }

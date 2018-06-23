@@ -12,6 +12,8 @@ import java.io.Serializable;
  */
 public class CommonDto implements Serializable {
 
+    private static final long serialVersionUID = 599516317416740653L;
+
     @Override
     public String toString() {
         try {
