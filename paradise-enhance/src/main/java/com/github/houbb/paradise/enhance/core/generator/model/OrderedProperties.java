@@ -11,10 +11,11 @@ import java.util.Set;
  * 1. 此类用于解决乱序问题
  *
  * @author bbhou
- * Created by bbhou on 2017/8/30.
+ * @date 2017/8/30
  */
 public class OrderedProperties extends Properties {
 
+    private static final long serialVersionUID = 2947634825630441807L;
 
     private final LinkedHashSet<Object> keys = new LinkedHashSet<>();
 

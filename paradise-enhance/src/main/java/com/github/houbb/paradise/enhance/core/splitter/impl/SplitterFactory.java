@@ -6,6 +6,7 @@ import com.github.houbb.paradise.enhance.core.splitter.Splitter;
 
 /**
  * splitter 工厂
+ * @author houbinbin
  */
 public final class SplitterFactory {
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  *  分离器
+ * @author houbinbin
  */
 public interface Splitter {
 

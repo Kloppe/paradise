@@ -4,7 +4,7 @@ import com.github.houbb.paradise.enhance.core.translator.Translator;
 import com.github.houbb.paradise.enhance.core.translator.exception.TranslatorException;
 
 /**
- * youdao translator
+ * 有道翻译
  * @author bbhou
  * @version 1.1.4
  * @since 1.1.4
