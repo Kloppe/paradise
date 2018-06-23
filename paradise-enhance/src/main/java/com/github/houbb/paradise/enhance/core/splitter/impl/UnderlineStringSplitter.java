@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  *  下划线字符串分隔符
+ * @author houbinbin
  */
 public class UnderlineStringSplitter extends AbstractStringSplitter {
     /**    

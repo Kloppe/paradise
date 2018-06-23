@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  *  骆驼串拆分器
+ * @author houbinbin
  */
 public class CamelStringSplitter extends AbstractStringSplitter {
 

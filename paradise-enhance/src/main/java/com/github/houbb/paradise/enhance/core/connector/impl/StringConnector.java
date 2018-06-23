@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  *  串连接器
+ * @author houbinbin
  */
 public class StringConnector implements Connector<String> {
 
