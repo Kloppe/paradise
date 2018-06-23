@@ -8,6 +8,10 @@
 [![Build Status](https://www.travis-ci.org/houbb/paradise.svg?branch=release_1.1.2)](https://www.travis-ci.org/houbb/paradise?branch=release_1.1.2)
 [![Coverage Status](https://coveralls.io/repos/github/houbb/paradise/badge.svg?branch=release_1.1.2)](https://coveralls.io/github/houbb/paradise?branch=release_1.1.2)
 
+## 变更日志
+
+> [ChangeLog](doc/ChangeLog.md)
+
 ## paradise-common 
 
 提供通用工具。主要是自己项目使用。不依赖三方 jar。
@@ -18,7 +22,7 @@
 <dependency>
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise-common</artifactId>
-    <version>1.1.4-SNAPSHOT</version>
+    <version>1.1.4</version>
 </dependency>
 ```
 
@@ -32,34 +36,37 @@
 <dependency>
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise-enhance</artifactId>
-    <version>1.1.4-SNAPSHOT</version>
+    <version>1.1.4</version>
 </dependency>
 ```
 
-## paradise-core
+## paradise-spring
 
-对于 `compile-annotation`(运行时注解) 进行整合。
+spring 相关功能
 
-- log-analysis-core 整合过来
+比如：
 
-@Log
+- 动态数据源
 
-- cat-limiter 整合过来
+- maven 引入方式
 
-@LimitCount
+```xml
+<dependency>
+    <groupId>com.github.houbb</groupId>
+    <artifactId>paradise-spring</artifactId>
+    <version>1.1.4</version>
+</dependency>
+```
 
-@LimitFrequency
 
-- @valid 的重新设计
+
 
 ## paradise-test
 
 仅用于本项目自检测试。
 
 
-# 变更日志
 
-> [ChangeLog](doc/ChangeLog.md)
 
 
 
