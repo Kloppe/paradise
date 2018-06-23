@@ -1,12 +1,15 @@
 package com.github.houbb.paradise.enhance.core.translator.vo;
 
-import com.github.houbb.paradise.enhance.vo.OptionVo;
+
+import com.github.houbb.paradise.common.vo.OptionVo;
 
 import java.util.List;
 
 /**
- * Created by pc-06 on 2017/4/13.
+ *
  * 有道词典值传入对象
+ * @author houbinbin
+ * @date 2017/4/13
  * @version 1.1.4
  * @since 1.1.4
  */
