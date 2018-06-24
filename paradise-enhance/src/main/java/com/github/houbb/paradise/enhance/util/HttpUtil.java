@@ -26,6 +26,8 @@ public class HttpUtil {
 
     /**
      * 渲染json对象
+     * @param response 响应
+     * @param jsonObject json 对象
      */
     @Beta
     public static void renderJson(HttpServletResponse response, Object jsonObject) {

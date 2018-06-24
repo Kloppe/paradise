@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * <p> </p>
+ * <p> i18n 生成器 </p>
  *
  * <pre> Created: 2018/5/2 下午6:20  </pre>
  * <pre> Project: paradise  </pre>
@@ -49,6 +49,11 @@ public class I18NGenerator {
     private List<String> languages = new LinkedList<>();
 
 
+    /**
+     * i18n 生成器
+     * @param filePath 文件路径
+     * @return i18n 生成器
+     */
     public I18NGenerator file(final String filePath) {
         try (InputStream inputStream = new FileInputStream(filePath);
              InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8")) {
@@ -67,8 +72,8 @@ public class I18NGenerator {
 
     /**
      * 语言
-     * @param languages
-     * @return
+     * @param languages 语言
+     * @return 返回生成后的语言
      */
     public I18NGenerator languages(String... languages) {
         this.languages = Arrays.asList(languages);
@@ -94,6 +99,7 @@ public class I18NGenerator {
 
     /**
      * 生成
+     * @throws Exception 异常
      */
     public void gen() throws Exception {
         if(CollectionUtil.isEmpty(this.languages)) {

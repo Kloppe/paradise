@@ -15,7 +15,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * <p> </p>
+ * <p> XSS 过滤器 </p>
  *
  * <pre> Created: 2018/6/7 下午7:55  </pre>
  * <pre> Project: paradise  </pre>
