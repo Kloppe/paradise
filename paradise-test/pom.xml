@@ -19,10 +19,6 @@
             <groupId>com.github.houbb</groupId>
             <artifactId>paradise-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.houbb</groupId>
-            <artifactId>paradise-core</artifactId>
-        </dependency>
 
         <!--============================== OTHER ==============================-->
         <dependency>
