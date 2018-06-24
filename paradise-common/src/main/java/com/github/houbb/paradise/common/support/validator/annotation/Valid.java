@@ -69,7 +69,7 @@ public @interface Valid {
      * 1. 当前字段，和数组指定的字段中，至少有一个不为空。
      * 2. 如果此字段指定列表为空，则不进行校验。
      * 3. 如果指定字段，则对指定的字段和当前字段进行校验。
-     * @return
+     * @return String[]
      */
     String[] atLeastOne() default {};
 
@@ -78,7 +78,7 @@ public @interface Valid {
      * 当前字段的值必须在指定的数据中任选其一
      * 1. 如果当前数组为空，则不进行校验
      * eg: 指定市场只能是 4/9
-     * @return
+     * @return String[]
      */
     String[] restriction() default {};
 
