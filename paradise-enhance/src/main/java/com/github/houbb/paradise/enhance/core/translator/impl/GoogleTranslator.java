@@ -13,7 +13,7 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 
 /**
- *  谷歌翻译
+ * 谷歌翻译
  * @author houbinbin
  */
 public class GoogleTranslator implements Translator<String> {
@@ -97,8 +97,8 @@ public class GoogleTranslator implements Translator<String> {
 
     /**
      * 进行翻译 如果乳腺异常则返回指定的默认值
-     * @param defaultVal
-     * @return
+     * @param defaultVal 默认值
+     * @return 翻译结果
      */
     public String translateOrDefault(final String defaultVal) {
         try {

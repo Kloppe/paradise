@@ -8,7 +8,7 @@ package com.github.houbb.paradise.enhance.servlet.xss;
 import java.util.regex.Pattern;
 
 /**
- * <p> </p>
+ * <p> WAF 工具类 </p>
  *
  * <pre> Created: 2018/6/7 下午8:00  </pre>
  * <pre> Project: paradise  </pre>

@@ -7,11 +7,10 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * JDK 自带的 properties 继承自 Hashtable<Object,Object>() 所以保存后的顺序是未知的。
+ * JDK 自带的 properties 继承自 Hashtable 所以保存后的顺序是未知的。
  * 1. 此类用于解决乱序问题
  *
  * @author bbhou
- * @date 2017/8/30
  */
 public class OrderedProperties extends Properties {
 

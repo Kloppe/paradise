@@ -9,7 +9,6 @@ import java.util.List;
  *
  * 有道词典值传入对象
  * @author houbinbin
- * @date 2017/4/13
  * @version 1.1.4
  * @since 1.1.4
  */
@@ -38,7 +37,7 @@ public class YoudaoVo {
     /**    
      * 得到翻译    
      *    
-     * @return java.util.List    
+     * @return java.util.List
      */    
     public List<String> getTranslation() {
         return translation;

@@ -121,7 +121,7 @@ public enum GoogleLanguageEnum {
     /**
      * 显示语言信息
      *
-     * @return
+     * @return 字符串结果
      */
     public String langInfo() {
         return this.type;

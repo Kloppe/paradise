@@ -49,7 +49,7 @@ public final class GeneratorUtil {
      * @param root 属性根
      * @param fileName 文件名
      * @param template 模板
-     * @throws Exception
+     * @throws Exception 异常
      */
     public static void buildTemplate(Map root, String fileName, Template template) throws Exception {
         File file = new File(fileName);
@@ -64,9 +64,8 @@ public final class GeneratorUtil {
 
     /**
      * 命令行获取输入
-     * @param prompt
-     * @since 1.6
-     * @return
+     * @param prompt 格式
+     * @return 字符串结果
      */
     public static String readDataFromConsole(String prompt) {
         Console console = System.console();
