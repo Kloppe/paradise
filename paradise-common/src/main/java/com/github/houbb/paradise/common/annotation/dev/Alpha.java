@@ -19,7 +19,7 @@ import java.lang.annotation.Target;
  * <pre> Project: paradise  </pre>
  *
  * @author houbinbin
- * @version 1.0
+ * @version 1.1.4
  * @since JDK 1.7
  */
 @Retention(RetentionPolicy.RUNTIME)

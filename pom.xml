@@ -39,6 +39,8 @@
         <compiler.level>1.8</compiler.level>
 
         <!--============================== OTHER ==============================-->
+        <!--web-->
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <!--log4j2-->
         <log4j2.api.version>2.5</log4j2.api.version>
 
@@ -99,6 +101,14 @@
             </dependency>
 
             <!--============================== OTHER ==============================-->
+            <!--web-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
             <!--apache-->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>

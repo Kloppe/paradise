@@ -7,6 +7,8 @@ package com.github.houbb.paradise.common.exception;
  */
 public class ParadiseCommonRuntimeException extends RuntimeException {
 
+    private static final long serialVersionUID = 6423418679860131008L;
+
     public ParadiseCommonRuntimeException() {
     }
 

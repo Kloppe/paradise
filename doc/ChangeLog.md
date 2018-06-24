@@ -12,7 +12,7 @@
 | 序号 | 类型 | 说明 | 时间 | 备注 |
 |:----|:----|:----|:----|:----|
 | 0 | A | `common` 模块 | 2017-11-12 17:48:31 |️ |
-| 1 | T | 多模块 jar 提交测试 | 2017-11-13 13:41:51 | 这个版本中的 `@Util` 的注解无效。️ |
+| 1 | T | 多模块 jar 提交测试 | 2017-11-13 13:41:51 | 这个版本中的 `@Util` 的**注解无效**️ |
 | 2 | D | 移除 core 中 javassist 依赖 | 2017-11-12 17:48:31 | ⚡️ |
 
 # release_1.0.1
@@ -56,6 +56,9 @@
 
 | 序号 | 类型 | 说明 | 时间 | 备注 |
 |:----|:----|:----|:----|:----|
-| 1 | A | sonar 检查 | 2018-1-29 11:31:07 | | 
-| 2 | D | 删除`paradis-core`中运行时注解 | 2018-06-23 17:37:39 | ⚡️ 移到 [jca](https://github.com/ofofs/jca) |
+| 1 | A | sonar/alibaba 检查 | 2018-1-29 11:31:07 | | 
+| 2 | D | 删除`paradis-core` 模块 | 2018-06-23 17:37:39 | ⚡️ 移到 [jca](https://github.com/ofofs/jca) |
+| 3 | A | `paradis-enhance` 添加 xss | 2018-06-24 09:12:52 | xss |
+| 4 | A | `paradis-spring` 添加 SpringContextHolder | 2018-06-24 09:12:52 | 使用静态方法获取 spring bean |
+| 5 | A | `paradis-common` 添加 Auth, dev @annotation | 2018-06-24 09:30:51 | 用于 auth 验证, dev 管理 |
  
