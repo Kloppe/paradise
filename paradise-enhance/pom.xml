@@ -28,6 +28,12 @@
         </dependency>
 
         <!--============================================ OTHER ============================================-->
+        <!--web-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
         <!--apache-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

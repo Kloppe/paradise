@@ -25,7 +25,8 @@ public class DynamicDataSourceInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
         Method method = getTargetMethod(invocation);
-        assert method != null;  //断言方法不为空
+        //断言方法不为空
+        assert method != null;
 
         //1. 当前方法是否有注解
         boolean methodFlag = method.isAnnotationPresent(DataSource.class);
@@ -37,7 +38,8 @@ public class DynamicDataSourceInterceptor implements MethodInterceptor {
             //2. 当前类是否有注解
             Class clazz = getClass(invocation);
             if(clazz.isAnnotationPresent(DataSource.class)) {
-                DataSource datasource = (DataSource) clazz.getAnnotation(DataSource.class); //IDEA BUG
+                //IDEA BUG
+                DataSource datasource = (DataSource) clazz.getAnnotation(DataSource.class);
                 setDataSource(datasource);
             }
         }

@@ -1,6 +1,6 @@
 package com.github.houbb.paradise.common.support.rspcode;
 
-import java.io.Serializable;
+import com.github.houbb.paradise.common.annotation.dev.Beta;
 
 /**
  * 响应码接口定义
@@ -8,7 +8,8 @@ import java.io.Serializable;
  * @version 1.1.1
  * @author bbhou
  */
-public interface RspCode extends Serializable {
+@Beta
+public interface RspCode {
 
     /**
      * 错误编码
