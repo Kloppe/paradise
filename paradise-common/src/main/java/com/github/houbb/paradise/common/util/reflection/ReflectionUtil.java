@@ -1,6 +1,6 @@
 package com.github.houbb.paradise.common.util.reflection;
 
-import com.github.houbb.paradise.common.annotation.dev.Alpha;
+import com.github.houbb.paradise.common.annotation.dev.API;
 import com.github.houbb.paradise.common.util.ArgUtil;
 import com.github.houbb.paradise.common.util.CollectionUtil;
 
@@ -63,7 +63,7 @@ public final class ReflectionUtil {
      * @return 方法列表
      * @since 1.1.4
      */
-    @Alpha
+    @API(status = API.Status.EXPERIMENTAL)
     public static List<Method> getAllFieldsReadMethods(final Class clazz) throws IntrospectionException {
         List<Field> fieldList = getAllFieldsList(clazz);
         if(CollectionUtil.isEmpty(fieldList)) {

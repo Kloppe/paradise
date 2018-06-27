@@ -1,6 +1,6 @@
 package com.github.houbb.paradise.common.support.rspcode;
 
-import com.github.houbb.paradise.common.annotation.dev.Beta;
+import com.github.houbb.paradise.common.annotation.dev.API;
 
 /**
  * 响应码实体
@@ -9,7 +9,7 @@ import com.github.houbb.paradise.common.annotation.dev.Beta;
  * @since 1.1.4, 2018-06-24 09:19:28
  * @author bbhou
  */
-@Beta
+@API(status = API.Status.MAINTAINED)
 public class RspCodeModel {
 
     /**

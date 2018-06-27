@@ -1,6 +1,6 @@
 package com.github.houbb.paradise.common.support.rspcode;
 
-import com.github.houbb.paradise.common.annotation.dev.Beta;
+import com.github.houbb.paradise.common.annotation.dev.API;
 
 /**
  * 响应码接口定义
@@ -8,7 +8,7 @@ import com.github.houbb.paradise.common.annotation.dev.Beta;
  * @version 1.1.1
  * @author bbhou
  */
-@Beta
+@API(status = API.Status.MAINTAINED)
 public interface RspCode {
 
     /**

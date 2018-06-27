@@ -1,7 +1,7 @@
 package com.github.houbb.paradise.common.dto;
 
 
-import com.github.houbb.paradise.common.annotation.dev.Beta;
+import com.github.houbb.paradise.common.annotation.dev.API;
 import com.github.houbb.paradise.common.support.builder.impl.ToStringBuilder;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author bbhou
  * @version 1.1.0
  */
-@Beta
+@API(status = API.Status.MAINTAINED)
 public class CommonDto implements Serializable {
 
     private static final long serialVersionUID = 599516317416740653L;

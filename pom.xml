@@ -83,6 +83,12 @@
 
             <dependency>
                 <groupId>com.github.houbb</groupId>
+                <artifactId>paradise-enhance</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.houbb</groupId>
                 <artifactId>paradise-spring</artifactId>
                 <version>${project.version}</version>
             </dependency>

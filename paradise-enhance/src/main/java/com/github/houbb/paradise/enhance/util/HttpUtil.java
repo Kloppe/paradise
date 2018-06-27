@@ -6,7 +6,7 @@
 package com.github.houbb.paradise.enhance.util;
 
 import com.alibaba.fastjson.JSON;
-import com.github.houbb.paradise.common.annotation.dev.Beta;
+import com.github.houbb.paradise.common.annotation.dev.API;
 import com.github.houbb.paradise.common.exception.BussinessException;
 import com.github.houbb.paradise.common.support.rspcode.impl.CommonRspCode;
 
@@ -29,7 +29,7 @@ public class HttpUtil {
      * @param response 响应
      * @param jsonObject json 对象
      */
-    @Beta
+    @API(status = API.Status.MAINTAINED)
     public static void renderJson(HttpServletResponse response, Object jsonObject) {
         try {
             response.setContentType("application/json");
