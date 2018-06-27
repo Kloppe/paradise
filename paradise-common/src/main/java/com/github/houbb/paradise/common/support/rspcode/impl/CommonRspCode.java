@@ -17,6 +17,11 @@ public enum CommonRspCode implements RspCode {
     EXCEPTION("0001", "异常"),
     FAIL("0002", "失败"),
 
+    /**
+     * 数据库相关异常
+     */
+    DATABASE_EX("20001", "数据库异常"),
+
 
     /**
      * error code about redis lock

@@ -260,7 +260,7 @@ public final class FileUtil {
      *
      * @param sourceFile 原始路径
      * @param targetPath 目标路径
-     * @throws IOException
+     * @throws IOException if any
      * @since 1.1.2
      */
     public static void copyFile(String sourceFile, String targetPath) throws IOException {
