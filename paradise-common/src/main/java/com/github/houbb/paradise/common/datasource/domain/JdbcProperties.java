@@ -5,6 +5,8 @@
 
 package com.github.houbb.paradise.common.datasource.domain;
 
+import com.github.houbb.paradise.common.annotation.dev.API;
+
 /**
  * <p> 数据库链接属性</p>
  *
@@ -16,6 +18,7 @@ package com.github.houbb.paradise.common.datasource.domain;
  * @since 1.1.5, 2018-06-27 10:19:38
  * @since JDK 1.7
  */
+@API(status = API.Status.EXPERIMENTAL)
 public class JdbcProperties {
 
     /**
