@@ -27,7 +27,7 @@ public enum CommonRspCode implements RspCode {
      * error code about redis lock
      */
     REDIS_LOCK_SET_FAIL("1000", "redis lock set failed!"),
-    REDIS_LOCK_GET_KEY_FAIL("1001", "redis lock get key failed!"),
+    REDIS_LOCK_GET_KEY_FAIL("1001", "redis lock getConnection key failed!"),
     REDIS_LOCK_DEL_FAIL("1002", "redis lock delete by key failed!"),
     ;
 

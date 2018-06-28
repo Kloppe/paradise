@@ -24,8 +24,8 @@ import javax.sql.DataSource;
  * <pre> Project: paradise  </pre>
  *
  * @author houbinbin
- * @version 1.0
- * @since JDK 1.7
+ * @version 1.1.5
+ * @since 1.1.5
  */
 @API(status = API.Status.EXPERIMENTAL)
 public class CommonDataSource implements IDataSource {
@@ -45,20 +45,13 @@ public class CommonDataSource implements IDataSource {
     }
 
     @Override
-    public Connection get() {
+    public Connection getConnection() {
         try {
             Class.forName(jdbcProperties.getDriver());
             return DriverManager.getConnection(jdbcProperties.getUrl(),
                     jdbcProperties.getUsername(), jdbcProperties.getPassword());
         } catch (ClassNotFoundException | SQLException e) {
             throw new DatabaseException(e, CommonRspCode.DATABASE_EX);
-        }
-    }
-
-    @Override
-    public void close() throws Exception {
-        if(connection != null) {
-            connection.close();
         }
     }
 

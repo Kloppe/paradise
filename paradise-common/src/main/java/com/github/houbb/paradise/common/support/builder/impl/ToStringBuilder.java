@@ -84,7 +84,7 @@ public class ToStringBuilder implements Builder<String> {
     }
 
     /**
-     * get the Get() of current field;
+     * getConnection the Get() of current field;
      * @param clazz 类信息
      * @param field 字段信息
      * @return 方法
