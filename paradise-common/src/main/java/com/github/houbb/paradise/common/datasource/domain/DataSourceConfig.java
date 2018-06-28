@@ -8,7 +8,7 @@ package com.github.houbb.paradise.common.datasource.domain;
 import com.github.houbb.paradise.common.annotation.dev.API;
 
 /**
- * <p> 数据库链接属性</p>
+ * <p> 数据库链接信息配置 </p>
  *
  * <pre> Created: 2018/6/27 上午10:18  </pre>
  * <pre> Project: paradise  </pre>
@@ -18,7 +18,7 @@ import com.github.houbb.paradise.common.annotation.dev.API;
  * @since 1.1.5, 2018-06-27 10:19:38
  */
 @API(status = API.Status.EXPERIMENTAL)
-public class JdbcProperties {
+public class DataSourceConfig {
 
     /**
      * 用户名称
@@ -39,6 +39,21 @@ public class JdbcProperties {
      * 数据库驱动
      */
     private String driver;
+
+    /**
+     * 初始线程数
+     */
+    private int initSize;
+
+    /**
+     * 最大线程数
+     */
+    private int maxSize;
+
+    /**
+     * 配置获取连接等待超时的时间
+     */
+    private long maxWait;
 
     public String getUsername() {
         return username;
@@ -72,13 +87,28 @@ public class JdbcProperties {
         this.driver = driver;
     }
 
-    @Override
-    public String toString() {
-        return "JdbcProperties{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", url='" + url + '\'' +
-                ", driver='" + driver + '\'' +
-                '}';
+    public int getInitSize() {
+        return initSize;
     }
+
+    public void setInitSize(int initSize) {
+        this.initSize = initSize;
+    }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public void setMaxSize(int maxSize) {
+        this.maxSize = maxSize;
+    }
+
+    public long getMaxWait() {
+        return maxWait;
+    }
+
+    public void setMaxWait(long maxWait) {
+        this.maxWait = maxWait;
+    }
+
 }

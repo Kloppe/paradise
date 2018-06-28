@@ -9,7 +9,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 /**
- * Simple utility class used to get access to files at the classpath, or packed into jar.
+ * Simple utility class used to getConnection access to files at the classpath, or packed into jar.
  * Based on Spring ClassPathResource implementation + jar internals access implemented.
  *
  *

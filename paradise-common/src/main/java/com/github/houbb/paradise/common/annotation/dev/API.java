@@ -18,7 +18,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * <p> 用于标识 API 的信息 </p>
  *
- * 本类的所有权属于：apiguardian-api
+ * 本类的所有权属于：https://github.com/apiguardian-team/apiguardian
  *
  * <pre> Created: 2018/6/27 上午10:26  </pre>
  * <pre> Project: paradise  </pre>

@@ -18,20 +18,30 @@ import com.github.houbb.paradise.common.annotation.dev.API;
  * @since 1.1.5, 2018-06-27 11:25:21
  */
 @API(status = API.Status.EXPERIMENTAL)
-public final class DatasourceConstant {
+public interface DatasourceConstant {
 
-    private DatasourceConstant(){}
+    /**
+     * 配置信息
+     */
+    interface Config {
+        /**
+         * 默认的增长速度
+         */
+        int DEFAULT_STEP = 1;
+    }
 
-    /** 数据库地址 */
-    public final static String JDBC_URL = "jdbc.url";
-
-    /** 数据库驱动器 */
-    public final static String JDBC_DRIVER = "jdbc.driver";
-
-    /** 数据库用户名 */
-    public final static String JDBC_USERNAME = "jdbc.username";
-
-    /** 数据库密码 */
-    public final static String JDBC_PASSWORD = "jdbc.password";
+    /**
+     * 属性 key
+     */
+    interface PropertiesKey {
+        /**
+         * 用户名称
+         */
+        String USER = "user";
+        /**
+         * 密码
+         */
+        String PASSWORD = "password";
+    }
 
 }
