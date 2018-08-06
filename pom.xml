@@ -170,6 +170,7 @@
                 <artifactId>aopalliance</artifactId>
                 <version>${aopalliance.version}</version>
             </dependency>
+
         </dependencies>
 
     </dependencyManagement>
