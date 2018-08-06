@@ -62,3 +62,10 @@
 | 4 | A | `paradis-spring` 添加 SpringContextHolder | 2018-06-24 09:12:52 | 使用静态方法获取 spring bean |
 | 5 | A | `paradis-common` 添加 Auth, dev @annotation | 2018-06-24 09:30:51 | 用于 auth 验证, dev 管理 |
  
+ 
+ # release_1.1.5
+ 
+ | 序号 | 类型 | 说明 | 时间 | 备注 |
+ |:----|:----|:----|:----|:----|
+ | 1 | A | thread util | 2018-08-06 23:30:48 | 线程工具类 | 
+ | 2 | A | spring-aop 实现 | 2018-08-06 23:30:48 |  | 

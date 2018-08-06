@@ -14,14 +14,14 @@ public final class DynamicDataSourceHolder  {
     /**
      * 保证线程间互不干涉
      */
-    private static final ThreadLocal<String> context = new ThreadLocal<>();
+    private static final ThreadLocal<String> CONTEXT = new ThreadLocal<>();
 
     /**
      * 设置数据源类型
      * @param datasource  数据库类型
      */
     public static void setDataSource(String datasource) {
-        context.set(datasource);
+        CONTEXT.set(datasource);
     }
 
     /**
@@ -29,14 +29,14 @@ public final class DynamicDataSourceHolder  {
      * @return 数据源类型
      */
     public static String getDataSource() {
-        return context.get();
+        return CONTEXT.get();
     }
 
     /**
      * 清空数据源
      */
     public static void clearDataSource() {
-        context.remove();
+        CONTEXT.remove();
     }
 
 }

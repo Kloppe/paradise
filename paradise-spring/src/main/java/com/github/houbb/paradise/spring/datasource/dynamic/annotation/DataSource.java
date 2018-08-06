@@ -1,5 +1,7 @@
 package com.github.houbb.paradise.spring.datasource.dynamic.annotation;
 
+import com.github.houbb.paradise.common.annotation.dev.API;
+
 import java.lang.annotation.*;
 
 /**
@@ -13,6 +15,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Inherited
+@API(status = API.Status.MAINTAINED)
 public @interface DataSource {
 
     /**
