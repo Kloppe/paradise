@@ -14,6 +14,8 @@ public interface SelectiveAssigner {
    * 只将 example 非null的属性按照【常规赋值】赋值给target
    * @param example 赋值模板
    * @param target 目标对象
+   * @throws InvocationTargetException if any
+   * @throws IllegalAccessException if any
    */
   void assignExampleSelective(Object example, Object target) throws InvocationTargetException, IllegalAccessException;
 
@@ -21,6 +23,8 @@ public interface SelectiveAssigner {
    * 只对 target 中字段为 null 的进行【常规赋值】
    * @param example 赋值模板
    * @param target 目标对象
+   * @throws InvocationTargetException if any
+   * @throws IllegalAccessException if any
    */
   void assignTargetSelective(Object example, Object target) throws InvocationTargetException, IllegalAccessException;
 

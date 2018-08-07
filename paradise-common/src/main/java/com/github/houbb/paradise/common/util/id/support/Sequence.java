@@ -16,7 +16,7 @@ import java.net.NetworkInterface;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <p> </p>
+ * <p> 序列号 </p>
  *
  * <pre> Created: 2018/6/15 上午11:41  </pre>
  * <pre> Project: lombok-ex  </pre>
@@ -71,9 +71,10 @@ public class Sequence {
     }
 
     /**
-     * <p>
      * 获取 maxWorkerId
-     * </p>
+     * @param datacenterId 客户端编号
+     * @param maxWorkerId 机器标识
+     * @return 最大机器标识
      */
     protected static long getMaxWorkerId(long datacenterId, long maxWorkerId) {
         StringBuilder mpid = new StringBuilder();
@@ -92,9 +93,9 @@ public class Sequence {
     }
 
     /**
-     * <p>
      * 数据标识id部分
-     * </p>
+     * @param maxDatacenterId 最大标识
+     * @return 最大标识
      */
     protected static long getDatacenterId(long maxDatacenterId) {
         long id = 0L;
@@ -119,7 +120,7 @@ public class Sequence {
     /**
      * 获取下一个ID
      *
-     * @return
+     * @return next id
      */
     public synchronized long nextId() {
         long timestamp = timeGen();

@@ -255,8 +255,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
 
-
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${plugin.maven-javadoc-plugin.version}</version>
+            </plugin>
 
             <!--=================================== coveralls START ===================================-->
             <!--mvn cobertura:cobertura coveralls:report -DrepoToken=yourcoverallsprojectrepositorytoken-->

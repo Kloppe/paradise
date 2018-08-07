@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 
 /**
- * <p> </p>
+ * <p> Auth Response </p>
  *
  * <pre> Created: 2018/6/8 下午6:43  </pre>
  * <pre> Project: iter-blog  </pre>

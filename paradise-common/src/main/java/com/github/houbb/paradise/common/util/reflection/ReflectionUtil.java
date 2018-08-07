@@ -60,6 +60,7 @@ public final class ReflectionUtil {
     /**
      * 获取所有字段的 read 方法列表
      * @param clazz 类信息
+     * @throws IntrospectionException if any
      * @return 方法列表
      * @since 1.1.4
      */

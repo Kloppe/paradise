@@ -15,7 +15,7 @@ import java.util.Set;
 
 /**
  * <p> 有序的属性 </p>
- * JDK 自带的 properties 继承自 Hashtable<Object,Object>() 所以保存后的顺序是未知的。
+ * JDK 自带的 properties 继承自 Hashtable() 所以保存后的顺序是未知的。
  * 1. 用于保证修改之后属性是有顺序的
  *
  * <pre> Created: 2018/6/27 下午2:29  </pre>

@@ -9,7 +9,7 @@ package com.github.houbb.paradise.common.auth.domain;
 import com.github.houbb.paradise.common.auth.ICredence;
 
 /**
- * <p> </p>
+ * <p> Auth Request </p>
  *
  * <pre> Created: 2018/6/8 下午6:43  </pre>
  * <pre> Project: iter-blog  </pre>

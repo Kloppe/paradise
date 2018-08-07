@@ -34,6 +34,7 @@ public @interface API {
 
     /**
      * The current {@linkplain Status status} of the API.
+     * @return Status
      */
     Status status();
 
@@ -42,6 +43,7 @@ public @interface API {
      *
      * <p>Defaults to an empty string, signifying that the <em>since</em>
      * version is unknown.
+     * @return since
      */
     String since() default "";
 
@@ -53,6 +55,7 @@ public @interface API {
      *
      * <p>Defaults to {@code "*"}, signifying that the API is intended to be
      * consumed by any package.
+     * @return consumers
      */
     String[] consumers() default "*";
 

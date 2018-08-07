@@ -6,7 +6,7 @@
 package com.github.houbb.paradise.common.auth.constant;
 
 /**
- * <p> </p>
+ * <p> 校验常量 </p>
  *
  * <pre> Created: 2018/6/8 下午6:50  </pre>
  * <pre> Project: paradise  </pre>

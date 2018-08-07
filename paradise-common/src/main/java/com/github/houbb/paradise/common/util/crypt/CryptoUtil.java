@@ -7,7 +7,7 @@ package com.github.houbb.paradise.common.util.crypt;
 
 
 /**
- *
+ * 加密工具类
  * @author houbinbin
  */
 public class CryptoUtil {
@@ -40,6 +40,7 @@ public class CryptoUtil {
      * Generate crypted hash of give password
      *
      * @param password the password
+     * @param salt 盐
      * @return the password hash
      */
     public static String passwordHash(String password, String salt) {

@@ -153,12 +153,14 @@ public final class FileUtil {
             return contentList;
         }
 
-        String charset = "UTF-8";  //暂时使用此编码
+        //暂时使用此编码
+        String charset = "UTF-8";
         try (FileInputStream fileInputStream = new FileInputStream(file);
              InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, charset);
              BufferedReader bufferedReader = new BufferedReader(inputStreamReader)
         ) {
-            int lineNo = 0;// 用于记录行号
+            // 用于记录行号
+            int lineNo = 0;
             while (lineNo < initLine) {
                 lineNo++;
                 String ignore = bufferedReader.readLine();
@@ -201,13 +203,15 @@ public final class FileUtil {
              InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, charset);
              BufferedReader bufferedReader = new BufferedReader(inputStreamReader)
         ) {
-            int lineNo = 0;// 用于记录行号
+            // 用于记录行号
+            int lineNo = 0;
             while (lineNo < initLine) {
                 lineNo++;
                 String ignore = bufferedReader.readLine();
             }
 
-            String dataEachLine;   //每一行的内容
+            //每一行的内容
+            String dataEachLine;
             while ((dataEachLine = bufferedReader.readLine()) != null
                     && lineNo < endLine) {
                 lineNo++;
@@ -226,7 +230,7 @@ public final class FileUtil {
      *
      * @param sourceDir 原始文件夹
      * @param targetDir 目标文件夹
-     * @throws IOException
+     * @throws IOException if any
      * @since 1.1.2
      */
     public static void copyDir(String sourceDir, String targetDir) throws IOException {
@@ -239,13 +243,13 @@ public final class FileUtil {
 
         if (ArrayUtil.isNotEmpty(filePath)) {
 
-            for (int i = 0; i < filePath.length; i++) {
-                if ((new File(sourceDir + File.separator + filePath[i])).isDirectory()) {
-                    copyDir(sourceDir + File.separator + filePath[i], targetDir + File.separator + filePath[i]);
+            for (String aFilePath : filePath) {
+                if ((new File(sourceDir + File.separator + aFilePath)).isDirectory()) {
+                    copyDir(sourceDir + File.separator + aFilePath, targetDir + File.separator + aFilePath);
                 }
 
-                if (new File(sourceDir + File.separator + filePath[i]).isFile()) {
-                    copyFile(sourceDir + File.separator + filePath[i], targetDir + File.separator + filePath[i]);
+                if (new File(sourceDir + File.separator + aFilePath).isFile()) {
+                    copyFile(sourceDir + File.separator + aFilePath, targetDir + File.separator + aFilePath);
                 }
 
             }
@@ -279,6 +283,5 @@ public final class FileUtil {
         }
 
     }
-
 
 }

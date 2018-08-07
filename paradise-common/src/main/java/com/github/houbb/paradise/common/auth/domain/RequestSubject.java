@@ -6,7 +6,7 @@
 package com.github.houbb.paradise.common.auth.domain;
 
 /**
- * <p> </p>
+ * <p> Request Subject </p>
  *
  * <pre> Created: 2018/6/7 下午7:28  </pre>
  * <pre> Project: iter-blog  </pre>

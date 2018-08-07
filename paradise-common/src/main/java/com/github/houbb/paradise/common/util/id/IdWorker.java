@@ -11,7 +11,7 @@ import com.github.houbb.paradise.common.util.id.support.Sequence;
 import java.util.UUID;
 
 /**
- * <p> </p>
+ * <p> 分布式 id 生成 </p>
  *
  * <pre> Created: 2018/6/15 下午3:41  </pre>
  * <pre> Project: lombok-ex  </pre>
