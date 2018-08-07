@@ -22,7 +22,7 @@
 <dependency>
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise-common</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
