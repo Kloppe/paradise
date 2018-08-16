@@ -1,7 +1,9 @@
 package com.github.houbb.paradise.common.util;
 
 /**
- * Created by houbinbin on 2017/1/10.
+ *
+ * @author houbinbin
+ * @date 2017/1/10
  */
 public final class ArrayUtil {
 

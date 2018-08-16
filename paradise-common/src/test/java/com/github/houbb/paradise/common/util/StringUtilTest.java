@@ -1,5 +1,6 @@
 package com.github.houbb.paradise.common.util;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,35 @@ import org.junit.Test;
 * @version 1.0
 */
 public class StringUtilTest {
+
+    @Test
+    public void isUppperCaseTest() {
+        Assert.assertFalse(StringUtil.isUppperCase(""));
+        Assert.assertTrue(StringUtil.isUppperCase("XXX"));
+        Assert.assertFalse(StringUtil.isUppperCase("XxX"));
+    }
+
+    @Test
+    public void isLowerCaseTest() {
+        Assert.assertFalse(StringUtil.isLowerCase(""));
+        Assert.assertTrue(StringUtil.isLowerCase("xxx"));
+        Assert.assertFalse(StringUtil.isLowerCase("xxX"));
+    }
+
+    @Test
+    public void containsUppperCaseTest() {
+        Assert.assertFalse(StringUtil.containsUppercase(""));
+        Assert.assertTrue(StringUtil.containsUppercase("Xxx"));
+        Assert.assertTrue(StringUtil.containsUppercase("X00asdf_"));
+    }
+
+    @Test
+    public void containsLowerCaseTest() {
+        Assert.assertFalse(StringUtil.containsLowercase(""));
+        Assert.assertFalse(StringUtil.containsLowercase("XXXX009090_"));
+        Assert.assertTrue(StringUtil.containsLowercase("Xxx"));
+        Assert.assertTrue(StringUtil.containsLowercase("x____00099"));
+    }
 
     /**
     *

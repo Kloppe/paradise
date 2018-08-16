@@ -20,14 +20,19 @@ public final class SplitterFactory {
      */    
     public static Splitter newSplitter(final String name) {
         if(StringUtil.isEmpty(name)) {
-            return null;
+            return EmptySplitter.newInstance(name);
         }
 
         if(name.contains(CommonConstant.UNDERLINE)) {
-            return new UnderlineStringSplitter(name);
+            return UnderlineStringSplitter.newInstance(name);
         }
 
-        return new CamelStringSplitter(name);
+        // 不包含小写字母
+        if(!StringUtil.containsLowercase(name)) {
+            return UppercaseStringSplitter.newInstance(name);
+        }
+
+        return CamelStringSplitter.newInstance(name);
     }
 
 }

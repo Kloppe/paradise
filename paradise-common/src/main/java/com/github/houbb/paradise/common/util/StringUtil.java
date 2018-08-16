@@ -26,6 +26,83 @@ public final class StringUtil {
     public static final String BLANK = " ";
 
     /**
+     * 是否全部为大写
+     * @param string 待检验字符
+     * @return 是否为大写
+     */
+    public static boolean isUppperCase(final String string) {
+        if(StringUtil.isEmpty(string)) {
+            return false;
+        }
+
+        char[] characters = string.toCharArray();
+        for(char c : characters) {
+            if(!Character.isUpperCase(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 是否全部为小写
+     * @param string 待检验字符
+     * @return 是否为大写
+     */
+    public static boolean isLowerCase(final String string) {
+        if(StringUtil.isEmpty(string)) {
+            return false;
+        }
+
+        char[] characters = string.toCharArray();
+        for(char c : characters) {
+            if(!Character.isLowerCase(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 是否包含大写字母
+     * @param string 待检验字符
+     * @return 是否为大写
+     */
+    public static boolean containsUppercase(final String string) {
+        if(StringUtil.isEmpty(string)) {
+            return false;
+        }
+
+        char[] characters = string.toCharArray();
+        for(char c : characters) {
+            if(Character.isUpperCase(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 是否包含小写字母
+     * @param string 待检验字符
+     * @return 是否为大写
+     */
+    public static boolean containsLowercase(final String string) {
+        if(StringUtil.isEmpty(string)) {
+            return false;
+        }
+
+        char[] characters = string.toCharArray();
+        for(char c : characters) {
+            if(Character.isLowerCase(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
      * 是否为空
      *
      * @param string 字符串

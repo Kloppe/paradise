@@ -18,11 +18,11 @@
 
 - maven 引入方式
 
-```xml
+```
 <dependency>
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise-common</artifactId>
-    <version>1.1.5</version>
+    <version>${maven-version}</version>
 </dependency>
 ```
 
@@ -32,11 +32,11 @@
 
 - maven 引入方式
 
-```xml
+```
 <dependency>
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise-enhance</artifactId>
-    <version>1.1.4</version>
+    <version>${maven-version}</version>
 </dependency>
 ```
 
@@ -50,11 +50,11 @@ spring 相关功能
 
 - maven 引入方式
 
-```xml
+```
 <dependency>
     <groupId>com.github.houbb</groupId>
     <artifactId>paradise-spring</artifactId>
-    <version>1.1.4</version>
+    <version>${maven-version}</version>
 </dependency>
 ```
 

@@ -3,7 +3,7 @@
  * paradise All rights reserved.
  */
 
-package com.github.houbb.paradise.common.util;
+package com.github.houbb.paradise.common.threadpool.util;
 
 import com.github.houbb.paradise.common.annotation.dev.API;
 
