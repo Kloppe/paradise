@@ -3,7 +3,6 @@ package com.github.houbb.paradise.common.util;
 /**
  *
  * @author houbinbin
- * @date 2017/1/10
  */
 public final class ArrayUtil {
 
