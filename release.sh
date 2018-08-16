@@ -2,8 +2,8 @@
 echo "============================= RELEASE START..."
 
 ## 版本号信息(需要手动指定)
-version="1.1.5"
-newVersion="1.1.6"
+version="1.1.6"
+newVersion="1.1.7"
 projectName="paradise*"
 
 # release 项目版本
